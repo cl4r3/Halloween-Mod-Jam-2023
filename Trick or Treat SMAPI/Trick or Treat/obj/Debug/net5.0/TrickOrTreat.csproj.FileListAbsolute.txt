@@ -1,0 +1,7 @@
+C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\TrickOrTreat SMAPI\TrickOrTreat\bin\Debug\net5.0\TrickOrTreat.deps.json
+C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\TrickOrTreat SMAPI\TrickOrTreat\bin\Debug\net5.0\TrickOrTreat.dll
+C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\TrickOrTreat SMAPI\TrickOrTreat\obj\Debug\net5.0\TrickOrTreat.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\TrickOrTreat SMAPI\TrickOrTreat\obj\Debug\net5.0\TrickOrTreat.AssemblyInfoInputs.cache
+C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\TrickOrTreat SMAPI\TrickOrTreat\obj\Debug\net5.0\TrickOrTreat.AssemblyInfo.cs
+C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\TrickOrTreat SMAPI\TrickOrTreat\obj\Debug\net5.0\TrickOrTreat.csproj.CoreCompileInputs.cache
+C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\TrickOrTreat SMAPI\TrickOrTreat\obj\Debug\net5.0\TrickOrTreat.dll

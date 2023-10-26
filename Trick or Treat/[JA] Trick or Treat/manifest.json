@@ -1,0 +1,11 @@
+{
+	"Name": "[JA] Trick or Treat",
+  "Author": "ch20youk, KediDill, Lumina, and Wizadroid",
+	"Description": "JSON Assets component for Trick or Treat",
+	"Version": "1.0.0",
+	"UniqueID": "ch20youk.TrickOrTreat.JA",
+	"ContentPackFor": { "UniqueID": "spacechase0.JsonAssets" },
+	"Dependencies": [
+    { "UniqueID": "ch20youk.TrickOrTreat.DLL" }
+  ],
+}

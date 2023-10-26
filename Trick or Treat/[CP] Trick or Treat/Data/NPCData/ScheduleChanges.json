@@ -1,0 +1,36 @@
+{
+"Changes": [
+
+// Not included is Spring, when June goes to the Cliff
+
+	{
+		"LogName": "June Marriage Schedule - Fall Tuesdays",
+		"Action": "EditData",
+		"Target": "Characters/Schedules/June",
+		"Entries": {
+			  "marriage_Tue": "1000 Forest 34 25 2/1700 BusStop -1 23 3",
+		},
+		"When": { "Season": "fall" }
+	},
+
+	{
+		"LogName": "June Marriage Schedule - Winter Tuesdays",
+		"Action": "EditData",
+		"Target": "Characters/Schedules/June",
+		"Entries": {
+			  "marriage_Tue": "1000 Beach 50 24 2/1700 BusStop -1 23 3",
+		},
+		"When": { "Season": "winter" }
+	},
+
+	{
+		"LogName": "June Marriage Schedule - Summer Tuesdays",
+		"Action": "EditData",
+		"Target": "Characters/Schedules/June",
+		"Entries": {
+				"marriage_Tue": "1000 Custom_Ridgeside_RidgesideVillage 91 40 0/1330 Custom_Ridgeside_RidgesideVillage 101 49 2/1700 BusStop -1 23 3",
+		},
+		"When": { "Season": "summer" }
+	}
+]
+}

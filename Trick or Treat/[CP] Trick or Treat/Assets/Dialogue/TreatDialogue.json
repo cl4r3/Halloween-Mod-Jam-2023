@@ -1,0 +1,241 @@
+{
+"Changes": [
+/*
+	//Vanilla Girls
+	{
+		"LogName": "Treat Dialogue - Abigail",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Abigail",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.abigail}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Emily",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Emily",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.emily}}",
+		},
+	},
+	*/
+	{
+		"LogName": "Treat Dialogue - Haley",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Haley",
+		"Entries": {
+			"loved_treat": "{{i18n:love.haley}}",
+			"neutral_treat": "{{i18n:neutral.haley}}",
+			"hated_treat": "{{i18n:hate.haley}}",
+		},
+	},
+	/*
+	{
+		"LogName": "Treat Dialogue - Leah",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Leah",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.leah}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Maru",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Maru",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.maru}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Penny",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Penny",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.penny}}",
+		},
+	},
+
+	//Vanilla Boys
+	{
+		"LogName": "Treat Dialogue - Alex",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Alex",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.alex}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Elliott",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Elliott",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.elliott}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Harvey",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Harvey",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.harvey}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Sam",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Sam",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.sam}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Sebastian",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Sebastian",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.sebastian}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Shane",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Shane",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.shane}}",
+		},
+	},
+
+	//Vanilla Villagers
+	{
+		"LogName": "Treat Dialogue - Caroline",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Caroline",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.caroline}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Clint",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Clint",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.clint}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Demetrius",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Demetrius",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.demetrius}}",
+		},
+	},
+	*/
+	{
+		"LogName": "Treat Dialogue - Evelyn",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Evelyn",
+		"Entries": {
+			"give_treat": "{{i18n:give-treat.evelyn}}",
+		},
+	},
+	/*
+	{
+		"LogName": "Treat Dialogue - George",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/George",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.george}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Gus",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Gus",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.gus}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Jodi",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Jodi",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.jodi}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Kent",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Kent",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.kent}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Lewis",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Lewis",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.lewis}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Linus",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Linus",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.linus}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Marnie",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Marnie",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.marnie}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Pam",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Pam",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.pam}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Pierre",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Pierre",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.pierre}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Robin",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Robin",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.robin}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Willy",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Willy",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.willy}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Wizard",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Wizard",
+		"Entries": {
+			"june_arrival": "{{i18n:i18n.june_arrival.wizard}}",
+		},
+	}
+	*/
+]
+}

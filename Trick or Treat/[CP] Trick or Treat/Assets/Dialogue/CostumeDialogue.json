@@ -1,0 +1,15 @@
+{
+"Changes": [
+  {
+
+  "Action": "EditData",
+  "Target": "Strings/schedules/June",
+  "Entries": {
+    "saloon": "{{i18n:i18n.saloon}}",
+    "lobby": "{{i18n:i18n.lobby_bookshelf}}",
+    "winter_16": "{{i18n:i18n.nightmarket}}",
+    "winter_16.spouse": "{{i18n:i18n.nightmarket.spouse}}"
+  }
+}
+]
+}

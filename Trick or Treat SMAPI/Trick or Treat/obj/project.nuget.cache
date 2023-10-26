@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "pqjddApM19RBe9unuCExTmIEvcNXIioq5J6KsZMp2+f0KxcoHLm1JvBxw0K/offLt9TR/ByvZ8BNW0XYzVKtYQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Clare Hanlon\\Documents\\SDV stuff\\Halloween Mod Jam 2023\\Trick or Treat SMAPI\\Trick or Treat\\Trick or Treat.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Clare Hanlon\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.1.1\\pathoschild.stardew.modbuildconfig.4.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}

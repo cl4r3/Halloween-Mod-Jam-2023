@@ -1,0 +1,17 @@
+{
+
+//-------------------------
+// Villager treat reactions
+//-------------------------
+
+"love.haley": "Aww, what a cute little treat! Thanks, @.$h",
+"neutral.haley": "Hehe, thanks!",
+"hate.haley": "Um, ew.$a#$b#Didn't anyone ever tell you that Spirit's Eve candy is supposed to be, like, good?$a",
+
+//-------------------------------
+// Villager treat-giving dialogue
+//-------------------------------
+
+"give-treat.evelyn": "My, what a charming costume you have, @!$h#$b#Here, would you like some candy? Happy Spirit's Eve!",
+
+}

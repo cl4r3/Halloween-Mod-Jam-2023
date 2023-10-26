@@ -1,0 +1,17 @@
+{
+  "Format": "1.29.0",
+
+  //"EventLimiterExceptions": [],
+
+  //"DynamicTokens": [],
+
+  "Changes": [
+
+    {
+  		"LogName": "ToT - Include Dialogue",
+  		"Action": "Include",
+  		"FromFile": "Assets/Dialogue/TreatDialogue.json",
+  	},
+
+  ],
+}
