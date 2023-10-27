@@ -1,0 +1,13 @@
+﻿{
+    "Name": "[DLL] Trick or Treat",
+    "Author": "ch20youk, KediDili, Lumina, and Wizadroid",
+    "Description": "DLL component for Trick or Treat",
+    "Version": "1.0.0",
+    "UniqueID": "ch20youk.TrickOrTreat",
+    "EntryDll": "TrickOrTreat.dll",
+    "UpdateKeys": [ "Nexus:-1" ],
+  	"Dependencies": [
+  		{ "UniqueID": "Pathoschild.ContentPatcher", },
+  		{ "UniqueID": "spacechase0.SpaceCore", },
+	]
+}

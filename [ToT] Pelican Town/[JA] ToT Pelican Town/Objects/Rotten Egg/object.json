@@ -1,0 +1,8 @@
+{
+	"Name": "ToT.rotten-egg",
+	"TranslationKey": "objects.rotten-egg",
+	"Edibility": -5,
+	"EdibleIsDrink": false,
+	"Price": 1,
+	"ContextTags": [ "Universal_Hate" ],
+}

@@ -1,0 +1,10 @@
+﻿{
+  "generic.loved_treat": "How'd you know this is my favorite Spirit's Eve candy? Thanks, @!$h",
+  "generic.neutral_treat": "Thanks for the treat!",
+  "generic.hated_treat": "You call this Spirit's Eve candy? Yuck!$a",
+  "generic.before_prank": "Well, you know what happens if you don't give a treat...$h",
+  "generic.after_prank": "Take that! Happy Spirit's Eve, @!$h",
+  "generic.cannot_prank": "...$s#$b#...Wait, you don't have anything for me to steal? Aw, man...$s#$b#Well, guess you'll get away with it this time!$h",
+  "not_halloween": "You can't give out Spirit's Eve treats when it's not Spirit's Eve!",
+  "already_given": "You have already given a Spirit's Eve treat to this person.",
+}
