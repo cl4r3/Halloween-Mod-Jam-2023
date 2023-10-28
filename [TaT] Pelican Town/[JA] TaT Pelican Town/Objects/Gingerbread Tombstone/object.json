@@ -1,0 +1,7 @@
+{
+	"Name": "TaT.gingerbread-tombstone",
+	"TranslationKey": "objects.gingerbread-tombstone",
+	"Edibility": 20,
+	"EdibleIsDrink": false,
+	"Price": 150,
+}

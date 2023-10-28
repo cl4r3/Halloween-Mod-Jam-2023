@@ -1,0 +1,7 @@
+{
+	"Name": "TaT.witch-cauldron",
+	"TranslationKey": "objects.witch-cauldron",
+	"Edibility": 20,
+	"EdibleIsDrink": false,
+	"Price": 150,
+}
