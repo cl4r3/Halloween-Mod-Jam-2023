@@ -29,13 +29,13 @@
 	"objects.eye-candy.description": "Despite the name, it's not as amazing to look at.",
 
 	"objects.ghost-meringue.name": "Ghost Meringue",
-	"objects.ghost-meringue.name": "...",
+	"objects.ghost-meringue.description": "...",
 	"objects.witch-cauldron.name": "Witch's Cauldron",
-	"objects.witch-cauldron.name": "...",	
+	"objects.witch-cauldron.description": "...",	
 	"objects.dino-cookie.name": "Dino Cookie",
-	"objects.dino-cookie.name": "The green crust hides filling hot as a pepper rex's fire!",
+	"objects.dino-cookie.description": "The green crust hides filling hot as a pepper rex's fire!",
 	"objects.gingerbread-tombstone.name": "Gingerbread Tombstone",
-	"objects.gingerbread-tombstone.name": "...",
+	"objects.gingerbread-tombstone.description": "...",
 
 	"objects.joja-canes.name": "JojaCanes",
 	"objects.joja-canes.description": "Joja-brand candy canes. For some reason, the manufacturer insists that they only ever be held upside down.",
@@ -44,6 +44,9 @@
 
 	"clothes.chainmail-pants.name": "Chainmail Pants",
 	"clothes.chainmail-pants.description": "...",
+	
+	"clothes.skeleton-pants.name": "Skeleton Pants",
+	"clothes.skeleton-pants.description": "...",
 
 	"clothes.goblin-shirt.name": "Goblin's Shirt",
 	"clothes.goblin-shirt.description": "...",
