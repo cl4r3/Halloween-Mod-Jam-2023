@@ -16,8 +16,8 @@ namespace TricksAndTreats
 #nullable enable
         public string[]? TreatsToGive { get; set; }
         public string[]? PreferredTricks { get; set; }
-        internal bool? ReceivedGift = false;
-        internal bool? GaveGift = false;
+        public bool? ReceivedGift = false;
+        public bool? GaveGift = false;
 #nullable disable
     }
 
@@ -26,11 +26,8 @@ namespace TricksAndTreats
 #nullable enable
         public string? Hat { get; set; }
         public string? Top { get; set; }
-        public string? Bot { get; set; }
-        internal int? NumPieces;
-        internal int? HatId;
-        internal int? TopId;
-        internal int? BotId;
+        public string? Bottom { get; set; }
+        public int? NumPieces;
 #nullable disable
     }
 
@@ -40,7 +37,7 @@ namespace TricksAndTreats
 #nullable enable
         public string? Universal { get; set; }
         public string[]? Flavors { get; set; }
-        internal int? ObjectId { get; set; }
+        public int? ObjectId { get; set; }
 #nullable disable
     }
 }

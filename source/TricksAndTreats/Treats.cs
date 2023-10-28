@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using StardewValley;
@@ -20,68 +19,81 @@ namespace TricksAndTreats
         static IModHelper Helper;
         static IMonitor Monitor;
 
-        internal static void Initialize(IMod ModInstance, Harmony harmony)
+        internal static void Initialize(IMod ModInstance)
         {
             Helper = ModInstance.Helper;
             Monitor = ModInstance.Monitor;
 
+            Helper.Events.GameLoop.DayStarted += CheckCandyCT;
+            Helper.Events.GameLoop.SaveLoaded += CheckCandyGivers;
             SpaceEvents.BeforeGiftGiven += TreatForNPC;
-
-            harmony.Patch(
-                original: AccessTools.Method(typeof(NPC), "checkAction"),
-                prefix: new HarmonyMethod(typeof(Treats), nameof(TreatFromNPC))
-            );
         }
 
-        private static bool TreatFromNPC(NPC __instance, GameLocation __0)
+        private static void CheckCandyCT(object sender, DayStartedEventArgs e)
         {
-            if (!(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27))
-                return true;
-            if (!NPCData.ContainsKey(__instance.Name))
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
             {
-                Log.Debug($"NPC {__instance.Name} has no TaT data.");
-                return true;
+                Game1.player.activeDialogueEvents.Add(TreatCT, 1);
             }
-            if (NPCData[__instance.Name].Roles.Contains("candygiver") && !(bool)NPCData[__instance.Name].GaveGift)
+            else if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
             {
-                var TreatsToGive = NPCData[__instance.Name].TreatsToGive;
-                Random random = new();
-                var gift = JA.GetObjectId(TreatsToGive[random.Next(TreatsToGive.Length)]);
-                Utils.ClearAndPushDialogue(__instance, "give_candy", gift);
-                NPCData[__instance.Name].GaveGift = true;
-                return false;
+                    Game1.player.activeDialogueEvents.Remove(TreatCT);
             }
-            return true;
+        }
+
+        [EventPriority(EventPriority.Low)]
+        private static void CheckCandyGivers(object sender, SaveLoadedEventArgs e)
+        {
+            foreach (KeyValuePair<string, Celebrant> entry in NPCData)
+            {
+                if (entry.Value.Roles.Contains("candygiver"))
+                {
+                    NPC npc = Game1.getCharacterFromName(entry.Key);
+                    if (!npc.Dialogue.ContainsKey(TreatCT))
+                    {
+                        npc.Dialogue.Add(TreatCT, Helper.Translation.Get("generic.give_candy"));
+                    }
+                    var TreatsToGive = entry.Value.TreatsToGive;
+                    Random random = new();
+                    int gift = JA.GetObjectId(TreatsToGive[random.Next(TreatsToGive.Length)]);
+                    //Log.Debug($"NPC {entry.Value} will give treat ID {gift}.");
+                    npc.Dialogue[TreatCT] = npc.Dialogue[TreatCT] + $" [{gift}]";
+                }
+            }
         }
 
         private static void TreatForNPC(object sender, EventArgsBeforeReceiveObject e)
         {
-            if (!(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27) && e.Gift.HasContextTag("halloween_treat"))
+            if (!TreatData.ContainsKey(e.Gift.Name))
+                return;
+
+            e.Cancel = true;
+
+            if (!NPCData.ContainsKey(e.Npc.Name))
+                return;
+
+            if (!(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27))
             {
-                Game1.activeClickableMenu = new DialogueBox(Helper.Translation.Get("not_halloween"));
+                if (TreatData[e.Gift.Name].HalloweenOnly)
+                {
+                    Game1.activeClickableMenu = new DialogueBox(Helper.Translation.Get("info.not_halloween"));
+                    return;
+                }
+            }
+
+            if (!NPCData[e.Npc.Name].Roles.Contains("candytaker"))
+            {
+                Utils.Speak(e.Npc, "not_candytaker", clear: false);
                 return;
             }
 
-            e.Cancel = true;
             StardewValley.Object gift = e.Gift;
             Farmer gifter = Game1.player;
             NPC giftee = e.Npc;
 
-            //Log.Debug("TaT: NPCData looks like this: " + NPCData.ToString());
-            if (!NPCData.ContainsKey(giftee.Name))
-            {
-                Log.Debug($"NPC {giftee.Name} has no TaT data.");
-                return;
-            }
-
-            if (!NPCData[giftee.Name].Roles.Contains("candytaker"))
-            {
-                Utils.ClearAndPushDialogue(giftee, "not_candytaker");
-            }
-
             if ((bool)NPCData[giftee.Name].ReceivedGift)
             {
-                Game1.activeClickableMenu = new DialogueBox(Helper.Translation.Get("already_given"));
+                Game1.activeClickableMenu = new DialogueBox(Helper.Translation.Get("info.already_given"));
                 return;
             }
 
@@ -98,30 +110,30 @@ namespace TricksAndTreats
                 case NPC.gift_taste_love:
                     score += 2;
                     gifter.changeFriendship(loved_pts, giftee);
-                    response_key = giftee.Dialogue.ContainsKey("loved_treat") ? "loved_treat" : "generic.loved_treat";
+                    response_key = "loved_treat";
                     break;
                 case NPC.gift_taste_dislike:
                 case NPC.gift_taste_hate:
                     score -= 2;
                     gifter.changeFriendship(hated_pts, giftee);
-                    response_key = giftee.Dialogue.ContainsKey("hated_treat") ? "hated_treat" : "generic.hated_treat";
+                    response_key = "hated_treat";
                     if (NPCData[giftee.Name].Roles.Contains("trickster"))
                         play_trick = true;
                     break;
                 default:
                     score += 1;
                     gifter.changeFriendship(neutral_pts, giftee);
-                    response_key = giftee.Dialogue.ContainsKey("neutral_treat") ? "neutral_treat" : "generic.neutral_treat";
+                    response_key = "neutral_treat";
                     break;
             }
             gifter.modData[ScoreKey] = score.ToString();
             NPCData[giftee.Name].ReceivedGift = true;
             gifter.reduceActiveItemByOne();
             gifter.currentLocation.localSound("give_gift");
-            Utils.ClearAndPushDialogue(giftee, response_key);
-
             if (play_trick)
                 Tricks.NPCTrick(giftee);
+            else
+                Utils.Speak(giftee, response_key, clear: false);
         }
 
         private static int GetTreatTaste(string npc, string item)

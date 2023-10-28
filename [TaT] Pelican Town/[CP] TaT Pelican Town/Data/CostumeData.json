@@ -10,13 +10,13 @@
           // Need at least one of the following
           "Hat": "(hat name)",
           "Top": "(top name)",
-          "Pants": "(pants name)",
+          "Bottom": "(pants name)",
         },
         */
         "Alien": {
           "Hat": "TaT.alien-mask",
           "Top": "TaT.alien-shirt",
-          "Pants": "TaT.alien-pants",
+          "Bottom": "TaT.alien-pants",
         },
       },
     },

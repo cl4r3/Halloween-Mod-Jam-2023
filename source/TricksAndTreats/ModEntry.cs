@@ -23,13 +23,15 @@ namespace TricksAndTreats
         private const string TreatsExt = ".Treats";
 
         internal const string HouseFlag = "TaT.VillageTrick";
-        internal const string HouseCT = "TaT.VillageTrickCT";
-        internal const string CostumeCT = "TaT.CostumeCT-";
+        internal const string HouseCT = "house_pranked";
+        internal const string CostumeCT = "costume_react-";
+        internal const string TreatCT = "give_candy";
 
         internal const string PaintKey = "TaT.previous-skin";
         internal const string EggKey = "TaT.stolen-item";
         internal const string ScoreKey = "TaT.treat-score";
         internal const string CostumeKey = "TaT.costume-set";
+        internal const string GiftedKey = "TaT.regular-gift-attempts";
 
         internal static string[] ValidRoles = { "candygiver", "candytaker", "trickster", "observer", };
         internal static string[] ValidTricks = { "egg", "paint", "all", };
@@ -51,8 +53,8 @@ namespace TricksAndTreats
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
 
             Tricks.Initialize(this);
-            Treats.Initialize(this, harmony);
-            Costumes.Initialize(this, harmony);
+            Treats.Initialize(this);
+            Costumes.Initialize(this);
         }
 
         private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
