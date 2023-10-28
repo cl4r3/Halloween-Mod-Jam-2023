@@ -18,6 +18,48 @@
           "Top": "TaT.alien-shirt",
           "Bottom": "TaT.alien-pants",
         },
+        "Goblin": {
+          "Hat": "Goblin Mask",
+          "Top": "TaT.goblin-shirt",
+          "Pants": "TaT.goblin-pants",
+        },
+        "Knight": {
+          "Hat": "Knight's Helmet", //There's Squire's Helmet too but its too easy to obtain if you ask me :sweatsmile:
+          "Top": "Steel Breastplate",
+          "Pants": "TaT.chainmail-pants",
+        },
+		"Wizard": {
+          "Hat": "Arcane Hat", //There's Witch's hat too?
+          "Top": "Arcane Shirt",
+        },
+		"Caveman": {
+          "Hat": "Hair Bone",
+          "Top": "Caveman Shirt",
+        },
+		"Dino": {
+          "Hat": "Dino Hat",
+          "Pants": "Dino Pants",
+        },
+        "Skeleton": {
+          "Hat": "Skeleton Mask",
+          "Top": "Skeleton Shirt",
+          "Pants": "TaT.skeleton-pants",
+        },
+		"Stone Golem": {
+          "Hat": "TaT.stone-golem-mask",
+          "Top": "TaT.stone-golem-shirt",
+          "Pants": "TaT.stone-golem-pants",
+        },
+		"Ghost": {
+          "Hat": "TaT.ghost-mask",
+          "Top": "TaT.ghost-shirt",
+          "Pants": "TaT.ghost-skirt",
+        },
+		"Mummy": {
+          "Hat": "TaT.mummy-mask",
+          "Top": "TaT.mummy-shirt",
+          "Pants": "TaT.mummy-pants",
+        },
       },
     },
   ]

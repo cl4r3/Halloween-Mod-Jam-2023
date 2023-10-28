@@ -5,7 +5,4 @@
 	"Version": "1.0.0",
 	"UniqueID": "ch20youk.TaTPelicanTown.JA",
 	"ContentPackFor": { "UniqueID": "spacechase0.JsonAssets" },
-	"Dependencies": [
-    { "UniqueID": "ch20youk.TricksAndTreats" }
-  ],
 }
