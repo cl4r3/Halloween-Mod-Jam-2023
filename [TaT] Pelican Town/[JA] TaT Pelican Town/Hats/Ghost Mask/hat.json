@@ -1,5 +1,6 @@
 {
-	"Name": "TaT.ghost-mask",
+	//"Name": "TaT.ghost-mask",
+	"Name": "Ghost Hood",
 	"TranslationKey": "clothes.ghost-mask",
 	"PurchasePrice": 1,
 	"ShowHair": false,

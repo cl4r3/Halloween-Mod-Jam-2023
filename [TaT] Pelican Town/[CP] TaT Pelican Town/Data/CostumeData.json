@@ -14,7 +14,8 @@
         },
         */
         "Alien": {
-          "Hat": "TaT.alien-mask",
+          //"Hat": "TaT.alien-mask",
+          "Hat": "Alien Mask",
           "Top": "TaT.alien-shirt",
           "Bottom": "TaT.alien-pants",
         },
@@ -46,17 +47,20 @@
           "Pants": "TaT.skeleton-pants",
         },
 		"Stone Golem": {
-          "Hat": "TaT.stone-golem-mask",
+          //"Hat": "TaT.stone-golem-mask",
+          "Hat": "Stone Golem Mask",
           "Top": "TaT.stone-golem-shirt",
           "Pants": "TaT.stone-golem-pants",
         },
 		"Ghost": {
-          "Hat": "TaT.ghost-mask",
+          //"Hat": "TaT.ghost-mask",
+          "Hat": "Ghost Hood",
           "Top": "TaT.ghost-shirt",
           "Pants": "TaT.ghost-skirt",
         },
 		"Mummy": {
-          "Hat": "TaT.mummy-mask",
+          //"Hat": "TaT.mummy-mask",
+          "Hat": "Mummy Mask",
           "Top": "TaT.mummy-shirt",
           "Pants": "TaT.mummy-pants",
         },

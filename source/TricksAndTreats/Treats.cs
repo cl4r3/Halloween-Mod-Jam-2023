@@ -139,34 +139,34 @@ namespace TricksAndTreats
         private static int GetTreatTaste(string npc, string item)
         {
             var my_data = NPCData[npc];
-            if (my_data.LovedTreats.ToList().Contains(item))
-                return NPC.gift_taste_love;
-            if (my_data.NeutralTreats.ToList().Contains(item))
-                return NPC.gift_taste_neutral;
             if (my_data.HatedTreats.ToList().Contains(item))
                 return NPC.gift_taste_hate;
+            if (my_data.NeutralTreats.ToList().Contains(item))
+                return NPC.gift_taste_neutral;
+            if (my_data.LovedTreats.ToList().Contains(item))
+                return NPC.gift_taste_love;
 
             if (TreatData[item].Universal is not null)
             {
                 switch (TreatData[item].Universal.ToLower())
                 {
-                    case "love":
-                        return NPC.gift_taste_love;
-                    case "neutral":
-                        return NPC.gift_taste_neutral;
                     case "hate":
                         return NPC.gift_taste_hate;
+                    case "neutral":
+                        return NPC.gift_taste_neutral;
+                    case "love":
+                        return NPC.gift_taste_love;
                 }
             }
 
             foreach (string flavor in TreatData[item].Flavors.ToList())
             {
-                if (my_data.LovedTreats.ToList().Contains(flavor))
-                    return NPC.gift_taste_love;
-                if (my_data.NeutralTreats.ToList().Contains(flavor))
-                    return NPC.gift_taste_neutral;
                 if (my_data.HatedTreats.ToList().Contains(flavor))
                     return NPC.gift_taste_hate;
+                if (my_data.NeutralTreats.ToList().Contains(flavor))
+                    return NPC.gift_taste_neutral;
+                if (my_data.LovedTreats.ToList().Contains(flavor))
+                    return NPC.gift_taste_love;
             }
 
             return NPC.gift_taste_neutral;
