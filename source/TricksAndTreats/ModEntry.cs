@@ -52,6 +52,7 @@ namespace TricksAndTreats
 
             Tricks.Initialize(this);
             Treats.Initialize(this, harmony);
+            Costumes.Initialize(this, harmony);
         }
 
         private void OnAssetRequested(object sender, AssetRequestedEventArgs e)

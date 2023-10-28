@@ -5,8 +5,8 @@
   "generic.before_trick": "Well, you know what happens if you don't give a treat...$h",
   "generic.after_trick": "Take that! Happy Spirit's Eve, @!$h",
   "generic.cannot_trick": "...$s#$b#...Wait, you don't have anything for me to steal? Aw, man...$s#$b#Well, guess you'll get away with it this time!$h",
-  "not_halloween": "You can't give out Spirit's Eve treats when it's not Spirit's Eve!",
-  "already_given": "You have already given a Spirit's Eve treat to this person.",
-  "not_candytaker": "Oh, thank you, but I'm alright.",
-  "give_candy":  "Here you go, @. Happy Spirit's Eve!",
+  "generic.not_halloween": "You can't give out Spirit's Eve treats when it's not Spirit's Eve!",
+  "generic.already_given": "You have already given a Spirit's Eve treat to this person.",
+  "generic.not_candytaker": "Oh, thank you, but I'm alright.",
+  "generic.give_candy":  "Here you go, @. Happy Spirit's Eve!",
 }

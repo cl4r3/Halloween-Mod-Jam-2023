@@ -5,6 +5,24 @@
       "Action": "EditData",
       "Target": "Mods/ch20youk.TaTData.NPCs",
       "Entries": {
+        /*
+        "(NPC name)": {
+          "Roles": [
+            "candygiver", // Will give player candy when spoken to (if wearing costume)
+            "candytaker", // Can receive candy from player
+            "trickster", // Will play trick on player if they don't like the treat they receive (so only valid if also candytaker)
+            "observer" // Neither gives nor receives candy
+          ],
+          // Valid flavors: "sweet", "sour", "salty", "hot", "gourmet", "candy", "healthy", "joja", "fatty"
+          // But you can also add item names directly into list
+          // All flavors/items are neutral unless otherwise specified
+          "LovedTreats": [ "salty", "hot", ],
+          "NeutralTreats": [ "TaT.specific-salty-treat" ],
+          "HatedTreats": [ "candy", ],
+          "TreatsToGive": [ "TaT.candy-corn", "TaT.some-other-treat" ], // Optional. If candygiver, will randomly give one of these in list (items, not flavors)
+          "PreferredTricks": [ "egg", ], // Optional. If trickster, will pull a random prank from within this list (currently just "egg", "paint", or "all")
+        },
+        */
 
         // Bachelors
         "Alex": {

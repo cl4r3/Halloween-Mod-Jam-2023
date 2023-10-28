@@ -57,6 +57,9 @@ namespace TricksAndTreats
          [EventPriority(EventPriority.Low)]
         internal static bool CheckForCostumeSet()
         {
+            if (!Context.IsWorldReady)
+                return false;
+
             Farmer farmer = Game1.player;
 
             if (!(Game1.currentSeason == "fall" || Game1.dayOfMonth == 27))

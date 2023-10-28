@@ -5,6 +5,17 @@
       "Action": "EditData",
       "Target": "Mods/ch20youk.TaTData.Treats",
       "Entries": {
+        /*
+        "(Treat Name)": {
+          "HalloweenOnly": false, // If false, can only give this item to villagers on Spirit's Eve
+          "Universal": "love", // Optional. Valid values are love, neutral, or hate. Will override any other taste info listed below
+          // Valid flavors: "sweet", "sour", "salty", "hot", "gourmet", "candy", "healthy", "joja", "fatty"
+          "Flavors": [ "sweet", ], // Optional. Flavors associated with this item
+          // No Universal or Flavors -> universal neutral
+        },
+        */
+
+        // Vanilla items
         "Strange Bun": {
           "HalloweenOnly": false,
           "Flavors": [ "sweet", ],
@@ -25,6 +36,8 @@
           "HalloweenOnly": false,
           "Flavors": [ "candy", ],
         },
+
+        // Mod items
         "TaT.candy-corn": {
           "HalloweenOnly": true,
           "Flavors": [ "candy", "sweet", ],

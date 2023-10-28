@@ -5,6 +5,14 @@
       "Action": "EditData",
       "Target": "Mods/ch20youk.TaTData.Costumes",
       "Entries": {
+        /*
+        "(Costume set name)": {
+          // Need at least one of the following
+          "Hat": "(hat name)",
+          "Top": "(top name)",
+          "Pants": "(pants name)",
+        },
+        */
         "Alien": {
           "Hat": "TaT.alien-mask",
           "Top": "TaT.alien-shirt",
