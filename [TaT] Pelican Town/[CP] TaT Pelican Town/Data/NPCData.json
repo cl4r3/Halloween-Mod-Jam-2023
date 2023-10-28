@@ -1,0 +1,247 @@
+{
+  "Changes": [
+    {
+      "LogName": "TricksAndTreats data for vanilla NPCs",
+      "Action": "EditData",
+      "Target": "Mods/ch20youk.TaTData.NPCs",
+      "Entries": {
+
+        // Bachelors
+        "Alex": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "salty", "hot", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "candy", ],
+        },
+        "Elliott": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "gourmet", "healthy" ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "candy", "fatty", "salty", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Harvey": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "healthy", "gourmet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "sweet", "fatty", "salty", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Sam": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "joja", "candy", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "healthy", "gourmet", ],
+        },
+        "Sebastian": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "TaT.candied-apple", "salty", "hot", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "TaT.candy-corn", "gourmet", ],
+          "PreferredTricks": [ "egg", ],
+        },
+        "Shane": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "joja", "fatty", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "gourmet", ],
+        },
+
+        // Bachelorettes
+        "Abigail": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "candy", "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "healthy", ],
+          "PreferredTricks": [ "paint", "egg", ],
+        },
+        "Emily": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "healthy", "gourmet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "fatty", "salty", ],
+          "PreferredTricks": [ "paint", ],
+        },
+        "Haley": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "fatty", "salty", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Leah": {
+          "Roles": [ "candygiver", "candytaker", "trickster", ],
+          "LovedTreats": [ "healthy", "gourmet" ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "fatty", "salty" ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+          "PreferredTricks": [ "paint", ],
+        },
+        "Maru": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "fatty", "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ ],
+        },
+        "Penny": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "sour", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+
+        // Children
+        "Jas": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "sweet", "candy", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "healthy", "gourmet", "salty", ],
+        },
+        "Leo": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "all", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [  ],
+        },
+        "Vincent": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "sweet", "candy", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "healthy", "gourmet", ],
+          "PreferredTricks": [ "egg", ],
+        },
+
+        // Other
+        "Caroline": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "healthy", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "fatty", "candy", ],
+        },
+        "Clint": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "Miner's Treat", "fatty", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "healthy", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Demetrius": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "healthy", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Dwarf": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "candy", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "all", ],
+          "PreferredTricks": [ "all", ],
+        },
+        "Evelyn": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "salty", "hot", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "George": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "TaT.black-licorice-roll", "salty", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "sweet", "healthy", ],
+        },
+        "Gus": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "gourmet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "healthy", "candy", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Jodi": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "fatty", "hot", "salty", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "candy", "healthy", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Kent": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "salty", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "candy", ],
+        },
+        "Krobus": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "TaT.black-licorice-roll", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "sweet", ],
+          "PreferredTricks": [ "all", ],
+        },
+        "Lewis": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "candy", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Linus": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "healthy", "gourmet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "joja", ],
+        },
+        "Marnie": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "salty", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Pam": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "salty", "fatty", "joja", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "healthy", "gourmet", ],
+          "PreferredTricks": [ "egg", ],
+        },
+        "Pierre": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "hot", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "joja", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Robin": {
+          "Roles": [ "candytaker", ],
+          "LovedTreats": [ "salty", "fatty", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "candy", ],
+        },
+        "Sandy": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "gourmet", "sweet", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "candy", ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Willy": {
+          "Roles": [ "candygiver", "candytaker", ],
+          "LovedTreats": [ "hot", "fatty", "salty", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "candy", "healthy", "gourmet" ],
+          "TreatsToGive": [ "TaT.candy-corn", ],
+        },
+        "Wizard": {
+          "Roles": [ "candytaker", "trickster", ],
+          "LovedTreats": [ "TaT.black-licorice-roll", "candy", ],
+          "NeutralTreats": [ ],
+          "HatedTreats": [ "all", ],
+          "PreferredTricks": [ "paint", ],
+        },
+      }
+    },
+  ]
+}

@@ -1,8 +1,0 @@
-C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\Trick or Treat SMAPI\Trick or Treat\bin\Debug\net5.0\Trick or Treat.deps.json
-C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\Trick or Treat SMAPI\Trick or Treat\bin\Debug\net5.0\Trick or Treat.dll
-C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\Trick or Treat SMAPI\Trick or Treat\obj\Debug\net5.0\Trick or Treat.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\Trick or Treat SMAPI\Trick or Treat\obj\Debug\net5.0\Trick or Treat.AssemblyInfoInputs.cache
-C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\Trick or Treat SMAPI\Trick or Treat\obj\Debug\net5.0\Trick or Treat.AssemblyInfo.cs
-C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\Trick or Treat SMAPI\Trick or Treat\obj\Debug\net5.0\Trick or Treat.csproj.CoreCompileInputs.cache
-C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\Trick or Treat SMAPI\Trick or Treat\obj\Debug\net5.0\Trick or Treat.dll
-C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\Trick or Treat SMAPI\Trick or Treat\obj\Debug\net5.0\Trick or Treat.csproj.AssemblyReference.cache

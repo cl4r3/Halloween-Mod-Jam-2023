@@ -1,0 +1,11 @@
+{
+  "Format": "1.29.0",
+
+  "Changes": [
+    {
+      "LogName": "Include TaT data",
+      "Action": "Include",
+      "FromFile": "Data/CostumeData.json, Data/NPCData.json, Data/TreatData.json",
+    },
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "Changes": [
+    {
+      "LogName": "Data for new treats",
+      "Action": "EditData",
+      "Target": "Mods/ch20youk.TaTData.Treats",
+      "Entries": {
+        "Strange Bun": {
+          "HalloweenOnly": false,
+          "Flavors": [ "sweet", ],
+        },
+        "Cookies": {
+          "HalloweenOnly": false,
+          "Flavors": [ "sweet", ],
+        },
+        "Miner's Treat": {
+          "HalloweenOnly": false,
+          "Flavors": [ "candy", ],
+        },
+        "Maple Bar": {
+          "HalloweenOnly": false,
+          "Flavors": [ "sweet", ],
+        },
+        "Prismatic Rock Candy": {
+          "HalloweenOnly": false,
+          "Flavors": [ "candy", ],
+        },
+        "TaT.candy-corn": {
+          "HalloweenOnly": true,
+          "Flavors": [ "candy", "sweet", ],
+        },
+      },
+    },
+  ]
+}

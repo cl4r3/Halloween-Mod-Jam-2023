@@ -1,0 +1,16 @@
+{
+  "Changes": [
+    {
+      "LogName": "Data for new costumes",
+      "Action": "EditData",
+      "Target": "Mods/ch20youk.TaTData.Costumes",
+      "Entries": {
+        "Alien": {
+          "Hat": "TaT.alien-mask",
+          "Top": "TaT.alien-shirt",
+          "Pants": "TaT.alien-pants",
+        },
+      },
+    },
+  ]
+}

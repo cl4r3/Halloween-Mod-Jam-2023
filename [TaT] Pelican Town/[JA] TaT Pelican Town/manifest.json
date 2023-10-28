@@ -1,0 +1,11 @@
+{
+	"Name": "[JA] TaT Pelican Town",
+  "Author": "ch20youk, KediDili, Lumina, and Wizadroid",
+	"Description": "JSON Assets component for Tricks and Treats base pack",
+	"Version": "1.0.0",
+	"UniqueID": "ch20youk.TaTPelicanTown.JA",
+	"ContentPackFor": { "UniqueID": "spacechase0.JsonAssets" },
+	"Dependencies": [
+    { "UniqueID": "ch20youk.TricksAndTreats" }
+  ],
+}
