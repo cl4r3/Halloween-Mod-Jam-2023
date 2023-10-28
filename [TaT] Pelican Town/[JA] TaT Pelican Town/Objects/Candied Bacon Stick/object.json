@@ -1,0 +1,7 @@
+{
+	"Name": "TaT.candied-bacon-stick",
+	"TranslationKey": "objects.candied-bacon-stick",
+	"Edibility": 30,
+	"EdibleIsDrink": false,
+	"Price": 200,
+}
