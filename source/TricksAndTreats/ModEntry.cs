@@ -51,10 +51,31 @@ namespace TricksAndTreats
             helper.Events.Content.AssetReady += OnAssetReady;
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
+            helper.Events.GameLoop.TimeChanged += OnTimeChange;
 
             Tricks.Initialize(this);
             Treats.Initialize(this);
             Costumes.Initialize(this);
+        }
+
+        private void OnTimeChange(object sender, TimeChangedEventArgs e)
+        {
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
+            {
+                if (Game1.timeOfDay < 2200)
+                {
+                    Game1.whereIsTodaysFest = null;
+                }
+                else if(Game1.timeOfDay >= 2200)
+                {
+                    Game1.whereIsTodaysFest = "Town";
+                }
+                if (Game1.timeOfDay == 2200)
+                {
+                    if (Game1.player.currentLocation.Name == "Town")
+                        Game1.warpFarmer("BusStop", 34, 23, 3);
+                }
+            }
         }
 
         private void OnAssetRequested(object sender, AssetRequestedEventArgs e)

@@ -49,6 +49,7 @@
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "joja", "candy", ],
           "NeutralTreats": [ ],
+          "PreferredTricks": [ "all", ],
           "HatedTreats": [ "healthy", "gourmet", ],
         },
         "Sebastian": {
@@ -99,7 +100,7 @@
           "Roles": [ "candytaker", ],
           "LovedTreats": [ "fatty", "sweet", ],
           "NeutralTreats": [ ],
-          "HatedTreats": [ ],
+          "HatedTreats": [ "hot", ],
         },
         "Penny": {
           "Roles": [ "candygiver", "candytaker", ],
@@ -116,12 +117,14 @@
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", "gourmet", "salty", ],
         },
+        /*
         "Leo": {
           "Roles": [ "candytaker", ],
           "LovedTreats": [ "all", ],
           "NeutralTreats": [ ],
           "HatedTreats": [  ],
         },
+        */
         "Vincent": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "sweet", "candy", ],
@@ -151,6 +154,7 @@
           "HatedTreats": [ "healthy", ],
           "TreatsToGive": [ "TaT.ablaze-orbs", ],
         },
+        /*
         "Dwarf": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "candy", ],
@@ -158,6 +162,7 @@
           "HatedTreats": [ "all", ],
           "PreferredTricks": [ "all", ],
         },
+        */
         "Evelyn": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "sweet", ],
@@ -191,6 +196,7 @@
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", ],
         },
+        /*
         "Krobus": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "TaT.licorice-swirl", ],
@@ -198,6 +204,7 @@
           "HatedTreats": [ "sweet", ],
           "PreferredTricks": [ "all", ],
         },
+        */
         "Lewis": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "sweet", ],
@@ -212,11 +219,10 @@
           "HatedTreats": [ "joja", ],
         },
         "Marnie": {
-          "Roles": [ "candygiver", "candytaker", ],
+          "Roles": [ "candytaker", ],
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "salty", ],
-          "TreatsToGive": [ "TaT.peanut-butter-eyecup", ],
         },
         "Pam": {
           "Roles": [ "candytaker", "trickster", ],
@@ -238,6 +244,7 @@
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", ],
         },
+        /*
         "Sandy": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "gourmet", "sweet", ],
@@ -245,12 +252,12 @@
           "HatedTreats": [ "candy", ],
           "TreatsToGive": [ "TaT.witch-cauldron", ],
         },
+        */
         "Willy": {
-          "Roles": [ "candygiver", "candytaker", ],
+          "Roles": [ "candytaker", ],
           "LovedTreats": [ "hot", "fatty", "salty", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", "healthy", "gourmet" ],
-          "TreatsToGive": [ "TaT.eye-candy", ],
         },
         "Wizard": {
           "Roles": [ "candytaker", "trickster", ],

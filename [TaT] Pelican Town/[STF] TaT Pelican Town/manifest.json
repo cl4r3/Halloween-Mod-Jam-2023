@@ -9,6 +9,6 @@
     "UniqueID": "Cherry.ShopTileFramework"
   },
   	"Dependencies": [
-    { "UniqueID": "ch20youk.TricksAndTreats" }
+    { "UniqueID": "ch20youk.TaTPelicanTown.JA" }
   ],
 }

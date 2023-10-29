@@ -1,13 +1,17 @@
 {
 "Changes": [
-/*
 	//Vanilla Girls
 	{
 		"LogName": "Treat Dialogue - Abigail",
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Abigail",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.abigail}}",
+			"fall_27": "{{i18n:abigail.fall_27}}",
+			"loved_treat": "{{i18n:abigail.loved_treat}}",
+			"neutral_treat": "{{i18n:abigail.neutral_treat}}",
+			"hated_treat": "{{i18n:abigail.hated_treat}}",
+			"before_trick": "{{i18n:abigail.before_trick}}",
+			"after_trick": "{{i18n:abigail.after_trick}}",
 		},
 	},
 	{
@@ -15,27 +19,37 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Emily",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.emily}}",
+			"fall_27": "{{i18n:emily.fall_27}}",
+			"loved_treat": "{{i18n:emily.loved_treat}}",
+			"neutral_treat": "{{i18n:emily.neutral_treat}}",
+			"hated_treat": "{{i18n:emily.hated_treat}}",
+			"before_trick": "{{i18n:emily.before_trick}}",
+			"after_trick": "{{i18n:emily.after_trick}}",
 		},
 	},
-	*/
 	{
 		"LogName": "Treat Dialogue - Haley",
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Haley",
 		"Entries": {
-			"loved_treat": "{{i18n:love.haley}}",
-			"neutral_treat": "{{i18n:neutral.haley}}",
-			"hated_treat": "{{i18n:hate.haley}}",
+			"fall_27": "{{i18n:haley.fall_27}}",
+			"loved_treat": "{{i18n:haley.loved_treat}}",
+			"neutral_treat": "{{i18n:haley.neutral_treat}}",
+			"hated_treat": "{{i18n:haley.hated_treat}}",
+			"give_candy": "{{i18n:haley.give_candy}}",
 		},
 	},
-	/*
 	{
 		"LogName": "Treat Dialogue - Leah",
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Leah",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.leah}}",
+			"fall_27": "{{i18n:leah.fall_27}}",
+			"loved_treat": "{{i18n:leah.loved_treat}}",
+			"neutral_treat": "{{i18n:leah.neutral_treat}}",
+			"hated_treat": "{{i18n:leah.hated_treat}}",
+			"before_trick": "{{i18n:leah.before_trick}}",
+			"after_trick": "{{i18n:leah.after_trick}}",
 		},
 	},
 	{
@@ -43,7 +57,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Maru",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.maru}}",
+			"fall_27": "{{i18n:maru.fall_27}}",
+			"loved_treat": "{{i18n:maru.loved_treat}}",
+			"neutral_treat": "{{i18n:maru.neutral_treat}}",
+			"hated_treat": "{{i18n:maru.hated_treat}}",
 		},
 	},
 	{
@@ -51,7 +68,11 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Penny",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.penny}}",
+			"fall_27": "{{i18n:penny.fall_27}}",
+			"loved_treat": "{{i18n:penny.loved_treat}}",
+			"neutral_treat": "{{i18n:penny.neutral_treat}}",
+			"hated_treat": "{{i18n:penny.hated_treat}}",
+			"give_candy": "{{i18n:penny.give_candy}}",
 		},
 	},
 
@@ -61,7 +82,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Alex",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.alex}}",
+			"fall_27": "{{i18n:alex.fall_27}}",
+			"loved_treat": "{{i18n:alex.loved_treat}}",
+			"neutral_treat": "{{i18n:alex.neutral_treat}}",
+			"hated_treat": "{{i18n:alex.hated_treat}}",
 		},
 	},
 	{
@@ -69,7 +93,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Elliott",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.elliott}}",
+			"fall_27": "{{i18n:elliott.fall_27}}",
+			"loved_treat": "{{i18n:elliott.loved_treat}}",
+			"neutral_treat": "{{i18n:elliott.neutral_treat}}",
+			"hated_treat": "{{i18n:elliott.hated_treat}}",
 		},
 	},
 	{
@@ -77,7 +104,11 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Harvey",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.harvey}}",
+			"fall_27": "{{i18n:harvey.fall_27}}",
+			"loved_treat": "{{i18n:harvey.loved_treat}}",
+			"neutral_treat": "{{i18n:harvey.neutral_treat}}",
+			"hated_treat": "{{i18n:harvey.hated_treat}}",
+			"give_candy": "{{i18n:harvey.give_candy}}",
 		},
 	},
 	{
@@ -85,7 +116,12 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Sam",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.sam}}",
+			"fall_27": "{{i18n:sam.fall_27}}",
+			"loved_treat": "{{i18n:sam.loved_treat}}",
+			"neutral_treat": "{{i18n:sam.neutral_treat}}",
+			"hated_treat": "{{i18n:sam.hated_treat}}",
+			"before_trick": "{{i18n:sam.before_trick}}",
+			"after_trick": "{{i18n:sam.after_trick}}",
 		},
 	},
 	{
@@ -93,7 +129,12 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Sebastian",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.sebastian}}",
+			"fall_27": "{{i18n:sebastian.fall_27}}",
+			"loved_treat": "{{i18n:sebastian.loved_treat}}",
+			"neutral_treat": "{{i18n:sebastian.neutral_treat}}",
+			"hated_treat": "{{i18n:sebastian.hated_treat}}",
+			"before_trick": "{{i18n:sebastian.before_trick}}",
+			"after_trick": "{{i18n:sebastian.after_trick}}",
 		},
 	},
 	{
@@ -101,7 +142,36 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Shane",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.shane}}",
+			"fall_27": "{{i18n:shane.fall_27}}",
+			"loved_treat": "{{i18n:shane.loved_treat}}",
+			"neutral_treat": "{{i18n:shane.neutral_treat}}",
+			"hated_treat": "{{i18n:shane.hated_treat}}",
+		},
+	},
+
+	//Children
+	{
+		"LogName": "Treat Dialogue - Jas",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Jas",
+		"Entries": {
+			"fall_27": "{{i18n:jas.fall_27}}",
+			"loved_treat": "{{i18n:jas.loved_treat}}",
+			"neutral_treat": "{{i18n:jas.neutral_treat}}",
+			"hated_treat": "{{i18n:jas.hated_treat}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Vincent",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Vincent",
+		"Entries": {
+			"fall_27": "{{i18n:vincent.fall_27}}",
+			"loved_treat": "{{i18n:vincent.loved_treat}}",
+			"neutral_treat": "{{i18n:vincent.neutral_treat}}",
+			"hated_treat": "{{i18n:vincent.hated_treat}}",
+			"before_trick": "{{i18n:vincent.before_trick}}",
+			"after_trick": "{{i18n:vincent.after_trick}}",
 		},
 	},
 
@@ -111,7 +181,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Caroline",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.caroline}}",
+			"fall_27": "{{i18n:caroline.fall_27}}",
+			//"loved_treat": "{{i18n:caroline.loved_treat}}",
+			//"neutral_treat": "{{i18n:caroline.neutral_treat}}",
+			//"hated_treat": "{{i18n:caroline.hated_treat}}",
 		},
 	},
 	{
@@ -119,7 +192,11 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Clint",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.clint}}",
+			"fall_27": "{{i18n:clint.fall_27}}",
+			//"loved_treat": "{{i18n:clint.loved_treat}}",
+			//"neutral_treat": "{{i18n:clint.neutral_treat}}",
+			//"hated_treat": "{{i18n:clint.hated_treat}}",
+			"give_candy": "{{i18n:clint.give_candy}}",
 		},
 	},
 	{
@@ -127,25 +204,34 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Demetrius",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.demetrius}}",
+			"fall_27": "{{i18n:demetrius.fall_27}}",
+			//"loved_treat": "{{i18n:demetrius.loved_treat}}",
+			//"neutral_treat": "{{i18n:demetrius.neutral_treat}}",
+			//"hated_treat": "{{i18n:demetrius.hated_treat}}",
+			"give_candy": "{{i18n:demetrius.give_candy}}",
 		},
 	},
-	*/
 	{
 		"LogName": "Treat Dialogue - Evelyn",
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Evelyn",
 		"Entries": {
-			"give_treat": "{{i18n:give-treat.evelyn}}",
+			"fall_27": "{{i18n:evelyn.fall_27}}",
+			//"loved_treat": "{{i18n:evelyn.loved_treat}}",
+			"neutral_treat": "{{i18n:evelyn.neutral_treat}}",
+			//"hated_treat": "{{i18n:evelyn.hated_treat}}",
+			"give_candy": "{{i18n:evelyn.give_candy}}",
 		},
 	},
-	/*
 	{
 		"LogName": "Treat Dialogue - George",
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/George",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.george}}",
+			"fall_27": "{{i18n:george.fall_27}}",
+			"loved_treat": "{{i18n:george.loved_treat}}",
+			"neutral_treat": "{{i18n:george.neutral_treat}}",
+			"hated_treat": "{{i18n:george.hated_treat}}",
 		},
 	},
 	{
@@ -153,7 +239,11 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Gus",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.gus}}",
+			"fall_27": "{{i18n:gus.fall_27}}",
+			//"loved_treat": "{{i18n:gus.loved_treat}}",
+			//"neutral_treat": "{{i18n:gus.neutral_treat}}",
+			//"hated_treat": "{{i18n:gus.hated_treat}}",
+			"give_candy": "{{i18n:gus.give_candy}}",
 		},
 	},
 	{
@@ -161,7 +251,11 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Jodi",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.jodi}}",
+			"fall_27": "{{i18n:jodi.fall_27}}",
+			//"loved_treat": "{{i18n:jodi.loved_treat}}",
+			//"neutral_treat": "{{i18n:jodi.neutral_treat}}",
+			//"hated_treat": "{{i18n:jodi.hated_treat}}",
+			"give_candy": "{{i18n:jodi.give_candy}}",
 		},
 	},
 	{
@@ -169,7 +263,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Kent",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.kent}}",
+			"fall_27": "{{i18n:kent.fall_27}}",
+			//"loved_treat": "{{i18n:kent.loved_treat}}",
+			//"neutral_treat": "{{i18n:kent.neutral_treat}}",
+			//"hated_treat": "{{i18n:kent.hated_treat}}",
 		},
 	},
 	{
@@ -177,7 +274,11 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Lewis",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.lewis}}",
+			"fall_27": "{{i18n:lewis.fall_27}}",
+			//"loved_treat": "{{i18n:lewis.loved_treat}}",
+			//"neutral_treat": "{{i18n:lewis.neutral_treat}}",
+			//"hated_treat": "{{i18n:lewis.hated_treat}}",
+			"give_candy": "{{i18n:lewis.give_candy}}",
 		},
 	},
 	{
@@ -185,7 +286,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Linus",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.linus}}",
+			"fall_27": "{{i18n:linus.fall_27}}",
+			//"loved_treat": "{{i18n:linus.loved_treat}}",
+			//"neutral_treat": "{{i18n:linus.neutral_treat}}",
+			//"hated_treat": "{{i18n:linus.hated_treat}}",
 		},
 	},
 	{
@@ -193,7 +297,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Marnie",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.marnie}}",
+			"fall_27": "{{i18n:marnie.fall_27}}",
+			//"loved_treat": "{{i18n:marnie.loved_treat}}",
+			//"neutral_treat": "{{i18n:marnie.neutral_treat}}",
+			//"hated_treat": "{{i18n:marnie.hated_treat}}",
 		},
 	},
 	{
@@ -201,7 +308,12 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Pam",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.pam}}",
+			"fall_27": "{{i18n:pam.fall_27}}",
+			//"loved_treat": "{{i18n:pam.loved_treat}}",
+			//"neutral_treat": "{{i18n:pam.neutral_treat}}",
+			//"hated_treat": "{{i18n:pam.hated_treat}}",
+			"before_trick": "{{i18n:pam.before_trick}}",
+			"after_trick": "{{i18n:pam.after_trick}}",
 		},
 	},
 	{
@@ -209,7 +321,11 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Pierre",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.pierre}}",
+			"fall_27": "{{i18n:pierre.fall_27}}",
+			//"loved_treat": "{{i18n:pierre.loved_treat}}",
+			//"neutral_treat": "{{i18n:pierre.neutral_treat}}",
+			//"hated_treat": "{{i18n:pierre.hated_treat}}",
+			"give_candy": "{{i18n:pierre.give_candy}}",
 		},
 	},
 	{
@@ -217,7 +333,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Robin",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.robin}}",
+			"fall_27": "{{i18n:robin.fall_27}}",
+			//"loved_treat": "{{i18n:robin.loved_treat}}",
+			//"neutral_treat": "{{i18n:robin.neutral_treat}}",
+			//"hated_treat": "{{i18n:robin.hated_treat}}",
 		},
 	},
 	{
@@ -225,7 +344,10 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Willy",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.willy}}",
+			"fall_27": "{{i18n:willy.fall_27}}",
+			//"loved_treat": "{{i18n:willy.loved_treat}}",
+			//"neutral_treat": "{{i18n:willy.neutral_treat}}",
+			//"hated_treat": "{{i18n:willy.hated_treat}}",
 		},
 	},
 	{
@@ -233,9 +355,13 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Wizard",
 		"Entries": {
-			"june_arrival": "{{i18n:i18n.june_arrival.wizard}}",
+			"fall_27": "{{i18n:wizard.fall_27}}",
+			"loved_treat": "{{i18n:wizard.loved_treat}}",
+			"neutral_treat": "{{i18n:wizard.neutral_treat}}",
+			"hated_treat": "{{i18n:wizard.hated_treat}}",
+			"before_trick": "{{i18n:wizard.before_trick}}",
+			"after_trick": "{{i18n:wizard.after_trick}}",
 		},
 	}
-	*/
 ]
 }

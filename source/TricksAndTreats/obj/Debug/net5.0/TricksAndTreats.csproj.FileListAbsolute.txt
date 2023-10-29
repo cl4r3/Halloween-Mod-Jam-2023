@@ -5,3 +5,4 @@ C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\source\TricksAn
 C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\source\TricksAndTreats\obj\Debug\net5.0\TricksAndTreats.AssemblyInfo.cs
 C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\source\TricksAndTreats\obj\Debug\net5.0\TricksAndTreats.csproj.CoreCompileInputs.cache
 C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\source\TricksAndTreats\obj\Debug\net5.0\TricksAndTreats.dll
+C:\Users\Clare Hanlon\Documents\SDV stuff\Halloween Mod Jam 2023\source\TricksAndTreats\obj\Debug\net5.0\TricksAndTreats.csproj.AssemblyReference.cache

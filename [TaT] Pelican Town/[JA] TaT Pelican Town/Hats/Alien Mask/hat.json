@@ -2,7 +2,7 @@
 	//"Name": "TaT.alien-mask",
 	"Name": "Alien Mask",
 	"TranslationKey": "clothes.alien-mask",
-	"PurchasePrice": 1,
+	"PurchasePrice": 250,
 	"ShowHair": true,
 	"IgnoreHairstyleOffset": false,
 }

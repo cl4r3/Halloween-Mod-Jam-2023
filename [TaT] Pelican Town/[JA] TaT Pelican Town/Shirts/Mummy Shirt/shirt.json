@@ -1,7 +1,7 @@
 {
 	"Name": "TaT.mummy-shirt",
-	"TranslationKey": "clothing.mummy-shirt",
+	"TranslationKey": "clothes.mummy-shirt",
 	"HasFemaleVariant": false,
-	"Price": 1,
+	"Price": 250,
 	"Dyable": false
 }

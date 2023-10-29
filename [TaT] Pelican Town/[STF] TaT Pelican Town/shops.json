@@ -6,7 +6,7 @@
 			"ItemStocks": [
 				{
 					"ItemType": "Object",
-					"ItemNames" : [ "TaT.candy-corn", "TaT.licorice-swirl", "TaT.dino-cookie", "TaT.ablaze-orbs", "TaT.raisins",  "TaT.apple-candy", "TaT.vanilla-wafer", "TaT.luxurious-truffle",  
+					"ItemNames" : [ "TaT.candy-corn", "TaT.licorice-swirl", "TaT.dino-cookie", "TaT.ablaze-orbs", "TaT.raisins",  "TaT.candied-apple", "TaT.vanilla-wafer", "TaT.luxurious-truffle",
 					"TaT.peanut-butter-eyecup", "TaT.candied-bacon-stick", "TaT.braincell-gum", "TaT.batsdrop", "TaT.eye-candy", "TaT.ghost-meringue", "TaT.witch-cauldron", "TaT.gingerbread-tombstone",
 					],
 					"When": ["!z fall/u 18 19 20 21 22 23 24 25 26"]
@@ -15,11 +15,11 @@
 		},
 		{
 			"ShopName": "JojaShop",
-			"DefaultPriceMultiplier" : 1,
+			"DefaultPriceMultiplier" : 1.5,
 			"ItemStocks": [
 				{
 					"ItemType": "Object",
-					"ItemNames" : [ "TaT.joja-canes", "TaT.joja-gummies", ],
+					"ItemNames" : [ "TaT.joja-cane", "TaT.joja-gummies", ],
 					"When": ["!z fall/u 18 19 20 21 22 23 24 25 26"]
 				},
 			]
@@ -27,7 +27,8 @@
 	],
 	"Shops":[
 		{
-			"ShopName": "TaT.EmilyCostumeShop",
+			"ShopName": "EmilyCostumeShop",
+			"PortraitPath": "portrait.png",
 			"ItemStocks": [
 				{
 					"ItemType": "Clothing",
@@ -36,16 +37,16 @@
 				},
 				{
 					"ItemType": "Hat",
-					"ItemNames" : [ "TaT.alien-mask", "TaT.mummy-mask", "TaT.stone-golem-mask", "TaT.ghost-mask" ],
+					"ItemNames" : [ "Alien Mask", "Mummy Mask", "Stone Golem Mask", "Ghost Hood" ],
 					"Price": 1500,
-				},			
+				},
 			],
-			"When": ["!z fall/u 18 19 20 21 22 23 24 25 26/t 1000 1900"],
-		    "LocalizedQuote": { 
+			//"When": ["!z fall/u 18 19 20 21 22 23 24 25 26"],
+		    "LocalizedQuote": {
 				"en": "Various costumes for Spirit's Eve!",
 			},
-			"LocalizedClosedMessage": { 
-				"en": "Sorry, the shop is closed for the day!" 
+			"LocalizedClosedMessage": {
+				"en": "Sorry, the shop is closed for the day!"
 			}
 		}
 	]

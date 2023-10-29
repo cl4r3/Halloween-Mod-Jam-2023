@@ -81,15 +81,23 @@ namespace TricksAndTreats
             Log.Debug("TaT: Length of groups is " + groups.Count());
             if (costume is not null)
             {
+                Game1.player.modData[CostumeKey] = costume;
                 Log.Debug("TaT: Costume set to " + costume);
-                Game1.player.currentLocation.localSound("yoba");
+                //Game1.player.currentLocation.localSound("yoba");
                 Game1.player.activeDialogueEvents.Add(CostumeCT + costume, 1);
+                Game1.player.activeDialogueEvents.Add(TreatCT, 1);
             }
             else
             {
                 var costume_ct = Game1.player.activeDialogueEvents.Keys.ToList().Find(ct => ct.StartsWith(CostumeCT));
                 if (costume_ct is not null)
+                {
+                    if (Game1.player.modData.ContainsKey(CostumeKey))
+                        Game1.player.modData.Remove(CostumeKey);
                     Game1.player.activeDialogueEvents.Remove(costume_ct);
+                    Game1.player.activeDialogueEvents.Remove(TreatCT);
+                }
+                   
             }
         }
     }

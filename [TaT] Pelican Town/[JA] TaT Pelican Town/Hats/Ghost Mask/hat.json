@@ -2,7 +2,7 @@
 	//"Name": "TaT.ghost-mask",
 	"Name": "Ghost Hood",
 	"TranslationKey": "clothes.ghost-mask",
-	"PurchasePrice": 1,
+	"PurchasePrice": 250,
 	"ShowHair": false,
 	"IgnoreHairstyleOffset": false,
 }

@@ -24,7 +24,7 @@ namespace TricksAndTreats
             Helper = ModInstance.Helper;
             Monitor = ModInstance.Monitor;
 
-            Helper.Events.GameLoop.DayStarted += CheckCandyCT;
+            //Helper.Events.GameLoop.DayStarted += CheckCandyCT;
             Helper.Events.GameLoop.SaveLoaded += CheckCandyGivers;
             SpaceEvents.BeforeGiftGiven += TreatForNPC;
         }
