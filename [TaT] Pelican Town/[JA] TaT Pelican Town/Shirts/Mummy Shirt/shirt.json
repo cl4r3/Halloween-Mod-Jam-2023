@@ -3,5 +3,5 @@
 	"TranslationKey": "clothes.mummy-shirt",
 	"HasFemaleVariant": false,
 	"Price": 250,
-	"Dyable": false
+	"PurchaseFrom": "",
 }

@@ -3,7 +3,7 @@
 	"Name": "Mummy Mask",
 	"TranslationKey": "clothes.mummy-mask",
 	"PurchasePrice": 250,
-	"PurchaseFrom": "STF.EmilyCostumeShop",
+	"PurchaseFrom": "",
 	"CanPurchase": true,
 	"ShowHair": false,
 	"IgnoreHairstyleOffset": true

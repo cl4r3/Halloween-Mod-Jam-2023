@@ -2,6 +2,7 @@
 	"Name": "TaT.candy-corn",
 	"TranslationKey": "objects.candy-corn",
 	"CanPurchase": true,
+	"PurchaseFrom": "Vanilla!PierreShop, JojaMart",
 	"PurchasePrice": 50,
 	"PurchaseRequirements": [ "!z fall/u 18 19 20 21 22 23 24 25 26" ],
 	"Price": 25,

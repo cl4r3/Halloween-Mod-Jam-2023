@@ -4,7 +4,7 @@
 	"TranslationKey": "clothes.alien-mask",
 	"PurchasePrice": 250,
 	"CanPurchase": true,
-	"PurchaseFrom": "STF.EmilyCostumeShop",
+	"PurchaseFrom": "",
 	"ShowHair": true,
 	"IgnoreHairstyleOffset": false,
 }

@@ -3,7 +3,7 @@
 	"Name": "Ghost Hood",
 	"TranslationKey": "clothes.ghost-mask",
 	"PurchasePrice": 250,
-	"PurchaseFrom": "STF.EmilyCostumeShop",
+	"PurchaseFrom": "",
 	"CanPurchase": true,
 	"ShowHair": false,
 	"IgnoreHairstyleOffset": false,

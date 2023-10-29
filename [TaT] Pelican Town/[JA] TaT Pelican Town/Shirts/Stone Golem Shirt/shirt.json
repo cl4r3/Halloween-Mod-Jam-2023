@@ -3,4 +3,5 @@
 "TranslationKey": "clothes.stone-golem-shirt",
 "Price": 250,
 "HasFemaleVariant": false,
+"PurchaseFrom": "",
 }

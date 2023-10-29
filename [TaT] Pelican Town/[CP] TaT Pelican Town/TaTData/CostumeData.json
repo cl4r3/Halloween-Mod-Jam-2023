@@ -29,18 +29,6 @@
           "Top": "Steel Breastplate",
           "Bottom": "TaT.chainmail-pants",
         },
-		"Wizard": {
-          "Hat": "Arcane Hat", //There's Witch's hat too?
-          "Top": "Arcane Shirt",
-        },
-		"Caveman": {
-          "Hat": "Hair Bone",
-          "Top": "Caveman Shirt",
-        },
-		"Dino": {
-          "Hat": "Dino Hat",
-          "Bottom": "Dino Pants",
-        },
         "Skeleton": {
           "Hat": "Skeleton Mask",
           "Top": "Skeleton Shirt",
@@ -64,6 +52,20 @@
           "Top": "TaT.mummy-shirt",
           "Bottom": "TaT.mummy-pants",
         },
+    /*
+    "Wizard": {
+          "Hat": "Arcane Hat", //There's Witch's hat too?
+          "Top": "Arcane Shirt",
+        },
+    "Caveman": {
+          "Hat": "Hair Bone",
+          "Top": "Caveman Shirt",
+        },
+    "Dino": {
+          "Hat": "Dino Hat",
+          "Bottom": "Dino Pants",
+        },
+    */
       },
     },
   ]

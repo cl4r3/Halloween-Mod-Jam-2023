@@ -2,5 +2,6 @@
 "Name": "TaT.goblin-shirt",
 "TranslationKey": "clothes.goblin-shirt",
 "Price": 250,
+"PurchaseFrom": "",
 "HasFemaleVariant": false,
 }
