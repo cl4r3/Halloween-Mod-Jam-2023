@@ -1,7 +1,10 @@
 {
 	"Name": "TaT.candied-bacon-stick",
 	"TranslationKey": "objects.candied-bacon-stick",
+	"CanPurchase": true,
+	"PurchaseRequirements": [ "!z fall/u 18 19 20 21 22 23 24 25 26" ],
+	"PurchasePrice": 200,
+	"Price": 100,
 	"Edibility": 30,
 	"EdibleIsDrink": false,
-	"Price": 200,
 }

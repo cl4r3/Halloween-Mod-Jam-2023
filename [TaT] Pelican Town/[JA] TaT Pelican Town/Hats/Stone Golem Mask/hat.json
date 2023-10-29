@@ -3,6 +3,8 @@
 	"Name": "Stone Golem Mask",
 	"TranslationKey": "clothes.stone-golem-mask",
 	"PurchasePrice": 250,
+	"CanPurchase": true,
+	"PurchaseFrom": "STF.EmilyCostumeShop",
 	"ShowHair": true,
 	"IgnoreHairstyleOffset": false,
 }

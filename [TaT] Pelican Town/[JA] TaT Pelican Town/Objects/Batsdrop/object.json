@@ -1,7 +1,10 @@
 {
 	"Name": "TaT.batsdrop",
 	"TranslationKey": "objects.batsdrop",
+	"CanPurchase": true,
+	"PurchaseRequirements": [ "!z fall/u 18 19 20 21 22 23 24 25 26" ],
 	"Edibility": 100,
 	"EdibleIsDrink": false,
-	"Price": 2500,
+	"PurchasePrice": 2500,
+	"Price": 1250,
 }

@@ -3,6 +3,8 @@
 	"Name": "Alien Mask",
 	"TranslationKey": "clothes.alien-mask",
 	"PurchasePrice": 250,
+	"CanPurchase": true,
+	"PurchaseFrom": "STF.EmilyCostumeShop",
 	"ShowHair": true,
 	"IgnoreHairstyleOffset": false,
 }
