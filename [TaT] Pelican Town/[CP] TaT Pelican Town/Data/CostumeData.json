@@ -22,12 +22,12 @@
         "Goblin": {
           "Hat": "Goblin Mask",
           "Top": "TaT.goblin-shirt",
-          "Pants": "TaT.goblin-pants",
+          "Bottom": "TaT.goblin-pants",
         },
         "Knight": {
           "Hat": "Knight's Helmet", //There's Squire's Helmet too but its too easy to obtain if you ask me :sweatsmile:
           "Top": "Steel Breastplate",
-          "Pants": "TaT.chainmail-pants",
+          "Bottom": "TaT.chainmail-pants",
         },
 		"Wizard": {
           "Hat": "Arcane Hat", //There's Witch's hat too?
@@ -39,30 +39,30 @@
         },
 		"Dino": {
           "Hat": "Dino Hat",
-          "Pants": "Dino Pants",
+          "Bottom": "Dino Pants",
         },
         "Skeleton": {
           "Hat": "Skeleton Mask",
           "Top": "Skeleton Shirt",
-          "Pants": "TaT.skeleton-pants",
+          "Bottom": "TaT.skeleton-pants",
         },
 		"Stone Golem": {
           //"Hat": "TaT.stone-golem-mask",
           "Hat": "Stone Golem Mask",
           "Top": "TaT.stone-golem-shirt",
-          "Pants": "TaT.stone-golem-pants",
+          "Bottom": "TaT.stone-golem-pants",
         },
 		"Ghost": {
           //"Hat": "TaT.ghost-mask",
           "Hat": "Ghost Hood",
           "Top": "TaT.ghost-shirt",
-          "Pants": "TaT.ghost-skirt",
+          "Bottom": "TaT.ghost-skirt",
         },
 		"Mummy": {
           //"Hat": "TaT.mummy-mask",
           "Hat": "Mummy Mask",
           "Top": "TaT.mummy-shirt",
-          "Pants": "TaT.mummy-pants",
+          "Bottom": "TaT.mummy-pants",
         },
       },
     },
