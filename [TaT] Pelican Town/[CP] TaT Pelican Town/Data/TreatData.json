@@ -34,7 +34,7 @@
         },
         "Prismatic Rock Candy": {
           "HalloweenOnly": false,
-          "Flavors": [ "candy", ],
+          "Universal": "love",
         },
 
         // Mod items
@@ -42,70 +42,70 @@
           "HalloweenOnly": true,
           "Flavors": [ "candy", "sweet", ],
         },
-		"TaT.licorice-swirl": {
-          "HalloweenOnly": true,
-          "Flavors": [ "sweet", "sour", "salty", "healthy"],
-        },
-		"TaT.dino-cookie": {
-          "HalloweenOnly": true,
-          "Flavors": [ "hot" ],
-        },
-		"TaT.raisins": {
-          "HalloweenOnly": true,
-          "Flavors": [ "healthy", "sweet", ],
-        },
-		"TaT.ablaze-orbs": {
-          "HalloweenOnly": true,
-          "Flavors": [ "candy", "hot", ],
-        },
-		"TaT.apple-candy": {
-          "HalloweenOnly": true,
-          "Flavors": [ "healthy", "sweet", "candy" ],
-        },
-		"TaT.peanut-butter-eyecup": {
-          "HalloweenOnly": true,
-          "Flavors": [ "salty", "sweet", ],
-        },
-		"TaT.candied-bacon-stick": {
-          "HalloweenOnly": true,
-          "Flavors": [ "fatty", "sweet", ],
-        },
-		"TaT.braincell-gum": {
-          "HalloweenOnly": true,
-          "Flavors": [ "candy", "sweet", ],
-        },
-		"TaT.batsdrop": {
-          "HalloweenOnly": true,
-          "Universal": "love",
-        },
-		"TaT.eye-candy": {
-          "HalloweenOnly": true,
-          "Flavors": [ "candy", "sour", ],
-        },
-		"TaT.luxurious-truffle": {
-          "HalloweenOnly": true,
-          "Flavors": [ "gourmet", "salty", "sweet", "candy"],
-        },
-		"TaT.ghost-meringue": {
-          "HalloweenOnly": true,
-          "Flavors": [ "sweet", "gourmet" ],
-        },
-		"TaT.witch-cauldron": {
-          "HalloweenOnly": true,
-          "Flavors": [ "sour", ],
-        },
-		"TaT.gingerbread-tombstone": {
-          "HalloweenOnly": true,
-          "Flavors": [ "hot", "sweet", ],
-        },
-		"TaT.joja-canes": {
-          "HalloweenOnly": true,
-          "Flavors": [ "joja", "candy", "sweet", ],
-        },
-		"TaT.joja-gummies": {
-          "HalloweenOnly": true,
-          "Flavors": [ "joja", "candy", "sour", ],
-        },
+  		"TaT.licorice-swirl": {
+            "HalloweenOnly": true,
+            "Flavors": [ "sweet", "sour", "salty", "healthy"],
+          },
+  		"TaT.dino-cookie": {
+            "HalloweenOnly": true,
+            "Flavors": [ "hot" ],
+          },
+  		"TaT.raisins": {
+            "HalloweenOnly": true,
+            "Universal": "hate",
+          },
+  		"TaT.ablaze-orbs": {
+            "HalloweenOnly": true,
+            "Flavors": [ "candy", "hot", ],
+          },
+  		"TaT.candied-apple": {
+            "HalloweenOnly": true,
+            "Flavors": [ "healthy", "sweet", "candy" ],
+          },
+  		"TaT.peanut-butter-eyecup": {
+            "HalloweenOnly": true,
+            "Flavors": [ "salty", "sweet", ],
+          },
+  		"TaT.candied-bacon-stick": {
+            "HalloweenOnly": true,
+            "Flavors": [ "fatty", "sweet", ],
+          },
+  		"TaT.braincell-gum": {
+            "HalloweenOnly": true,
+            "Flavors": [ "candy", "sweet", ],
+          },
+  		"TaT.batsdrop": {
+            "HalloweenOnly": true,
+            "Universal": "love",
+          },
+  		"TaT.eye-candy": {
+            "HalloweenOnly": true,
+            "Flavors": [ "candy", "sour", ],
+          },
+  		"TaT.luxurious-truffle": {
+            "HalloweenOnly": true,
+            "Flavors": [ "gourmet", "salty", "sweet", "candy"],
+          },
+  		"TaT.ghost-meringue": {
+            "HalloweenOnly": true,
+            "Flavors": [ "sweet", "gourmet" ],
+          },
+  		"TaT.witch-cauldron": {
+            "HalloweenOnly": true,
+            "Flavors": [ "sour", ],
+          },
+  		"TaT.gingerbread-tombstone": {
+            "HalloweenOnly": true,
+            "Flavors": [ "hot", "sweet", ],
+          },
+  		"TaT.joja-cane": {
+            "HalloweenOnly": true,
+            "Flavors": [ "joja", "candy", "sweet", ],
+          },
+  		"TaT.joja-gummies": {
+            "HalloweenOnly": true,
+            "Flavors": [ "joja", "candy", "sour", ],
+          },
       },
     },
   ]

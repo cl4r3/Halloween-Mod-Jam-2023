@@ -1,7 +1,10 @@
 {
-	"Name": "TaT.alien-mask",
+	//"Name": "TaT.alien-mask",
+	"Name": "Alien Mask",
 	"TranslationKey": "clothes.alien-mask",
-	"PurchasePrice": 1,
+	"PurchasePrice": 250,
+	"CanPurchase": true,
+	"PurchaseFrom": "STF.EmilyCostumeShop",
 	"ShowHair": true,
 	"IgnoreHairstyleOffset": false,
 }

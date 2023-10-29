@@ -1,7 +1,10 @@
 {
-	"Name": "TaT.stone-golem-mask",
+	//"Name": "TaT.stone-golem-mask",
+	"Name": "Stone Golem Mask",
 	"TranslationKey": "clothes.stone-golem-mask",
-	"PurchasePrice": 1,
+	"PurchasePrice": 250,
+	"CanPurchase": true,
+	"PurchaseFrom": "STF.EmilyCostumeShop",
 	"ShowHair": true,
 	"IgnoreHairstyleOffset": false,
 }

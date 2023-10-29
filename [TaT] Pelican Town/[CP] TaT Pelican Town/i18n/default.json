@@ -1,17 +1,178 @@
 {
 
-//-------------------------
-// Villager treat reactions
-//-------------------------
+  "abigail.fall_27": "Mom and Dad said I'm too old to trick-or-treat...$s#$b#But I told them that if I'm too old for that, then I'm also too old to have to listen to them.$h",
+  "abigail.loved_treat": "Whoa, this looks delicious! Thanks, @!$h",
+  "abigail.neutral_treat": "Thanks for the treat, @!",
+  "abigail.hated_treat": "...Aww, for real?$s",
+  "abigail.before_trick": "Wait a second! I see a silver lining here...$h",
+  "abigail.after_trick": "Sorry, I couldn't resist! Don't hold it against me, okay?$h",
 
-"love.haley": "Aww, what a cute little treat! Thanks, @.$h",
-"neutral.haley": "Hehe, thanks!",
-"hate.haley": "Um, ew.$a#$b#Didn't anyone ever tell you that Spirit's Eve candy is supposed to be, like, good?$a",
+  "emily.fall_27": "If you're looking for treats, Haley made a bunch to hand out.",
+  "emily.loved_treat": "I've never seen a Spirit's Eve treat with such artistry! Thank you, @!$h",
+  "emily.neutral_treat": "For me? Thanks, @!",
+  "emily.hated_treat": "@, this looks awful. It hardly counts as a treat.$s",
+  "emily.before_trick": "Well, you know what that means, right?$h",
+  "emily.after_trick": "Haha, don't worry! It's just paint. It'll be gone by tomorrow.",
 
-//-------------------------------
-// Villager treat-giving dialogue
-//-------------------------------
+  "haley.fall_27": "Emily, why don't you go get some treats for us instead of standing here? I want to try what the others have made.",
+  "haley.loved_treat": "Aww, what a cute little treat! Thanks, @.$h",
+  "haley.neutral_treat": "Hehe, thanks!",
+  "haley.hated_treat": "Um, ew.$a#$b#Didn't anyone ever tell you that Spirit's Eve candy is supposed to be, like, good?$a",
+  "haley.give_candy": "@, @! Take one of these - I made them myself, y'know!$h",
 
-"give-treat.evelyn": "My, what a charming costume you have, @!$h#$b#Here, would you like some candy? Happy Spirit's Eve!",
+  "leah.fall_27": "I would've handed out treats from my house, but no trick-or-treaters ever venture out that far, so I thought I'd come here instead.",
+  "leah.loved_treat": "Thanks! I can't wait to try this!$h",
+  "leah.neutral_treat": "Oh, thanks!",
+  "leah.hated_treat": "@, don't you know I can't eat this...?$s",
+  "leah.before_trick": "Wait a second... Oh, no! It's raining paint!$h",
+  "leah.after_trick": "Looks like you got soaked, @! Happy Spirit's Eve!$h",
 
+  "maru.fall_27": "Dad spent all night making those treats, and he wouldn't give me one!$s#$b#Let me know if they're any good, okay?",
+  "maru.loved_treat": "Wow! Thanks, @!$h",
+  "maru.neutral_treat": "Thanks, and happy Spirit's Eve.",
+  "maru.hated_treat": "Um, thanks for the treat, I guess...$s",
+
+  "penny.fall_27": "Mom, I told you already. These treats are for the trick-or-treaters, not us.$s",
+  "penny.loved_treat": "This is for me? @, you're too kind.$h",
+  "penny.neutral_treat": "Oh! Thanks, @.",
+  "penny.hated_treat": "Oh, um... I can give this to my mom, I guess...$s",
+  "penny.give_candy": "Happy Spirit's Eve, @! Excellent costume, by the way.$h",
+
+  "alex.fall_27": "Hey, @. You trick-or-treating this year?",
+  "alex.loved_treat": "Whoa, thanks!$h",
+  "alex.neutral_treat": "Oh, I wasn't planning on eating any treats this year, but this doesn't look half-bad.",
+  "alex.hated_treat": "...Huh. Hey Grandma, is this safe for Dusty to eat?$s",
+
+  "elliott.fall_27": "Spirit's Eve is such a delightful holiday, don't you think?$h",
+  "elliott.loved_treat": "My, this looks spectacular! I can't thank you enough, @.$h",
+  "elliott.neutral_treat": "A treat? Why, don't mind if I do!$h",
+  "elliott.hated_treat": "I can't say I'm a fan of these, but I'll accept it nonetheless...$s",
+
+  "harvey.fall_27": "It's not healthy to eat like this every day, but once in a blue moon is perfectly fine.$h",
+  "harvey.loved_treat": "Now this is my kind of treat! Thanks, @!$h",
+  "harvey.neutral_treat": "Oh, thank you!$h",
+  "harvey.hated_treat": "Have you been eating these, @? Please tell me you haven't been eating these...$s",
+  "harvey.give_candy": "Alright, have one of these - But be careful not to binge on your haul!$h",
+
+  "sam.fall_27": "Mom's handing out treats, so Vincent and I are hitting the town just the two of us today.$h",
+  "sam.loved_treat": "This is, like, my favorite snack ever, @! How'd you know?$h",
+  "sam.neutral_treat": "Whoa! Thanks, @!$h",
+  "sam.hated_treat": "Whoa! Thanks, %firstnameletter--$h#$b#Wait, what even is this...?$s",
+  "sam.before_trick": "Hm, now how to make you pay...?$h",
+  "sam.after_trick": "Sorry, @, but you kinda had that one coming.$h",
+
+  "sebastian.fall_27": "It's a shame everyone's posted outside their homes this year.#$b#Usually Abby and I scope out the houses with buckets of candy out front and pour them all into our pillowcases.$h",
+  "sebastian.loved_treat": "This is pretty great, @! Thanks.$h",
+  "sebastian.neutral_treat": "Thanks.",
+  "sebastian.hated_treat": "Wow, this is totally digusting...",
+  "sebastian.before_trick": "Well, you're practically asking for this...",
+  "sebastian.after_trick": "You know that wasn't personal, right? Spirit's Eve law and all.$h",
+
+  "shane.fall_27": "C'mon, Jas. If you're too slow, they're gonna run out of all the good candy. Trust me.",
+  "shane.loved_treat": "Hey, thanks for the treat, @.$h",
+  "shane.neutral_treat": "Oh, okay. Thanks.$h",
+  "shane.hated_treat": "...Ugh. Don't make me sick.$a",
+
+  "jas.fall_27": "Uncle Shane offered to take me trick-or-treating this year!$h#$b#He's kinda being grumpy about it, but he's always like that.",
+  "jas.loved_treat": "For me? Thank you!$h",
+  "jas.neutral_treat": "Thank you.",
+  "jas.hated_treat": "...Thanks.$s",
+
+  "vincent.fall_27": "Trick-or-treat! Trick-or-treat! Give me something good to eat!$h",
+  "vincent.loved_treat": "Whoa, awesome! Sam, Sam, check this out!$h",
+  "vincent.neutral_treat": "Yay, a treat! Thank you!$h",
+  "vincent.hated_treat": "Haha, yuck!$h",
+  "vincent.before_trick": "Trick-or-treat with no treat means...$h",
+  "vincent.after_trick": "Haha! Hope you like eggs!$h",
+
+  "caroline.fall_27": "Have you tried one of Pierre's treats, @? He's been boasting about them all day.",
+  "caroline.loved_treat": "{{i18n:caroline.loved_treat}}",
+  "caroline.neutral_treat": "{{i18n:caroline.neutral_treat}}",
+  "caroline.hated_treat": "{{i18n:caroline.hated_treat}}",
+
+  "clint.fall_27": "@, is that you? I thought everyone had forgotten about me over here...$s",
+  "clint.loved_treat": "{{i18n:clint.loved_treat}}",
+  "clint.neutral_treat": "{{i18n:clint.neutral_treat}}",
+  "clint.hated_treat": "{{i18n:clint.hated_treat}}",
+  "clint.give_candy": "Well, take this. As thanks for coming all this way.",
+
+  "demetrius.fall_27": "Hello, and happy Spirit's Eve, @!$h#$b#Hm... Well, it's not technically the \"eve\" yet, is it? I suppose it's more like Spirit's Eve Day...#$b#Happy Spirit's Eve Day, @!$h",
+  "demetrius.loved_treat": "{{i18n:demetrius.loved_treat}}",
+  "demetrius.neutral_treat": "{{i18n:demetrius.neutral_treat}}",
+  "demetrius.hated_treat": "{{i18n:demetrius.hated_treat}}",
+  "demetrius.give_candy": "Here's your treat, then!$h#$b#Oh, and don't let Maru try one - These are far too spicy for her.",
+
+  "evelyn.fall_27": "It's always such a pleasure to see the town abuzz like this. Don't you agree, @?$h",
+  "evelyn.loved_treat": "{{i18n:evelyn.loved_treat}}",
+  "evelyn.neutral_treat": "For me? That's very thoughtful of you, dear.",
+  "evelyn.hated_treat": "{{i18n:evelyn.hated_treat}}",
+  "evelyn.give_candy": "My, what a charming costume you have, @!$h#$b#Here, would you like some candy? Happy Spirit's Eve!",
+
+  "george.fall_27": "Evelyn always hauls me outside for the whole darn day on Spirit's Eve.#$b#Well I'm not going to that party tonight, I'll tell you that.",
+  "george.loved_treat": "Why, what a surprise! Thanks, kid.$h",
+  "george.neutral_treat": "For me? Alright, I'll take it. Thanks.",
+  "george.hated_treat": "Do you really think I'd eat this garbage? Get it out of my face.$a",
+
+  "gus.fall_27": "Desserts aren't my favorite type of dish to cook, but they're certainly wonderful to eat!$h",
+  "gus.loved_treat": "{{i18n:gus.loved_treat}}",
+  "gus.neutral_treat": "{{i18n:gus.neutral_treat}}",
+  "gus.hated_treat": "{{i18n:gus.hated_treat}}",
+  "gus.give_candy": "This is a recipe I only ever bust out for today! I hope you like it.$h",
+
+  "jodi.fall_27": "I told Sam not to let his brother eat too much candy... He better have listened to me...$s",
+  "jodi.loved_treat": "{{i18n:jodi.loved_treat}}",
+  "jodi.neutral_treat": "{{i18n:jodi.neutral_treat}}",
+  "jodi.hated_treat": "{{i18n:jodi.hated_treat}}",
+  "jodi.give_candy": "Huh? Oh, right - Here's your treat!$h",
+
+  "kent.fall_27": "I was planning on going with the boys, but I didn't want to leave Jodi all alone. So here I am.",
+  "kent.loved_treat": "{{i18n:kent.loved_treat}}",
+  "kent.neutral_treat": "{{i18n:kent.neutral_treat}}",
+  "kent.hated_treat": "{{i18n:kent.hated_treat}}",
+
+  "lewis.fall_27": "Happy Spirit's Eve, @! Are you planning on coming to the party tonight?#$b#I hope to see you there!$h",
+  "lewis.loved_treat": "{{i18n:lewis.loved_treat}}",
+  "lewis.neutral_treat": "{{i18n:lewis.neutral_treat}}",
+  "lewis.hated_treat": "{{i18n:lewis.hated_treat}}",
+  "lewis.give_candy": "Here you go, @. Have fun!$h",
+
+  "linus.fall_27": "I'm sorry I don't have anything to give you, @. But I hope you enjoy today regardless.",
+  "linus.loved_treat": "{{i18n:linus.loved_treat}}",
+  "linus.neutral_treat": "{{i18n:linus.neutral_treat}}",
+  "linus.hated_treat": "{{i18n:linus.hated_treat}}",
+
+  "marnie.fall_27": "Oh, @! Did you seen Shane and Marnie out there? How are they doing?",
+  "marnie.loved_treat": "{{i18n:marnie.loved_treat}}",
+  "marnie.neutral_treat": "{{i18n:marnie.neutral_treat}}",
+  "marnie.hated_treat": "{{i18n:marnie.hated_treat}}",
+
+  "pam.fall_27": "There's this old saying-- How does it go again...?#$b#\"Candy is dandy, but liquor is quicker!\"",
+  "pam.loved_treat": "{{i18n:pam.loved_treat}}",
+  "pam.neutral_treat": "{{i18n:pam.neutral_treat}}",
+  "pam.hated_treat": "{{i18n:pam.hated_treat}}",
+  "pam.before_trick": "Hey, kid. You know how today works, right?",
+  "pam.after_trick": "Hope that wasn't too important to you! Ha!$h",
+
+  "pierre.fall_27": "If you get any Joja candy, you should just throw it out. I heard they don't even use real sugar, you know.",
+  "pierre.loved_treat": "{{i18n:pierre.loved_treat}}",
+  "pierre.neutral_treat": "{{i18n:pierre.neutral_treat}}",
+  "pierre.hated_treat": "{{i18n:pierre.hated_treat}}",
+  "pierre.give_candy": "Here. The best treat you'll have all night, or your money back!$h#$b#...Just to be clear, you know that's a joke, right?",
+
+  "robin.fall_27": "Demetrius and Maru are arguing over something over there... I'm afraid to butt in.$s",
+  "robin.loved_treat": "{{i18n:robin.loved_treat}}",
+  "robin.neutral_treat": "{{i18n:robin.neutral_treat}}",
+  "robin.hated_treat": "{{i18n:robin.hated_treat}}",
+
+  "willy.fall_27": "I saw Clint all by his lonesome, so I thought I'd come keep him company!$h",
+  "willy.loved_treat": "{{i18n:willy.loved_treat}}",
+  "willy.neutral_treat": "{{i18n:willy.neutral_treat}}",
+  "willy.hated_treat": "{{i18n:willy.hated_treat}}",
+
+  "wizard.fall_27": "@? What are you doing out here? Shouldn't you be in town with the locals?",
+  "wizard.loved_treat": "This is an excellent treat. Thank you.$h",
+  "wizard.neutral_treat": "Candy? For Spirit's Eve? Interesting...",
+  "wizard.hated_treat": "This smells absolutely repugnant.$a",
+  "wizard.before_trick": "Perhaps I need to teach you a lesson...",
+  "wizard.after_trick": "Now begone. I have much to attend to this evening.",
 }

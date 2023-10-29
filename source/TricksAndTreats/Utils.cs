@@ -22,18 +22,14 @@ namespace TricksAndTreats
 
     internal class Utils
     {
-        public static void ClearAndPushDialogue(NPC npc, string key, int item_id = -1)
+        public static void Speak(NPC npc, string key, bool clear = true)
         {
-            string gift = "";
-            if (item_id != -1)
-            {
-                gift = $" [{item_id}]";
-            }
-            npc.CurrentDialogue.Clear();
+            if (clear)
+                npc.CurrentDialogue.Clear();
             if (!string.IsNullOrWhiteSpace(key) && npc.Dialogue.TryGetValue(key, out string dialogue))
-                npc.CurrentDialogue.Push(new Dialogue(dialogue + gift, npc));
+                npc.CurrentDialogue.Push(new Dialogue(dialogue, npc));
             else
-                npc.CurrentDialogue.Push(new Dialogue(Helper.Translation.Get("generic." + key + gift), npc));
+                npc.CurrentDialogue.Push(new Dialogue(Helper.Translation.Get("generic." + key), npc));
             Game1.drawDialogue(npc);
         }
 
@@ -45,6 +41,7 @@ namespace TricksAndTreats
                 {
                     Log.Warn($"Entry {entry.Key} in Trick-or-Treat NPC Data does not appear to be a valid NPC.");
                     NPCData.Remove(entry.Key);
+                    continue;
                 }
                 var roles = Array.ConvertAll(entry.Value.Roles, d => d.ToLower());
                 if (roles.Except(ValidRoles).ToArray().Length > 0)
@@ -62,7 +59,8 @@ namespace TricksAndTreats
                 }
                 else if (NPCData[entry.Key].Roles.Contains("candygiver"))
                 {
-                    NPCData[entry.Key].TreatsToGive = Array.Empty<string>().Append("TaT.candy-corn").ToArray();
+                    var treat = Helper.ModRegistry.IsLoaded("ch20youk.TaTPelicanTown.CP") ? "TaT.candy-corn" : "Maple Bar";
+                    NPCData[entry.Key].TreatsToGive = Array.Empty<string>().Append(treat).ToArray();
                 }
 
                 if (entry.Value.PreferredTricks is not null)
@@ -97,41 +95,18 @@ namespace TricksAndTreats
                 {
                     Log.Warn($"Could not find any data for costume set {entry.Key}.");
                     CostumeData.Remove(entry.Key);
-                    return;
+                    continue;
                 }
                 if (entry.Value.Hat is not null && entry.Value.Hat.Length > 0)
-                {
-                    CostumeData[entry.Key].HatId = JA.GetHatId(entry.Value.Hat);
-                    if (CostumeData[entry.Key].HatId is null)
-                    {
-                        Log.Warn($"Could not find hat named {entry.Value.Hat} for costume set {entry.Key}.");
-                        CostumeData.Remove(entry.Key);
-                        continue;
-                    }
                     count++;
-                }
+                else { CostumeData[entry.Key].Hat = ""; } 
                 if (entry.Value.Top is not null && entry.Value.Top.Length > 0)
-                {
-                    CostumeData[entry.Key].TopId = JA.GetClothingId(entry.Value.Hat);
-                    if (CostumeData[entry.Key].TopId is null)
-                    {
-                        Log.Warn($"Could not find top named {entry.Value.Top} for costume set {entry.Key}.");
-                        CostumeData.Remove(entry.Key);
-                        continue;
-                    }
                     count++;
-                }
-                if (entry.Value.Bot is not null && entry.Value.Bot.Length > 0)
-                {
-                    CostumeData[entry.Key].BotId = JA.GetClothingId(entry.Value.Bot);
-                    if (CostumeData[entry.Key].BotId is null)
-                    {
-                        Log.Warn($"Could not find top named {entry.Value.Bot} for costume set {entry.Key}.");
-                        CostumeData.Remove(entry.Key);
-                        continue;
-                    }
+                else { CostumeData[entry.Key].Top = ""; }
+                if (entry.Value.Bottom is not null && entry.Value.Bottom.Length > 0)
                     count++;
-                }
+                else { CostumeData[entry.Key].Bottom = ""; }
+
                 CostumeData[entry.Key].NumPieces = count;
             }
         }

@@ -23,13 +23,15 @@ namespace TricksAndTreats
         private const string TreatsExt = ".Treats";
 
         internal const string HouseFlag = "TaT.VillageTrick";
-        internal const string HouseCT = "TaT.VillageTrickCT";
-        internal const string CostumeCT = "TaT.CostumeCT-";
+        internal const string HouseCT = "house_pranked";
+        internal const string CostumeCT = "costume_react-";
+        internal const string TreatCT = "give_candy";
 
         internal const string PaintKey = "TaT.previous-skin";
         internal const string EggKey = "TaT.stolen-item";
         internal const string ScoreKey = "TaT.treat-score";
         internal const string CostumeKey = "TaT.costume-set";
+        internal const string GiftedKey = "TaT.regular-gift-attempts";
 
         internal static string[] ValidRoles = { "candygiver", "candytaker", "trickster", "observer", };
         internal static string[] ValidTricks = { "egg", "paint", "all", };
@@ -49,10 +51,31 @@ namespace TricksAndTreats
             helper.Events.Content.AssetReady += OnAssetReady;
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
+            helper.Events.GameLoop.TimeChanged += OnTimeChange;
 
             Tricks.Initialize(this);
-            Treats.Initialize(this, harmony);
-            Costumes.Initialize(this, harmony);
+            Treats.Initialize(this);
+            Costumes.Initialize(this);
+        }
+
+        private void OnTimeChange(object sender, TimeChangedEventArgs e)
+        {
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
+            {
+                if (Game1.timeOfDay < 2200)
+                {
+                    Game1.whereIsTodaysFest = null;
+                }
+                else if(Game1.timeOfDay >= 2200)
+                {
+                    Game1.whereIsTodaysFest = "Town";
+                }
+                if (Game1.timeOfDay == 2200)
+                {
+                    if (Game1.player.currentLocation.Name == "Town")
+                        Game1.warpFarmer("BusStop", 34, 23, 3);
+                }
+            }
         }
 
         private void OnAssetRequested(object sender, AssetRequestedEventArgs e)

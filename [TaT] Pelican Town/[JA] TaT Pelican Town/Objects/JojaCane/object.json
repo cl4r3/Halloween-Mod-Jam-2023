@@ -1,11 +1,11 @@
-{
-	"Name": "TaT.joja-gummies",
-	"TranslationKey": "objects.joja-gummies",
+{ 
+	"Name": "TaT.joja-cane",
+	"TranslationKey": "objects.joja-cane",
 	"Edibility": 5,
 	"EdibleIsDrink": false,
 	"CanPurchase": true,
 	"PurchaseFrom": "JojaMart",
+	"PurchasePrice": 20, 
 	"PurchaseRequirements": [ "!z fall/u 18 19 20 21 22 23 24 25 26" ],
-	"PurchasePrice": 20,
 	"Price": 20,
 }

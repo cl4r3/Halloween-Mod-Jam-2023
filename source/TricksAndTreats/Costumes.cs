@@ -1,8 +1,8 @@
-﻿using HarmonyLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using StardewValley;
+using StardewValley.Menus;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using static TricksAndTreats.ModEntry;
@@ -14,99 +14,91 @@ namespace TricksAndTreats
         static IModHelper Helper;
         static IMonitor Monitor;
 
-        internal static void Initialize(IMod ModInstance, Harmony harmony)
+        internal static void Initialize(IMod ModInstance)
         {
             Helper = ModInstance.Helper;
             Monitor = ModInstance.Monitor;
 
-            Helper.Events.GameLoop.SaveLoaded += (object sender, SaveLoadedEventArgs e) => { CheckForCostumeSet(); };
-
-            harmony.Patch(
-                original: AccessTools.Method(typeof(Farmer), "changeHat"),
-                postfix: new HarmonyMethod(typeof(Costumes), nameof(changeClothes))
-            );
-            harmony.Patch(
-                original: AccessTools.Method(typeof(Farmer), "changeShirt"),
-                postfix: new HarmonyMethod(typeof(Costumes), nameof(changeClothes))
-            );
-            harmony.Patch(
-                original: AccessTools.Method(typeof(Farmer), "changePantStyle"),
-                postfix: new HarmonyMethod(typeof(Costumes), nameof(changeClothes))
-            );
+            Helper.Events.GameLoop.DayStarted += (object sender, DayStartedEventArgs e) => { CheckForCostume(); };
+            Helper.Events.Display.MenuChanged += OnMenuChanged;
         }
 
-        private static void changeClothes(Farmer __instance, int __0)
+        private static void OnMenuChanged(object sender, MenuChangedEventArgs e)
         {
-            if (CheckForCostumeSet())
-            {
-                var costume = IsWearingSet(__instance);
-                if (costume is not null)
-                {
-                    Log.Debug("TaT: Costume set is " + costume);
-                    __instance.activeDialogueEvents.Add(CostumeCT + costume, 1);
-                }
-                else
-                {
-                    var costume_ct = __instance.activeDialogueEvents.Keys.ToList().Find(ct => ct.StartsWith(CostumeCT));
-                    if (costume_ct is not null)
-                        __instance.activeDialogueEvents.Remove(costume_ct);
-                }
-            }
+            if (!Context.IsWorldReady || e.OldMenu is null)
+                return;
+
+            //Log.Debug($"TaT: OldMenu is " + e.OldMenu.GetType());
+            if (e.OldMenu is not GameMenu)
+                return;
+
+            CheckForCostume();
         }
 
-         [EventPriority(EventPriority.Low)]
-        internal static bool CheckForCostumeSet()
+        internal static void CheckForCostume()
         {
-            if (!Context.IsWorldReady)
-                return false;
+            if (!Context.IsWorldReady || !(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27))
+                return;
 
+            Log.Debug($"TaT: in ClothingChange");
             Farmer farmer = Game1.player;
 
-            if (!(Game1.currentSeason == "fall" || Game1.dayOfMonth == 27))
-            {
-                if (farmer.modData.ContainsKey(CostumeKey))
-                    farmer.modData.Remove(CostumeKey);
-                return false;
-            }
+            //Utils.ValidateCostumeData();
 
-            if (!farmer.modData.ContainsKey(CostumeKey))
-                farmer.modData.Add(CostumeKey, "//");
+            string hat = farmer.hat.Value is null ? "" : farmer.hat.Value.Name;
+            string top = farmer.shirtItem.Value is null ? "" : farmer.shirtItem.Value.Name;
+            string bot = farmer.pantsItem.Value is null ? "": farmer.pantsItem.Value.Name;
 
-            int hat = farmer.hat.Value.which.Value;
-            int top = farmer.shirt.Value;
-            int bot = farmer.pants.Value;
-            var clothes = farmer.modData[CostumeKey].Split('/');
-
+            string[] clothes = { " ", " ", " " };
+            //Log.Debug($"TaT: Fresh JA pull says hat {JA.GetHatId(CostumeData["Alien"].Hat)}, shirt {JA.GetClothingId(CostumeData["Alien"].Top)}, pants {JA.GetClothingId(CostumeData["Alien"].Bot)}");
+            //var clothes = farmer.modData[CostumeKey].Split('/');
             foreach (KeyValuePair<string, Costume> entry in CostumeData)
             {
-                if (hat == entry.Value.HatId)
-                    clothes.SetValue(entry.Value, 0);
-                if (top == entry.Value.TopId)
-                    clothes.SetValue(entry.Value, 1);
-                if (bot == entry.Value.BotId)
-                    clothes.SetValue(entry.Value, 2);
+                if (hat == entry.Value.Hat)
+                    clothes.SetValue(entry.Key, 0);
+                if (top == entry.Value.Top)
+                    clothes.SetValue(entry.Key, 1);
+                if (bot == entry.Value.Bottom)
+                    clothes.SetValue(entry.Key, 2);
             }
-
-            farmer.modData[CostumeKey] = String.Join("/", clothes);
-            return true;
-        }
-
-        internal static string IsWearingSet(Farmer farmer)
-        {
-            var clothes = farmer.modData[CostumeKey].Split('/');
-            if (clothes[0] == clothes[1] && clothes[1] == clothes[2] && CostumeData[clothes[0]].NumPieces == 3)
-                return clothes[0];
-            if (clothes[0] == clothes[1] || clothes[0] == clothes[2] && CostumeData[clothes[0]].NumPieces == 2)
-                return clothes[0];
-            if (clothes[0] == clothes[1] || clothes[1] == clothes[2] && CostumeData[clothes[1]].NumPieces == 2)
-                return clothes[1];
-            if (!String.IsNullOrWhiteSpace(clothes[0]) && CostumeData[clothes[0]].NumPieces == 1)
-                return clothes[0];
-            if (!String.IsNullOrWhiteSpace(clothes[1]) && CostumeData[clothes[1]].NumPieces == 1)
-                return clothes[1];
-            if (!String.IsNullOrWhiteSpace(clothes[2]) && CostumeData[clothes[2]].NumPieces == 1)
-                return clothes[2];
-            return null;
+            Log.Debug("TaT: clothes is now " + String.Join('/', clothes));
+            string[] costumes_only = Array.Empty<string>();
+            //Log.Debug("TaT: CostumeData contains " + clothes[0] + " is " + CostumeData.ContainsKey(clothes[0]));
+            foreach (string i in clothes)
+            {
+                if (CostumeData.ContainsKey(i))
+                    costumes_only = costumes_only.Append(i).ToArray();
+            }
+            Log.Debug("TaT: Length of costumes_only is " + costumes_only.Length);
+            var groups = costumes_only.GroupBy(v => v);
+            string costume = null;
+            foreach (var group in groups)
+            {
+                Log.Debug("TaT: Clothing group " + group.Key + " " + group.Count());
+                if (CostumeData[group.Key].NumPieces == group.Count())
+                    costume = group.Key;
+            }
+            Log.Debug("TaT: Length of groups is " + groups.Count());
+            if (costume is not null)
+            {
+                Game1.player.modData[CostumeKey] = costume;
+                Log.Debug("TaT: Costume set to " + costume);
+                //Game1.player.currentLocation.localSound("yoba");
+                Game1.player.activeDialogueEvents.Add(CostumeCT + costume, 1);
+                Game1.player.activeDialogueEvents.Add(TreatCT, 1);
+            }
+            else
+            {
+                var costume_ct = Game1.player.activeDialogueEvents.Keys.ToList().Find(ct => ct.StartsWith(CostumeCT));
+                if (costume_ct is not null)
+                {
+                    if (Game1.player.modData.ContainsKey(CostumeKey))
+                        Game1.player.modData.Remove(CostumeKey);
+                    Game1.player.activeDialogueEvents.Remove(costume_ct);
+                    Game1.player.activeDialogueEvents.Remove(TreatCT);
+                }
+                   
+            }
         }
     }
 

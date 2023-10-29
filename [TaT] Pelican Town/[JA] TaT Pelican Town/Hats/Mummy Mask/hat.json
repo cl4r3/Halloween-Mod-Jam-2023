@@ -1,7 +1,10 @@
 {
-	"Name": "TaT.mummy-mask",
+	//"Name": "TaT.mummy-mask",
+	"Name": "Mummy Mask",
 	"TranslationKey": "clothes.mummy-mask",
-	"PurchasePrice": 1,
+	"PurchasePrice": 250,
+	"PurchaseFrom": "STF.EmilyCostumeShop",
+	"CanPurchase": true,
 	"ShowHair": false,
 	"IgnoreHairstyleOffset": true
 }

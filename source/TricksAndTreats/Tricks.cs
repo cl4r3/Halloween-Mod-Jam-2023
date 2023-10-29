@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 using StardewValley;
 using StardewValley.Buildings;
 using StardewValley.Locations;
@@ -24,9 +25,31 @@ namespace TricksAndTreats
             Monitor = ModInstance.Monitor;
 
             Helper.Events.Content.AssetRequested += OnAssetRequested;
+            Helper.Events.GameLoop.SaveLoaded += CheckTricksters;
             Helper.Events.GameLoop.DayStarted += OnDayStart;
             Helper.Events.GameLoop.DayEnding += OnDayEnd;
             Helper.Events.Multiplayer.PeerConnected += (object sender, PeerConnectedEventArgs e) => { ReloadHouseExteriorsMaybe(); };
+        }
+
+        [EventPriority(EventPriority.Low)]
+        private static void CheckTricksters(object sender, SaveLoadedEventArgs e)
+        {
+            foreach (KeyValuePair<string, Celebrant> entry in NPCData)
+            {
+                if (entry.Value.Roles.Contains("trickster"))
+                {
+                    NPC npc = Game1.getCharacterFromName(entry.Key);
+                    if (!npc.Dialogue.ContainsKey("hated_treat"))
+                    {
+                        npc.Dialogue.Add("hated_treat", Helper.Translation.Get("generic.hated_treat"));
+                    }
+                    if (!npc.Dialogue.ContainsKey("before_trick"))
+                    {
+                        npc.Dialogue.Add("before_trick", Helper.Translation.Get("generic.before_trick"));
+                    }
+                    npc.Dialogue["before_trick"] = npc.Dialogue["hated_treat"] + "#$b#" + npc.Dialogue["before_trick"];
+                }
+            }
         }
 
         private static void OnDayEnd(object sender, DayEndingEventArgs e)
@@ -124,11 +147,11 @@ namespace TricksAndTreats
             Farmer farmer = Game1.player;
             Random random = new();
 
-            Utils.ClearAndPushDialogue(npc, "before_trick");
+            Utils.Speak(npc, "before_trick");
 
             Game1.afterDialogues = delegate
             {
-                string after_trick = npc.Dialogue.ContainsKey("after_trick") ? "after_trick" : "generic.after_trick";
+                string after_trick = "after_trick";
                 var tricks = NPCData[npc.Name].PreferredTricks;
                 string trick;
                 if (tricks.Contains("all"))
@@ -147,7 +170,7 @@ namespace TricksAndTreats
                 {
                     case "egg":
                         if (!EggSteal(farmer, random))
-                            after_trick = "generic.cannot_trick";
+                            after_trick = "cannot_trick";
                         break;
                     case "paint":
                         PaintSkin(farmer, random);
@@ -159,7 +182,7 @@ namespace TricksAndTreats
                 DelayedAction.functionAfterDelay(
                     () =>
                     {
-                        Utils.ClearAndPushDialogue(npc, after_trick);
+                        Utils.Speak(npc, after_trick);
                     },
                     1000 // delay in milliseconds
                 );
@@ -179,13 +202,13 @@ namespace TricksAndTreats
             {
                 int idx = random.Next(farmer.MaxItems);
                 Item item = farmer.Items[idx];
-                if (item is not null && item is not Tool && !item.HasContextTag("halloween_treat") && Utility.IsNormalObjectAtParentSheetIndex(item, item.ParentSheetIndex))
+                if (item is not null && item is not Tool && !TreatData.ContainsKey(item.Name) && Utility.IsNormalObjectAtParentSheetIndex(item, item.ParentSheetIndex))
                 {
                     farmer.modData.Add(EggKey, farmer.Items.ElementAt(idx).ParentSheetIndex.ToString());
                     farmer.Items.RemoveAt(idx);
-                    var dud_item = new StardewValley.Object(JA.GetObjectId("TaT.rotten-egg"), 1);
-                    farmer.Items.Insert(idx, dud_item);
-                    farmer.currentLocation.localSound("slimedead");
+                    int dud_item = JA.GetObjectId(Helper.ModRegistry.IsLoaded("ch20youk.TaTPelicanTown.CP") ? "TaT.rotten-egg" : "Egg");
+                    farmer.Items.Insert(idx, new StardewValley.Object(dud_item, 1));
+                    farmer.currentLocation.localSound("shwip");
                     return true;
                 }
             }
