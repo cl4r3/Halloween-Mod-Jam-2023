@@ -5,12 +5,12 @@
     {
       "LogName": "Include TaT data",
       "Action": "Include",
-      "FromFile": "TaTData/CostumeData.json, TaTData/NPCData.json, TaTData/TreatData.json",
+      "FromFile": "Data/TaTData/CostumeData.json, Data/TaTData/NPCData.json, Data/TaTData/TreatData.json",
     },
     {
       "LogName": "Include vanilla changes",
       "Action": "Include",
-      "FromFile": "VanillaChanges/Schedules.json, VanillaChanges/Dialogue.json",
+      "FromFile": "Data/VanillaChanges/Schedules.json, Data/VanillaChanges/Dialogue.json",
     },
     {
       "LogName": "Add Emily's costume shop",

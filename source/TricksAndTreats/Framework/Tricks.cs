@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using StardewValley;
 using StardewValley.Buildings;
 using StardewValley.Locations;
+using StardewValley.Objects;
 using StardewValley.Menus;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -24,11 +25,41 @@ namespace TricksAndTreats
             Helper = ModInstance.Helper;
             Monitor = ModInstance.Monitor;
 
-            Helper.Events.Content.AssetRequested += OnAssetRequested;
+            Helper.Events.Content.AssetRequested += RetextureHouse;
             Helper.Events.GameLoop.SaveLoaded += CheckTricksters;
-            Helper.Events.GameLoop.DayStarted += OnDayStart;
-            Helper.Events.GameLoop.DayEnding += OnDayEnd;
+            Helper.Events.GameLoop.DayStarted += BeforeDayStuff;
+            Helper.Events.GameLoop.DayEnding += AfterDayStuff;
+            Helper.Events.Player.Warped += ReturnStolenItems;
             Helper.Events.Multiplayer.PeerConnected += (object sender, PeerConnectedEventArgs e) => { ReloadHouseExteriorsMaybe(); };
+        }
+
+        private static void ReturnStolenItems(object sender, WarpedEventArgs e)
+        {
+            if (!(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27 && e.NewLocation.NameOrUniqueName == "Temp"))
+                return;
+            
+            if (!Game1.player.modData.TryGetValue(EggKey, out string val))
+            {
+                Log.Debug("TaT: Player hasn't had any items stolen");
+                return;
+            }
+
+            Vector2 chest_pos = new(33, 13);
+            if (!e.NewLocation.Objects.TryGetValue(chest_pos, out StardewValley.Object o) || o is not Chest chest)
+            {
+                Log.Debug("TaT: Could not find treasure chest at 33 13 in " + e.NewLocation.Name);
+                return;
+            }
+
+            Log.Debug("TaT: Chest found. Number of items inside is " + chest.items.Count());
+            var items = val.Split('\\');
+            foreach(string item in items)
+            {
+                var idnstack = item.Split(' ');
+                StardewValley.Object obj = new(int.Parse(idnstack[0]), int.Parse(idnstack[1]));
+                chest.addItem(obj);
+            }
+            Log.Debug("TaT: Finished. Number of items inside is now " + chest.items.Count());
         }
 
         [EventPriority(EventPriority.Low)]
@@ -52,13 +83,13 @@ namespace TricksAndTreats
             }
         }
 
-        private static void OnDayEnd(object sender, DayEndingEventArgs e)
+        private static void AfterDayStuff(object sender, DayEndingEventArgs e)
         {
             if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
             {
                 int score = int.Parse(Game1.player.modData[ScoreKey]);
                 Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}.");
-                if (score < 10)
+                if (score < NPCData.Keys.Count/2)
                     Game1.player.mailReceived.Add(HouseFlag);
                 Game1.player.modData.Remove(ScoreKey);
             }
@@ -70,7 +101,7 @@ namespace TricksAndTreats
         }
 
         [EventPriority(EventPriority.Low)]
-        private static void OnDayStart(object sender, DayStartedEventArgs e)
+        private static void BeforeDayStuff(object sender, DayStartedEventArgs e)
         {
             ReloadHouseExteriorsMaybe();
 
@@ -88,7 +119,7 @@ namespace TricksAndTreats
         }
 
         [EventPriority(EventPriority.Low)]
-        private static void OnAssetRequested(object sender, AssetRequestedEventArgs e)
+        private static void RetextureHouse(object sender, AssetRequestedEventArgs e)
         {
             if (!Context.IsWorldReady)
                 return;
@@ -154,7 +185,7 @@ namespace TricksAndTreats
                 string after_trick = "after_trick";
                 var tricks = NPCData[npc.Name].PreferredTricks;
                 string trick;
-                if (tricks.Contains("all"))
+                if (tricks.Contains("all") || tricks.Length > 1)
                 {
                     trick = ValidTricks[random.Next(ValidTricks.Length)];
                 }
@@ -169,11 +200,11 @@ namespace TricksAndTreats
                 switch (trick)
                 {
                     case "egg":
-                        if (!EggSteal(farmer, random))
+                        if (!EggSteal(farmer))
                             after_trick = "cannot_trick";
                         break;
                     case "paint":
-                        PaintSkin(farmer, random);
+                        PaintSkin(farmer);
                         break;
                     default:
                         Log.Error("No preferred trick found for NPC " + npc.Name);
@@ -189,24 +220,36 @@ namespace TricksAndTreats
             };
         }
 
-        internal static void PaintSkin(Farmer farmer, Random random)
+        internal static void PaintSkin(Farmer farmer)
         {
+            Random random = new();
             farmer.modData.Add(PaintKey, farmer.skinColor.ToString());
             farmer.changeSkinColor(random.Next(17, 23), true);
             farmer.currentLocation.localSound("slimedead");
         }
 
-        internal static bool EggSteal(Farmer farmer, Random random)
+        internal static bool EggSteal(Farmer farmer)
         {
+            Random random = new();
             for (int i = 0; i < farmer.MaxItems; i++)
             {
+                int dud_item = Helper.ModRegistry.IsLoaded("ch20youk.TaTPelicanTown.CP") ? JA.GetObjectId("TaT.rotten-egg") : 176; // 176 is Egg
                 int idx = random.Next(farmer.MaxItems);
                 Item item = farmer.Items[idx];
-                if (item is not null && item is not Tool && !TreatData.ContainsKey(item.Name) && Utility.IsNormalObjectAtParentSheetIndex(item, item.ParentSheetIndex))
+                if (item is not null && item is not Tool && !TreatData.ContainsKey(item.Name) &&
+                    item.ParentSheetIndex != dud_item && Utility.IsNormalObjectAtParentSheetIndex(item, item.ParentSheetIndex))
                 {
-                    farmer.modData.Add(EggKey, farmer.Items.ElementAt(idx).ParentSheetIndex.ToString());
+                    string egg_val = farmer.Items.ElementAt(idx).ParentSheetIndex.ToString() + " " + farmer.Items.ElementAt(idx).Stack;
+                    if (!farmer.modData.ContainsKey(EggKey))
+                    {
+                        farmer.modData.Add(EggKey, egg_val);
+                    }
+                    else
+                    {
+                        farmer.modData[EggKey] = farmer.modData[EggKey] + "\\" + egg_val;
+                    }
                     farmer.Items.RemoveAt(idx);
-                    int dud_item = JA.GetObjectId(Helper.ModRegistry.IsLoaded("ch20youk.TaTPelicanTown.CP") ? "TaT.rotten-egg" : "Egg");
+                    
                     farmer.Items.Insert(idx, new StardewValley.Object(dud_item, 1));
                     farmer.currentLocation.localSound("shwip");
                     return true;

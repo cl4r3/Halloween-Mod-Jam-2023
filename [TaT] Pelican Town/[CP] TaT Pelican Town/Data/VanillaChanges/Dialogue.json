@@ -1,6 +1,79 @@
 {
 "Changes": [
-	//Vanilla Girls
+	//Bachelors
+	{
+		"LogName": "Treat Dialogue - Alex",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Alex",
+		"Entries": {
+			"fall_27": "{{i18n:alex.fall_27}}",
+			"loved_treat": "{{i18n:alex.loved_treat}}",
+			"neutral_treat": "{{i18n:alex.neutral_treat}}",
+			"hated_treat": "{{i18n:alex.hated_treat}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Elliott",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Elliott",
+		"Entries": {
+			"fall_27": "{{i18n:elliott.fall_27}}",
+			"loved_treat": "{{i18n:elliott.loved_treat}}",
+			"neutral_treat": "{{i18n:elliott.neutral_treat}}",
+			"hated_treat": "{{i18n:elliott.hated_treat}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Harvey",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Harvey",
+		"Entries": {
+			"fall_27": "{{i18n:harvey.fall_27}}",
+			"loved_treat": "{{i18n:harvey.loved_treat}}",
+			"neutral_treat": "{{i18n:harvey.neutral_treat}}",
+			"hated_treat": "{{i18n:harvey.hated_treat}}",
+			"give_candy": "{{i18n:harvey.give_candy}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Sam",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Sam",
+		"Entries": {
+			"fall_27": "{{i18n:sam.fall_27}}",
+			"loved_treat": "{{i18n:sam.loved_treat}}",
+			"neutral_treat": "{{i18n:sam.neutral_treat}}",
+			"hated_treat": "{{i18n:sam.hated_treat}}",
+			"before_trick": "{{i18n:sam.before_trick}}",
+			"after_trick": "{{i18n:sam.after_trick}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Sebastian",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Sebastian",
+		"Entries": {
+			"fall_27": "{{i18n:sebastian.fall_27}}",
+			"loved_treat": "{{i18n:sebastian.loved_treat}}",
+			"neutral_treat": "{{i18n:sebastian.neutral_treat}}",
+			"hated_treat": "{{i18n:sebastian.hated_treat}}",
+			"before_trick": "{{i18n:sebastian.before_trick}}",
+			"after_trick": "{{i18n:sebastian.after_trick}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Shane",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Shane",
+		"Entries": {
+			"fall_27": "{{i18n:shane.fall_27}}",
+			"loved_treat": "{{i18n:shane.loved_treat}}",
+			"neutral_treat": "{{i18n:shane.neutral_treat}}",
+			"hated_treat": "{{i18n:shane.hated_treat}}",
+		},
+	},
+
+	//Bachelorettes
 	{
 		"LogName": "Treat Dialogue - Abigail",
 		"Action": "EditData",
@@ -76,79 +149,6 @@
 		},
 	},
 
-	//Vanilla Boys
-	{
-		"LogName": "Treat Dialogue - Alex",
-		"Action": "EditData",
-		"Target": "Characters/Dialogue/Alex",
-		"Entries": {
-			"fall_27": "{{i18n:alex.fall_27}}",
-			"loved_treat": "{{i18n:alex.loved_treat}}",
-			"neutral_treat": "{{i18n:alex.neutral_treat}}",
-			"hated_treat": "{{i18n:alex.hated_treat}}",
-		},
-	},
-	{
-		"LogName": "Treat Dialogue - Elliott",
-		"Action": "EditData",
-		"Target": "Characters/Dialogue/Elliott",
-		"Entries": {
-			"fall_27": "{{i18n:elliott.fall_27}}",
-			"loved_treat": "{{i18n:elliott.loved_treat}}",
-			"neutral_treat": "{{i18n:elliott.neutral_treat}}",
-			"hated_treat": "{{i18n:elliott.hated_treat}}",
-		},
-	},
-	{
-		"LogName": "Treat Dialogue - Harvey",
-		"Action": "EditData",
-		"Target": "Characters/Dialogue/Harvey",
-		"Entries": {
-			"fall_27": "{{i18n:harvey.fall_27}}",
-			"loved_treat": "{{i18n:harvey.loved_treat}}",
-			"neutral_treat": "{{i18n:harvey.neutral_treat}}",
-			"hated_treat": "{{i18n:harvey.hated_treat}}",
-			"give_candy": "{{i18n:harvey.give_candy}}",
-		},
-	},
-	{
-		"LogName": "Treat Dialogue - Sam",
-		"Action": "EditData",
-		"Target": "Characters/Dialogue/Sam",
-		"Entries": {
-			"fall_27": "{{i18n:sam.fall_27}}",
-			"loved_treat": "{{i18n:sam.loved_treat}}",
-			"neutral_treat": "{{i18n:sam.neutral_treat}}",
-			"hated_treat": "{{i18n:sam.hated_treat}}",
-			"before_trick": "{{i18n:sam.before_trick}}",
-			"after_trick": "{{i18n:sam.after_trick}}",
-		},
-	},
-	{
-		"LogName": "Treat Dialogue - Sebastian",
-		"Action": "EditData",
-		"Target": "Characters/Dialogue/Sebastian",
-		"Entries": {
-			"fall_27": "{{i18n:sebastian.fall_27}}",
-			"loved_treat": "{{i18n:sebastian.loved_treat}}",
-			"neutral_treat": "{{i18n:sebastian.neutral_treat}}",
-			"hated_treat": "{{i18n:sebastian.hated_treat}}",
-			"before_trick": "{{i18n:sebastian.before_trick}}",
-			"after_trick": "{{i18n:sebastian.after_trick}}",
-		},
-	},
-	{
-		"LogName": "Treat Dialogue - Shane",
-		"Action": "EditData",
-		"Target": "Characters/Dialogue/Shane",
-		"Entries": {
-			"fall_27": "{{i18n:shane.fall_27}}",
-			"loved_treat": "{{i18n:shane.loved_treat}}",
-			"neutral_treat": "{{i18n:shane.neutral_treat}}",
-			"hated_treat": "{{i18n:shane.hated_treat}}",
-		},
-	},
-
 	//Children
 	{
 		"LogName": "Treat Dialogue - Jas",
@@ -175,16 +175,16 @@
 		},
 	},
 
-	//Vanilla Villagers
+	//Villagers
 	{
 		"LogName": "Treat Dialogue - Caroline",
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Caroline",
 		"Entries": {
 			"fall_27": "{{i18n:caroline.fall_27}}",
-			//"loved_treat": "{{i18n:caroline.loved_treat}}",
-			//"neutral_treat": "{{i18n:caroline.neutral_treat}}",
-			//"hated_treat": "{{i18n:caroline.hated_treat}}",
+			"loved_treat": "{{i18n:caroline.loved_treat}}",
+			"neutral_treat": "{{i18n:caroline.neutral_treat}}",
+			"hated_treat": "{{i18n:caroline.hated_treat}}",
 		},
 	},
 	{
@@ -193,9 +193,9 @@
 		"Target": "Characters/Dialogue/Clint",
 		"Entries": {
 			"fall_27": "{{i18n:clint.fall_27}}",
-			//"loved_treat": "{{i18n:clint.loved_treat}}",
-			//"neutral_treat": "{{i18n:clint.neutral_treat}}",
-			//"hated_treat": "{{i18n:clint.hated_treat}}",
+			"loved_treat": "{{i18n:clint.loved_treat}}",
+			"neutral_treat": "{{i18n:clint.neutral_treat}}",
+			"hated_treat": "{{i18n:clint.hated_treat}}",
 			"give_candy": "{{i18n:clint.give_candy}}",
 		},
 	},
@@ -205,9 +205,9 @@
 		"Target": "Characters/Dialogue/Demetrius",
 		"Entries": {
 			"fall_27": "{{i18n:demetrius.fall_27}}",
-			//"loved_treat": "{{i18n:demetrius.loved_treat}}",
-			//"neutral_treat": "{{i18n:demetrius.neutral_treat}}",
-			//"hated_treat": "{{i18n:demetrius.hated_treat}}",
+			"loved_treat": "{{i18n:demetrius.loved_treat}}",
+			"neutral_treat": "{{i18n:demetrius.neutral_treat}}",
+			"hated_treat": "{{i18n:demetrius.hated_treat}}",
 			"give_candy": "{{i18n:demetrius.give_candy}}",
 		},
 	},
@@ -217,9 +217,9 @@
 		"Target": "Characters/Dialogue/Evelyn",
 		"Entries": {
 			"fall_27": "{{i18n:evelyn.fall_27}}",
-			//"loved_treat": "{{i18n:evelyn.loved_treat}}",
+			"loved_treat": "{{i18n:evelyn.loved_treat}}",
 			"neutral_treat": "{{i18n:evelyn.neutral_treat}}",
-			//"hated_treat": "{{i18n:evelyn.hated_treat}}",
+			"hated_treat": "{{i18n:evelyn.hated_treat}}",
 			"give_candy": "{{i18n:evelyn.give_candy}}",
 		},
 	},
@@ -240,9 +240,9 @@
 		"Target": "Characters/Dialogue/Gus",
 		"Entries": {
 			"fall_27": "{{i18n:gus.fall_27}}",
-			//"loved_treat": "{{i18n:gus.loved_treat}}",
-			//"neutral_treat": "{{i18n:gus.neutral_treat}}",
-			//"hated_treat": "{{i18n:gus.hated_treat}}",
+			"loved_treat": "{{i18n:gus.loved_treat}}",
+			"neutral_treat": "{{i18n:gus.neutral_treat}}",
+			"hated_treat": "{{i18n:gus.hated_treat}}",
 			"give_candy": "{{i18n:gus.give_candy}}",
 		},
 	},
@@ -252,9 +252,9 @@
 		"Target": "Characters/Dialogue/Jodi",
 		"Entries": {
 			"fall_27": "{{i18n:jodi.fall_27}}",
-			//"loved_treat": "{{i18n:jodi.loved_treat}}",
-			//"neutral_treat": "{{i18n:jodi.neutral_treat}}",
-			//"hated_treat": "{{i18n:jodi.hated_treat}}",
+			"loved_treat": "{{i18n:jodi.loved_treat}}",
+			"neutral_treat": "{{i18n:jodi.neutral_treat}}",
+			"hated_treat": "{{i18n:jodi.hated_treat}}",
 			"give_candy": "{{i18n:jodi.give_candy}}",
 		},
 	},
@@ -264,9 +264,9 @@
 		"Target": "Characters/Dialogue/Kent",
 		"Entries": {
 			"fall_27": "{{i18n:kent.fall_27}}",
-			//"loved_treat": "{{i18n:kent.loved_treat}}",
-			//"neutral_treat": "{{i18n:kent.neutral_treat}}",
-			//"hated_treat": "{{i18n:kent.hated_treat}}",
+			"loved_treat": "{{i18n:kent.loved_treat}}",
+			"neutral_treat": "{{i18n:kent.neutral_treat}}",
+			"hated_treat": "{{i18n:kent.hated_treat}}",
 		},
 	},
 	{
@@ -275,9 +275,9 @@
 		"Target": "Characters/Dialogue/Lewis",
 		"Entries": {
 			"fall_27": "{{i18n:lewis.fall_27}}",
-			//"loved_treat": "{{i18n:lewis.loved_treat}}",
-			//"neutral_treat": "{{i18n:lewis.neutral_treat}}",
-			//"hated_treat": "{{i18n:lewis.hated_treat}}",
+			"loved_treat": "{{i18n:lewis.loved_treat}}",
+			"neutral_treat": "{{i18n:lewis.neutral_treat}}",
+			"hated_treat": "{{i18n:lewis.hated_treat}}",
 			"give_candy": "{{i18n:lewis.give_candy}}",
 		},
 	},
@@ -287,9 +287,9 @@
 		"Target": "Characters/Dialogue/Linus",
 		"Entries": {
 			"fall_27": "{{i18n:linus.fall_27}}",
-			//"loved_treat": "{{i18n:linus.loved_treat}}",
-			//"neutral_treat": "{{i18n:linus.neutral_treat}}",
-			//"hated_treat": "{{i18n:linus.hated_treat}}",
+			"loved_treat": "{{i18n:linus.loved_treat}}",
+			"neutral_treat": "{{i18n:linus.neutral_treat}}",
+			"hated_treat": "{{i18n:linus.hated_treat}}",
 		},
 	},
 	{
@@ -298,9 +298,9 @@
 		"Target": "Characters/Dialogue/Marnie",
 		"Entries": {
 			"fall_27": "{{i18n:marnie.fall_27}}",
-			//"loved_treat": "{{i18n:marnie.loved_treat}}",
-			//"neutral_treat": "{{i18n:marnie.neutral_treat}}",
-			//"hated_treat": "{{i18n:marnie.hated_treat}}",
+			"loved_treat": "{{i18n:marnie.loved_treat}}",
+			"neutral_treat": "{{i18n:marnie.neutral_treat}}",
+			"hated_treat": "{{i18n:marnie.hated_treat}}",
 		},
 	},
 	{
@@ -309,9 +309,9 @@
 		"Target": "Characters/Dialogue/Pam",
 		"Entries": {
 			"fall_27": "{{i18n:pam.fall_27}}",
-			//"loved_treat": "{{i18n:pam.loved_treat}}",
-			//"neutral_treat": "{{i18n:pam.neutral_treat}}",
-			//"hated_treat": "{{i18n:pam.hated_treat}}",
+			"loved_treat": "{{i18n:pam.loved_treat}}",
+			"neutral_treat": "{{i18n:pam.neutral_treat}}",
+			"hated_treat": "{{i18n:pam.hated_treat}}",
 			"before_trick": "{{i18n:pam.before_trick}}",
 			"after_trick": "{{i18n:pam.after_trick}}",
 		},
@@ -322,9 +322,9 @@
 		"Target": "Characters/Dialogue/Pierre",
 		"Entries": {
 			"fall_27": "{{i18n:pierre.fall_27}}",
-			//"loved_treat": "{{i18n:pierre.loved_treat}}",
-			//"neutral_treat": "{{i18n:pierre.neutral_treat}}",
-			//"hated_treat": "{{i18n:pierre.hated_treat}}",
+			"loved_treat": "{{i18n:pierre.loved_treat}}",
+			"neutral_treat": "{{i18n:pierre.neutral_treat}}",
+			"hated_treat": "{{i18n:pierre.hated_treat}}",
 			"give_candy": "{{i18n:pierre.give_candy}}",
 		},
 	},
@@ -334,9 +334,9 @@
 		"Target": "Characters/Dialogue/Robin",
 		"Entries": {
 			"fall_27": "{{i18n:robin.fall_27}}",
-			//"loved_treat": "{{i18n:robin.loved_treat}}",
-			//"neutral_treat": "{{i18n:robin.neutral_treat}}",
-			//"hated_treat": "{{i18n:robin.hated_treat}}",
+			"loved_treat": "{{i18n:robin.loved_treat}}",
+			"neutral_treat": "{{i18n:robin.neutral_treat}}",
+			"hated_treat": "{{i18n:robin.hated_treat}}",
 		},
 	},
 	{
@@ -345,11 +345,13 @@
 		"Target": "Characters/Dialogue/Willy",
 		"Entries": {
 			"fall_27": "{{i18n:willy.fall_27}}",
-			//"loved_treat": "{{i18n:willy.loved_treat}}",
-			//"neutral_treat": "{{i18n:willy.neutral_treat}}",
-			//"hated_treat": "{{i18n:willy.hated_treat}}",
+			"loved_treat": "{{i18n:willy.loved_treat}}",
+			"neutral_treat": "{{i18n:willy.neutral_treat}}",
+			"hated_treat": "{{i18n:willy.hated_treat}}",
 		},
 	},
+
+	//Outsiders
 	{
 		"LogName": "Treat Dialogue - Wizard",
 		"Action": "EditData",
@@ -362,6 +364,6 @@
 			"before_trick": "{{i18n:wizard.before_trick}}",
 			"after_trick": "{{i18n:wizard.after_trick}}",
 		},
-	}
+	},
 ]
 }
