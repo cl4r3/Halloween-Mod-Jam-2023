@@ -37,7 +37,9 @@ namespace TricksAndTreats
         {
             if (!(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27 && e.NewLocation.NameOrUniqueName == "Temp"))
                 return;
-            
+
+            Log.Debug($"TaT: Current location is {Game1.currentLocation.Name}, time is {Game1.timeOfDay}");
+
             if (!Game1.player.modData.TryGetValue(EggKey, out string val))
             {
                 Log.Debug("TaT: Player hasn't had any items stolen");
@@ -45,9 +47,9 @@ namespace TricksAndTreats
             }
 
             Vector2 chest_pos = new(33, 13);
-            if (!e.NewLocation.Objects.TryGetValue(chest_pos, out StardewValley.Object o) || o is not Chest chest)
+            if (!Game1.currentLocation.Objects.TryGetValue(chest_pos, out StardewValley.Object o) || o is not Chest chest)
             {
-                Log.Debug("TaT: Could not find treasure chest at 33 13 in " + e.NewLocation.Name);
+                Log.Debug("TaT: Could not find treasure chest at 33 13 in " + Game1.currentLocation.Name);
                 return;
             }
 

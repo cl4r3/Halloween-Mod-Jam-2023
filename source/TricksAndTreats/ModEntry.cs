@@ -29,7 +29,7 @@ namespace TricksAndTreats
         internal const string TreatCT = "give_candy";
 
         internal const string PaintKey = "TaT.previous-skin";
-        internal const string EggKey = "TaT.stolen-item";
+        internal const string EggKey = "TaT.stolen-items";
         internal const string ScoreKey = "TaT.treat-score";
         internal const string CostumeKey = "TaT.costume-set";
         internal const string GiftedKey = "TaT.regular-gift-attempts";
@@ -218,6 +218,7 @@ namespace TricksAndTreats
                 {
                     Log.Warn("TaT: Removed invalid costume set " + entry.Key);
                     CostumeData.Remove(entry.Key);
+                    continue;
                 }
                 CostumeData[entry.Key].NumPieces = count;
             }

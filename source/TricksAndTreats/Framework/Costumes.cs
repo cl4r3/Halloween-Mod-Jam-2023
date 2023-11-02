@@ -75,7 +75,7 @@ namespace TricksAndTreats
             if (costume is not null)
             {
                 Game1.player.modData[CostumeKey] = costume;
-                Log.Debug("TaT: Currently wearing costume " + costume);
+                Log.Trace("TaT: Currently wearing costume " + costume);
                 //Game1.player.currentLocation.localSound("yoba");
                 // TODO: Check for current costume and remove before adding new one
                 Game1.player.activeDialogueEvents.Add(CostumeCT + costume.ToLower().Replace(' ', '_'), 1);
@@ -84,7 +84,7 @@ namespace TricksAndTreats
             }
             else
             {
-                Log.Debug("TaT: Currently not wearing costume");
+                Log.Trace("TaT: Currently not wearing costume");
                 var costume_ct = Game1.player.activeDialogueEvents.Keys.ToList().Find(ct => ct.StartsWith(CostumeCT));
                 if (costume_ct is not null)
                 {

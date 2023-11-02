@@ -1,4 +1,23 @@
 {
+  // Letter //
+  "emilyletter": "Hi, @^^Fall 27th is fast approaching - I got a magazine for Spirit's Eve costumes in the mail yesterday, and it totally caught me off-guard! But it also reminded me that a former Zuzu-ite like you might not be aware of all the strange little Spirit's Eve customs there are in Pelican Town. So stop by my place while I'm home and I'll tell you all about it, okay?^^- Emily[#]Spirit's Eve Traditions",
+
+  // Event //
+  "emilyevent.1": "Oh, hi @! Come on in.$h",
+  "emilyevent.2": "So you got my letter, right? Then let me fill you in.",
+  "emilyevent.3": "Well, to start, are you familiar with trick-or-treating?",
+  "emilyevent.r1": "Yup!",
+  "emilyevent.r2": "No, what's that?",
+  "emilyevent.a1": "Great! Well, when it comes to trick-or-treating in Pelican Town, there are a few things you ought to know.",
+  "emilyevent.a2": "Well, trick-or-treating is what makes Spirit's Eve my favorite holiday!$h#$b#Legend has it that on Fall 27th, the spectral dimension crosses into ours...$3#$b#These spirits run amuck in the human realm, and the only way to keep them from wreaking havoc upon your home is to give them what they want most--$3#$b#Delicious treats!$h#$b#Sounds silly, right? Well, I don't know if the spirits really want treats...#$b#But trick-or-treating is when the kids in town pretend to be those spirits, and go door-to-door asking for treats.#$b#And if the person at home doesn't give them a treat that they like, or doesn't give a treat at all... Well, then it's time for a trick!$h#$b#Nothing serious, of course. But still, no one wants to be the victim of a prank.",
+  "emilyevent.4": "Pierre will be selling Spirit's Eve treats at the general store from today until the 26th.#$b#People in this town are very opinionated when it comes to candy, so be sure to get a variety of flavors if you want to have something for everyone.",
+  "emilyevent.5": "But even if you don't buy any candy before Spirit's Eve, don't worry! You can still get it the day of.#$b#Trick-or-treating will take place here in town during the day, and most of the adults will be outside their homes giving out candy to trick-or-treaters.#$b#If you're wearing a costume, they'll give you candy, too! It's usually just kids who trick-or-treat, but there's no real age limit to keep us grown-ups from taking part.$h",
+  "emilyevent.6": "If you want to get a costume, you can order one from the costume magazine I just got.#$b#It's right here on the coffee table, and I won't throw it out till the 27th, so feel free to stop by whenever to check it out.#$b#Remember, a costume needs to be a full set! Spirit's Eve is about going all-out, so wearing just a mask won't cut it.",
+  "emilyevent.7": "Hm, I think that's everything...$3#$b#Wait! I almost forgot the most important part!$6#$b#Spirit's Eve isn't all candy and dandy. There's also the tricks, of course!#$b#If the treat you give someone isn't up to snuff, most people in town will just grumble at you... But some might make you pay for it, so watch out!#$b#And if you're too tightfisted with your treats, well, the disgruntled townsfolk might even team up and get their revenge the next day!$h#$b#All of these pranks are harmless, of course. But they're still part of what makes Spirit's Eve a holiday like no other.$h",
+  "emilyevent.8": "Okay, now that should really be everything! Sorry if I blabbered your ears off. I won't keep you any longer...#$b#Just remember that trick-or-treating starts around noon in town on the 27th, okay?#$b#See you around, @!$h",
+
+  // Dialogue //
+
   "alex.fall_27": "Hey, @. You trick-or-treating this year?",
   "alex.loved_treat": "Whoa, thanks!$h",
   "alex.neutral_treat": "Oh. Well, I wasn't planning on eating any treats this year, but this doesn't look half-bad.",
@@ -16,10 +35,10 @@
   "harvey.give_candy": "Alright, have one of these - But please be careful not to go overboard with the sugar tonight!$h",
 
   "sam.fall_27": "Mom's handing out treats, so Vincent and I are hitting the town just the two of us today.$h",
-  "sam.loved_treat": "Hey, thanks, @!$h#$b#Well, down the hatch, I guess!#$b#%Sam immediately rips off the wrapping and tries a bite.$b#...$b#...!!$8#$b#Whoa, this is like, crazy delicious! Thanks, @!$h",
-  "sam.neutral_treat": "Hey, thanks, @!$h#$b#Well, down the hatch, I guess!#$b#%Sam immediately rips off the wrapping and tries a bite.$b#...#$b#Not bad, not bad! Thanks, @!$h",
-  "sam.hated_treat": "Hey, thanks, @!$h#$b#Well, down the hatch, I guess!#$b#%Sam immediately rips off the wrapping and tries a bite.$b#...$b#...!!$8#$b#Ugh, that was downright gnarly - and not in the good way... I can't believe you made me eat that.$s",
-  "sam.before_trick": "...Hm, now how to make you pay?$h",
+  "sam.loved_treat": "Hey, thanks, @!$h#$b#Well, down the hatch, I guess!#$b#...$b#...!!$8#$b#Whoa, this is like, crazy delicious! Thanks, @!$h",
+  "sam.neutral_treat": "Hey, thanks, @!$h#$b#Well, down the hatch, I guess!#$b#...#$b#Not bad, not bad! Thanks, @!$h",
+  "sam.hated_treat": "Hey, thanks, @!$h#$b#Well, down the hatch, I guess!#$b#...$b#...!!$8#$b#Ugh, that was downright gnarly - and not in the good way... I can't believe you made me eat that.$s",
+  "sam.before_trick": "...Hm, now how to make you pay?",
   "sam.after_trick": "Sorry, @, but you kinda had that one coming.$10",
 
   "sebastian.fall_27": "It's a shame everyone's posted outside their homes this year.#$b#Usually Abby and I scope out the houses with buckets of candy left out front and pour them all into our pillowcases.$h",
