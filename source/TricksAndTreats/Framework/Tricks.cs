@@ -1,16 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Linq;
-using System.Collections.Generic;
+using StardewModdingAPI;
+using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Buildings;
 using StardewValley.Locations;
 using StardewValley.Objects;
 using StardewValley.Menus;
-using StardewModdingAPI;
-using StardewModdingAPI.Events;
-using SpaceCore.Events;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using static TricksAndTreats.ModEntry;
 
 namespace TricksAndTreats
@@ -29,39 +27,40 @@ namespace TricksAndTreats
             Helper.Events.GameLoop.SaveLoaded += CheckTricksters;
             Helper.Events.GameLoop.DayStarted += BeforeDayStuff;
             Helper.Events.GameLoop.DayEnding += AfterDayStuff;
-            Helper.Events.Player.Warped += ReturnStolenItems;
+            Helper.Events.Input.ButtonPressed += OpenHalloweenChest;
             Helper.Events.Multiplayer.PeerConnected += (object sender, PeerConnectedEventArgs e) => { ReloadHouseExteriorsMaybe(); };
         }
 
-        private static void ReturnStolenItems(object sender, WarpedEventArgs e)
+        internal static void OpenHalloweenChest(object sender, ButtonPressedEventArgs e)
         {
-            if (!(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27 && e.NewLocation.NameOrUniqueName == "Temp"))
+            if (!(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27 && Game1.currentLocation.NameOrUniqueName == "Temp" && Game1.CurrentEvent.isFestival))
                 return;
-
-            Log.Debug($"TaT: Current location is {Game1.currentLocation.Name}, time is {Game1.timeOfDay}");
-
-            if (!Game1.player.modData.TryGetValue(EggKey, out string val))
+            if (e.Button.IsActionButton() && e.Cursor.GrabTile.X == 33 && e.Cursor.GrabTile.Y == 13)
             {
-                Log.Debug("TaT: Player hasn't had any items stolen");
-                return;
-            }
+                if (Game1.currentLocation.Objects.ContainsKey(new Vector2(33, 13)))
+                {
+                    if (!Game1.player.modData.TryGetValue(StolenKey, out string val))
+                    {
+                        Log.Debug("TaT: Player hasn't had any items stolen");
+                        return;
+                    }
+                    List<Item> items = new();
+                    items.Add(new StardewValley.Object(373, 1));
+                    var logged = val.Split('\\');
+                    foreach (string item in logged)
+                    {
+                        var idnstack = item.Split(' ');
+                        StardewValley.Object obj = new(int.Parse(idnstack[0]), int.Parse(idnstack[1]));
+                        items.Add(obj);
+                    }
+                    Game1.currentLocation.localSound("openChest");
+                    Game1.activeClickableMenu = new ItemGrabMenu(items).setEssential(essential: true);
+                    (Game1.activeClickableMenu as ItemGrabMenu).source = 3;
+                    Game1.player.completelyStopAnimatingOrDoingAction();
 
-            Vector2 chest_pos = new(33, 13);
-            if (!Game1.currentLocation.Objects.TryGetValue(chest_pos, out StardewValley.Object o) || o is not Chest chest)
-            {
-                Log.Debug("TaT: Could not find treasure chest at 33 13 in " + Game1.currentLocation.Name);
-                return;
+                    Game1.currentLocation.Objects.Remove(new Vector2(33, 13));
+                }
             }
-
-            Log.Debug("TaT: Chest found. Number of items inside is " + chest.items.Count());
-            var items = val.Split('\\');
-            foreach(string item in items)
-            {
-                var idnstack = item.Split(' ');
-                StardewValley.Object obj = new(int.Parse(idnstack[0]), int.Parse(idnstack[1]));
-                chest.addItem(obj);
-            }
-            Log.Debug("TaT: Finished. Number of items inside is now " + chest.items.Count());
         }
 
         [EventPriority(EventPriority.Low)]
@@ -216,6 +215,7 @@ namespace TricksAndTreats
                     () =>
                     {
                         Utils.Speak(npc, after_trick);
+                        Game1.player.freezePause = 1000;
                     },
                     1000 // delay in milliseconds
                 );
@@ -233,31 +233,34 @@ namespace TricksAndTreats
         internal static bool EggSteal(Farmer farmer)
         {
             Random random = new();
+            int dud_item = Helper.ModRegistry.IsLoaded("ch20youk.TaTPelicanTown.CP") ? JA.GetObjectId("TaT.rotten-egg") : 176; // 176 is Egg
+            List<int> stealables = new();
             for (int i = 0; i < farmer.MaxItems; i++)
             {
-                int dud_item = Helper.ModRegistry.IsLoaded("ch20youk.TaTPelicanTown.CP") ? JA.GetObjectId("TaT.rotten-egg") : 176; // 176 is Egg
-                int idx = random.Next(farmer.MaxItems);
-                Item item = farmer.Items[idx];
+                Item item = farmer.Items[i];
+                Log.Debug("TaT: Now checking stealability of item at location " + i);
                 if (item is not null && item is not Tool && !TreatData.ContainsKey(item.Name) &&
                     item.ParentSheetIndex != dud_item && Utility.IsNormalObjectAtParentSheetIndex(item, item.ParentSheetIndex))
                 {
-                    string egg_val = farmer.Items.ElementAt(idx).ParentSheetIndex.ToString() + " " + farmer.Items.ElementAt(idx).Stack;
-                    if (!farmer.modData.ContainsKey(EggKey))
-                    {
-                        farmer.modData.Add(EggKey, egg_val);
-                    }
-                    else
-                    {
-                        farmer.modData[EggKey] = farmer.modData[EggKey] + "\\" + egg_val;
-                    }
-                    farmer.Items.RemoveAt(idx);
-                    
-                    farmer.Items.Insert(idx, new StardewValley.Object(dud_item, 1));
-                    farmer.currentLocation.localSound("shwip");
-                    return true;
+                    Log.Debug($"TaT: Adding {item.Name} at index {i} to stealables");
+                    stealables.Add(i);
                 }
             }
-            return false;
+            if (stealables.Count == 0)
+                return false;
+
+            int idx = stealables[random.Next(stealables.Count)];
+            string egg_val = farmer.Items[idx].ParentSheetIndex.ToString() + " " + farmer.Items[idx].Stack;
+
+            if (!farmer.modData.ContainsKey(StolenKey))
+                farmer.modData.Add(StolenKey, egg_val);
+            else
+                farmer.modData[StolenKey] = farmer.modData[StolenKey] + "\\" + egg_val;
+
+            farmer.Items[idx] = new StardewValley.Object(dud_item, 1);
+            farmer.currentLocation.localSound("shwip");
+            stealables.Clear();
+            return true;
         }
     }
 }

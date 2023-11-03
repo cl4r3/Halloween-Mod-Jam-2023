@@ -29,13 +29,12 @@ namespace TricksAndTreats
         internal const string TreatCT = "give_candy";
 
         internal const string PaintKey = "TaT.previous-skin";
-        internal const string EggKey = "TaT.stolen-items";
+        internal const string StolenKey = "TaT.stolen-items";
         internal const string ScoreKey = "TaT.treat-score";
         internal const string CostumeKey = "TaT.costume-set";
-        internal const string GiftedKey = "TaT.regular-gift-attempts";
 
         internal static string[] ValidRoles = { "candygiver", "candytaker", "trickster", "observer", };
-        internal static string[] ValidTricks = { "egg", "paint", "all", };
+        internal static string[] ValidTricks = { "egg", "paint", };
         //public static string[] ValidFlavors = { "sweet", "sour", "salty", "hot", "gourmet", "candy", "healthy", "joja", "fatty", };
 
         internal static Dictionary<string, Celebrant> NPCData;
@@ -179,7 +178,7 @@ namespace TricksAndTreats
                     else
                     {
                         var tricks = Array.ConvertAll(entry.Value.PreferredTricks, d => d.ToLower());
-                        if (tricks.Except(ValidTricks).ToArray().Length > 0)
+                        if (tricks.AddItem("all").Except(ValidTricks).ToArray().Length > 0)
                         {
                             Log.Warn($"NPC {entry.Key} has invalid trick type listed: " + tricks.Except(ValidTricks).ToList());
                         }
