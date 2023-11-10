@@ -3,7 +3,7 @@
     {
       "LogName": "TricksAndTreats data for vanilla NPCs",
       "Action": "EditData",
-      "Target": "Mods/ch20youk.TaTData.NPCs",
+      "Target": "Mods/TricksAndTreats.NPCs",
       "Entries": {
         /*
         "(NPC name)": {

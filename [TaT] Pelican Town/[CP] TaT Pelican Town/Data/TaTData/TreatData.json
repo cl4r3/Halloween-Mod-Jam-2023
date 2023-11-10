@@ -3,7 +3,7 @@
     {
       "LogName": "Data for new treats",
       "Action": "EditData",
-      "Target": "Mods/ch20youk.TaTData.Treats",
+      "Target": "Mods/TricksAndTreats.Treats",
       "Entries": {
         /*
         "(Treat Name)": {
@@ -20,7 +20,7 @@
           "HalloweenOnly": false,
           "Flavors": [ "sweet", ],
         },
-        "Cookies": {
+        "Cookie": {
           "HalloweenOnly": false,
           "Flavors": [ "sweet", ],
         },
@@ -32,7 +32,7 @@
           "HalloweenOnly": false,
           "Flavors": [ "sweet", ],
         },
-        "Prismatic Rock Candy": {
+        "Magic Rock Candy": {
           "HalloweenOnly": false,
           "Universal": "love",
         },
@@ -81,6 +81,10 @@
   		"TaT.eye-candy": {
             "HalloweenOnly": true,
             "Flavors": [ "candy", "sour", ],
+          },
+      "TaT.twisty-taffy": {
+            "HalloweenOnly": true,
+            "Flavors": [ "candy", ],
           },
   		"TaT.luxurious-truffle": {
             "HalloweenOnly": true,

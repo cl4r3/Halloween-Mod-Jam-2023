@@ -44,8 +44,11 @@ namespace TricksAndTreats
                         Log.Debug("TaT: Player hasn't had any items stolen");
                         return;
                     }
+                    Game1.currentLocation.localSound("openChest");
                     List<Item> items = new();
-                    items.Add(new StardewValley.Object(373, 1));
+                    bool reached_yet = !Game1.player.modData.ContainsKey("reached_yet") || Game1.player.modData["reached_yet"] == "false" ? false : true;
+                    if (!Game1.IsMultiplayer || !reached_yet)
+                        items.Add(new StardewValley.Object(373, 1));
                     var logged = val.Split('\\');
                     foreach (string item in logged)
                     {
@@ -53,12 +56,14 @@ namespace TricksAndTreats
                         StardewValley.Object obj = new(int.Parse(idnstack[0]), int.Parse(idnstack[1]));
                         items.Add(obj);
                     }
-                    Game1.currentLocation.localSound("openChest");
                     Game1.activeClickableMenu = new ItemGrabMenu(items).setEssential(essential: true);
                     (Game1.activeClickableMenu as ItemGrabMenu).source = 3;
                     Game1.player.completelyStopAnimatingOrDoingAction();
 
-                    Game1.currentLocation.Objects.Remove(new Vector2(33, 13));
+                    if (!Game1.IsMultiplayer)
+                        Game1.currentLocation.Objects.Remove(new Vector2(33, 13));
+                    else
+                        Game1.currentLocation.localSound("doorCreakReverse");
                 }
             }
         }
@@ -84,23 +89,6 @@ namespace TricksAndTreats
             }
         }
 
-        private static void AfterDayStuff(object sender, DayEndingEventArgs e)
-        {
-            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
-            {
-                int score = int.Parse(Game1.player.modData[ScoreKey]);
-                Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}.");
-                if (score < NPCData.Keys.Count/2)
-                    Game1.player.mailReceived.Add(HouseFlag);
-                Game1.player.modData.Remove(ScoreKey);
-            }
-            else if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
-            {
-                if (Game1.player.mailReceived.Contains(HouseFlag))
-                    Game1.player.mailReceived.Remove(HouseFlag);
-            }
-        }
-
         [EventPriority(EventPriority.Low)]
         private static void BeforeDayStuff(object sender, DayStartedEventArgs e)
         {
@@ -116,6 +104,24 @@ namespace TricksAndTreats
                 }
                 if (farmer.mailReceived.Contains(HouseFlag))
                     farmer.activeDialogueEvents.Add(HouseFlag, 1);
+            }
+        }
+
+        private static void AfterDayStuff(object sender, DayEndingEventArgs e)
+        {
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
+            {
+                Game1.player.Name = Game1.player.displayName;
+                int score = int.Parse(Game1.player.modData[ScoreKey]);
+                Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}.");
+                if (score < NPCData.Keys.Count)
+                    Game1.player.mailReceived.Add(HouseFlag);
+                Game1.player.modData.Remove(ScoreKey);
+            }
+            else if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
+            {
+                if (Game1.player.mailReceived.Contains(HouseFlag))
+                    Game1.player.mailReceived.Remove(HouseFlag);
             }
         }
 
@@ -220,6 +226,31 @@ namespace TricksAndTreats
                     1000 // delay in milliseconds
                 );
             };
+        }
+
+        internal static void ThrowCobwebs(Farmer farmer)
+        {
+            Game1.player.addedSpeed = (Game1.player.Speed + Game1.player.addedSpeed)/2; 
+        }
+
+        internal static void ChangeNickname(Farmer farmer)
+        {
+            var nicknames = Helper.Translation.Get("tricks.dumb_names").ToString().Split(',');
+            Random random = new();
+            Game1.player.Name = nicknames[random.Next(nicknames.Length)];
+        }
+
+        internal static void MysteryTreat(Farmer farmer)
+        {
+            for (int i = 0; i < farmer.MaxItems; i++)
+            {
+                Item item = farmer.Items[i];
+                if (item is not null && TreatData.ContainsKey(item.Name))
+                {
+                    // One mystery candy for each flavor 
+                    //farmer.Items[i] = new StardewValley.Object(mystery_candy, farmer.Items[i].Stack);
+                }
+            }
         }
 
         internal static void PaintSkin(Farmer farmer)

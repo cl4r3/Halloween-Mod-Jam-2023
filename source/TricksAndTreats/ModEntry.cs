@@ -2,6 +2,7 @@
 using SpaceCore.Events;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
+using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.Menus;
 using System;
@@ -18,7 +19,7 @@ namespace TricksAndTreats
         internal static IContentPatcherApi CP;
         internal static IJsonAssetsApi JA;
 
-        private const string AssetPath = "Mods/ch20youk.TaTData";
+        private const string AssetPath = "Mods/TricksAndTreats";
         private const string NPCsExt = ".NPCs";
         private const string CostumesExt = ".Costumes";
         private const string TreatsExt = ".Treats";
@@ -34,8 +35,11 @@ namespace TricksAndTreats
         internal const string CostumeKey = "TaT.costume-set";
 
         internal static string[] ValidRoles = { "candygiver", "candytaker", "trickster", "observer", };
-        internal static string[] ValidTricks = { "egg", "paint", };
+        internal static string[] ValidTricks = { "egg", "paint", "cobweb", "nickname", "mystery", "maze", };
         //public static string[] ValidFlavors = { "sweet", "sour", "salty", "hot", "gourmet", "candy", "healthy", "joja", "fatty", };
+
+        internal static Dictionary<string, int> ClothingInfo;
+        internal static Dictionary<string, int> FoodInfo;
 
         internal static Dictionary<string, Celebrant> NPCData;
         internal static Dictionary<string, Costume> CostumeData;
@@ -115,6 +119,9 @@ namespace TricksAndTreats
 
         private void OnGameLaunched(object sender, EventArgs e)
         {
+            ClothingInfo = Helper.Data.ReadJsonFile<Dictionary<string, int>>(PathUtilities.NormalizePath("assets/clothing.json"));
+            FoodInfo = Helper.Data.ReadJsonFile<Dictionary<string, int>>(PathUtilities.NormalizePath("assets/food.json"));
+
             CP = Helper.ModRegistry.GetApi<IContentPatcherApi>("Pathoschild.ContentPatcher");
             if (CP == null)
             {
@@ -178,9 +185,9 @@ namespace TricksAndTreats
                     else
                     {
                         var tricks = Array.ConvertAll(entry.Value.PreferredTricks, d => d.ToLower());
-                        if (tricks.AddItem("all").Except(ValidTricks).ToArray().Length > 0)
+                        if (tricks.Where(x => !ValidTricks.AddItem("all").Contains(x)).ToArray().Length > 0)
                         {
-                            Log.Warn($"NPC {entry.Key} has invalid trick type listed: " + tricks.Except(ValidTricks).ToList());
+                            Log.Warn($"NPC {entry.Key} has invalid trick type listed: " + tricks.Except(ValidTricks).ToList()[0]);
                         }
                         NPCData[entry.Key].PreferredTricks = tricks;
                     }
@@ -203,22 +210,23 @@ namespace TricksAndTreats
                     CostumeData.Remove(entry.Key);
                     continue;
                 }
-                if (entry.Value.Hat is not null && entry.Value.Hat.Length > 0 && JA.GetHatId(entry.Value.Hat) != -1)
+                if (entry.Value.Hat is not null && entry.Value.Hat.Length > 0 && JA.GetHatId(entry.Value.Hat) >= 0)
                     count++;
                 else { CostumeData[entry.Key].Hat = ""; }
-                if (entry.Value.Top is not null && entry.Value.Top.Length > 0 && JA.GetClothingId(entry.Value.Top) != -1)
+                if (entry.Value.Top is not null && entry.Value.Top.Length > 0 && (JA.GetClothingId(entry.Value.Top) >= 0 || ClothingInfo.ContainsKey(entry.Value.Top)))
                     count++;
                 else { CostumeData[entry.Key].Top = ""; }
-                if (entry.Value.Bottom is not null && entry.Value.Bottom.Length > 0 && JA.GetClothingId(entry.Value.Bottom) != -1)
+                if (entry.Value.Bottom is not null && entry.Value.Bottom.Length > 0 && (JA.GetClothingId(entry.Value.Bottom) >= 0 || ClothingInfo.ContainsKey(entry.Value.Bottom)))
                     count++;
                 else { CostumeData[entry.Key].Bottom = ""; }
 
                 if (count < 2)
                 {
-                    Log.Warn("TaT: Removed invalid costume set " + entry.Key);
+                    Log.Warn($"TaT: Removed costume set {entry.Key} with hat {entry.Value.Hat}, top {entry.Value.Top}, bottom {entry.Value.Bottom}");
                     CostumeData.Remove(entry.Key);
                     continue;
                 }
+                Log.Trace($"TaT: Registered costume set {entry.Key} with hat {entry.Value.Hat}, top {entry.Value.Top}, bottom {entry.Value.Bottom}");
                 CostumeData[entry.Key].NumPieces = count;
             }
         }
@@ -227,10 +235,16 @@ namespace TricksAndTreats
         {
             foreach (string name in TreatData.Keys)
             {
-                TreatData[name].ObjectId = JA.GetObjectId(name);
-                if (name is null)
+                if (string.IsNullOrEmpty(name))
                 {
-                    Log.Warn($"Could not find treat {name} among valid objects.");
+                    Log.Warn($"TaT: Treat was null or empty.");
+                    TreatData.Remove(name);
+                }
+                var ja_id = JA.GetObjectId(name);
+                TreatData[name].ObjectId = ja_id != -1 ? ja_id : FoodInfo[name];
+                if (TreatData[name].ObjectId is null || TreatData[name].ObjectId < 0)
+                {
+                    Log.Warn($"TaT: No valid object ID found for treat {name}.");
                     TreatData.Remove(name);
                 }
             }

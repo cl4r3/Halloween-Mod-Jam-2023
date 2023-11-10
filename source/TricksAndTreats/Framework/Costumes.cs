@@ -20,6 +20,7 @@ namespace TricksAndTreats
             Monitor = ModInstance.Monitor;
 
             Helper.Events.GameLoop.DayStarted += (object sender, DayStartedEventArgs e) => { CheckForCostume(); };
+            Helper.Events.Player.Warped += OnWarp;
             Helper.Events.Display.MenuChanged += OnMenuChanged;
         }
 
@@ -33,6 +34,20 @@ namespace TricksAndTreats
                 return;
 
             CheckForCostume();
+        }
+
+        internal static void OnWarp(object sender, WarpedEventArgs e)
+        {
+            if (!Context.IsWorldReady || !(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27))
+                return;
+
+            if (e.OldLocation.Name == "Town")
+            {
+                if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
+                    Game1.player.activeDialogueEvents.Remove(TreatCT);
+            }
+            else if (e.NewLocation.Name == "Town")
+                CheckForCostume();
         }
 
         internal static void CheckForCostume()
@@ -72,28 +87,27 @@ namespace TricksAndTreats
                     costume = group.Key;
             }
 
-            if (costume is not null)
+            if (costume is not null && !Game1.player.activeDialogueEvents.ContainsKey(CostumeCT + costume.ToLower().Replace(' ', '_')))
             {
                 Game1.player.modData[CostumeKey] = costume;
-                Log.Trace("TaT: Currently wearing costume " + costume);
+                Log.Trace("TaT: Previously wearing costume " + costume);
                 //Game1.player.currentLocation.localSound("yoba");
                 // TODO: Check for current costume and remove before adding new one
-                Game1.player.activeDialogueEvents.Add(CostumeCT + costume.ToLower().Replace(' ', '_'), 1);
-                // TODO: Check that TreatCT is not already added before removing (and make sure not to give candy multiple times)
-                Game1.player.activeDialogueEvents.Add(TreatCT, 1);
-            }
-            else
-            {
-                Log.Trace("TaT: Currently not wearing costume");
-                var costume_ct = Game1.player.activeDialogueEvents.Keys.ToList().Find(ct => ct.StartsWith(CostumeCT));
-                if (costume_ct is not null)
-                {
-                    if (Game1.player.modData.ContainsKey(CostumeKey))
-                        Game1.player.modData.Remove(CostumeKey);
-                    Game1.player.activeDialogueEvents.Remove(costume_ct);
-                    Game1.player.activeDialogueEvents.Remove(TreatCT);
+                foreach(string key in Game1.player.activeDialogueEvents.Keys.Where(x => x.StartsWith(CostumeCT.ToLower()))) {
+                    Game1.player.activeDialogueEvents.Remove(key);
                 }
-                   
+                Game1.player.activeDialogueEvents.Add(CostumeCT + costume.ToLower().Replace(' ', '_'), 1);
+                // TODO: Check that TreatCT is not already added before removing
+                if (!Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
+                    Game1.player.activeDialogueEvents.Add(TreatCT, 1);
+            }
+            else if (costume is null)
+            {
+                Log.Trace("TaT: No longer wearing costume");
+                foreach (string key in Game1.player.activeDialogueEvents.Keys.Where(x => x.StartsWith(CostumeCT.ToLower())))
+                    Game1.player.activeDialogueEvents.Remove(key);
+                if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
+                    Game1.player.activeDialogueEvents.Remove(TreatCT);
             }
         }
     }

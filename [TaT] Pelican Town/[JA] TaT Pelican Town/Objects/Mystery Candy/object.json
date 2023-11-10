@@ -1,0 +1,8 @@
+{
+	"Name": "TaT.mystery-candy",
+	"TranslationKey": "objects.mystery-candy",
+	"Category": "Junk",
+	"Edibility": 1, // Random?
+	"EdibleIsDrink": false,
+	"Price": 1,
+}

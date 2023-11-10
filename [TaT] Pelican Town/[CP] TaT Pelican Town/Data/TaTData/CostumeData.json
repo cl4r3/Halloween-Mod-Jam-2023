@@ -3,7 +3,7 @@
     {
       "LogName": "Data for new costumes",
       "Action": "EditData",
-      "Target": "Mods/ch20youk.TaTData.Costumes",
+      "Target": "Mods/TricksAndTreats.Costumes",
       "Entries": {
         /*
         "(Costume set name)": {
