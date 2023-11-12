@@ -44,8 +44,10 @@
 			"loved_treat": "{{i18n:sam.loved_treat}}",
 			"neutral_treat": "{{i18n:sam.neutral_treat}}",
 			"hated_treat": "{{i18n:sam.hated_treat}}",
-			"before_trick": "{{i18n:sam.before_trick}}",
-			"after_trick": "{{i18n:sam.after_trick}}",
+			"before_paint": "{{i18n:sam.before_trick}}",
+			"before_egg": "{{i18n:sam.before_trick}}",
+			"after_paint": "{{i18n:sam.after_trick}}",
+			"after_egg": "{{i18n:sam.after_trick}}",
 		},
 	},
 	{
@@ -57,8 +59,8 @@
 			"loved_treat": "{{i18n:sebastian.loved_treat}}",
 			"neutral_treat": "{{i18n:sebastian.neutral_treat}}",
 			"hated_treat": "{{i18n:sebastian.hated_treat}}",
-			"before_trick": "{{i18n:sebastian.before_trick}}",
-			"after_trick": "{{i18n:sebastian.after_trick}}",
+			"before_egg": "{{i18n:sebastian.before_trick}}",
+			"after_egg": "{{i18n:sebastian.after_trick}}",
 		},
 	},
 	{
@@ -83,8 +85,8 @@
 			"loved_treat": "{{i18n:abigail.loved_treat}}",
 			"neutral_treat": "{{i18n:abigail.neutral_treat}}",
 			"hated_treat": "{{i18n:abigail.hated_treat}}",
-			"before_trick": "{{i18n:abigail.before_trick}}",
-			"after_trick": "{{i18n:abigail.after_trick}}",
+			"before_paint": "{{i18n:abigail.before_trick}}",
+			"after_paint": "{{i18n:abigail.after_trick}}",
 		},
 	},
 	{
@@ -96,8 +98,8 @@
 			"loved_treat": "{{i18n:emily.loved_treat}}",
 			"neutral_treat": "{{i18n:emily.neutral_treat}}",
 			"hated_treat": "{{i18n:emily.hated_treat}}",
-			"before_trick": "{{i18n:emily.before_trick}}",
-			"after_trick": "{{i18n:emily.after_trick}}",
+			"before_paint": "{{i18n:emily.before_trick}}",
+			"after_paint": "{{i18n:emily.after_trick}}",
 		},
 	},
 	{
@@ -121,8 +123,8 @@
 			"loved_treat": "{{i18n:leah.loved_treat}}",
 			"neutral_treat": "{{i18n:leah.neutral_treat}}",
 			"hated_treat": "{{i18n:leah.hated_treat}}",
-			"before_trick": "{{i18n:leah.before_trick}}",
-			"after_trick": "{{i18n:leah.after_trick}}",
+			"before_paint": "{{i18n:leah.before_paint}}",
+			"after_paint": "{{i18n:leah.after_paint}}",
 		},
 	},
 	{
@@ -170,8 +172,8 @@
 			"loved_treat": "{{i18n:vincent.loved_treat}}",
 			"neutral_treat": "{{i18n:vincent.neutral_treat}}",
 			"hated_treat": "{{i18n:vincent.hated_treat}}",
-			"before_trick": "{{i18n:vincent.before_trick}}",
-			"after_trick": "{{i18n:vincent.after_trick}}",
+			"before_egg": "{{i18n:vincent.before_trick}}",
+			"after_egg": "{{i18n:vincent.after_egg}}",
 		},
 	},
 
@@ -312,8 +314,8 @@
 			"loved_treat": "{{i18n:pam.loved_treat}}",
 			"neutral_treat": "{{i18n:pam.neutral_treat}}",
 			"hated_treat": "{{i18n:pam.hated_treat}}",
-			"before_trick": "{{i18n:pam.before_trick}}",
-			"after_trick": "{{i18n:pam.after_trick}}",
+			"before_egg": "{{i18n:pam.before_trick}}",
+			"after_egg": "{{i18n:pam.after_egg}}",
 		},
 	},
 	{
@@ -353,6 +355,32 @@
 
 	//Outsiders
 	{
+		"LogName": "Treat Dialogue - Dwarf",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Dwarf",
+		"Entries": {
+			"fall_27": "{{i18n:dwarf.fall_27}}",
+			"loved_treat": "{{i18n:dwarf.loved_treat}}",
+			"neutral_treat": "{{i18n:dwarf.neutral_treat}}",
+			"hated_treat": "{{i18n:dwarf.hated_treat}}",
+			"before_maze": "{{i18n:dwarf.before_trick}}",
+			"after_maze": "{{i18n:dwarf.after_maze}}",
+		},
+	},
+	{
+		"LogName": "Treat Dialogue - Krobus",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Krobus",
+		"Entries": {
+			"fall_27": "{{i18n:krobus.fall_27}}",
+			"loved_treat": "{{i18n:krobus.loved_treat}}",
+			"neutral_treat": "{{i18n:krobus.neutral_treat}}",
+			"hated_treat": "{{i18n:krobus.hated_treat}}",
+			"before_maze": "{{i18n:krobus.before_trick}}",
+			"after_maze": "{{i18n:krobus.after_maze}}",
+		},
+	},
+	{
 		"LogName": "Treat Dialogue - Wizard",
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Wizard",
@@ -361,8 +389,8 @@
 			"loved_treat": "{{i18n:wizard.loved_treat}}",
 			"neutral_treat": "{{i18n:wizard.neutral_treat}}",
 			"hated_treat": "{{i18n:wizard.hated_treat}}",
-			"before_trick": "{{i18n:wizard.before_trick}}",
-			"after_trick": "{{i18n:wizard.after_trick}}",
+			"before_maze": "{{i18n:wizard.before_trick}}",
+			"after_maze": "{{i18n:wizard.after_maze}}",
 		},
 	},
 ]

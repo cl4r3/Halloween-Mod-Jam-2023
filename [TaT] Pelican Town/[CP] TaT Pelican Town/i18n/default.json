@@ -70,7 +70,7 @@
   "emily.neutral_treat": "Thanks, @!",
   "emily.hated_treat": "@, this looks awful. I don't think this counts as a treat...$s",
   "emily.before_trick": "...Well, you know what that means, right?$h",
-  "emily.after_trick": "Haha, don't you look silly!$h#$b#Don't worry, it's just paint. It'll be gone by tomorrow.",
+  "emily.after_paint": "Haha, don't you look silly!$h#$b#Don't worry, it's just paint. It'll be gone by tomorrow.",
 
   "haley.fall_27": "Emily, why don't you go get some treats for us instead of standing here? I want to try what the others have made.",
   "haley.loved_treat": "Aww, what a cute little treat! Thanks, @.$h",
@@ -83,7 +83,7 @@
   "leah.neutral_treat": "Oh, thanks!",
   "leah.hated_treat": "@, you should know that I can't eat this...$a",
   "leah.before_trick": "Wait a second... What's that? It's raining paint!$h",
-  "leah.after_trick": "Oh, no! Looks like you got soaked, @! Happy Spirit's Eve!$h",
+  "leah.after_paint": "Oh, no! Looks like you got soaked, @! Happy Spirit's Eve!$h",
 
   "maru.fall_27": "Dad spent all night making those treats, and he still won't give me one!$a#$b#Let me know if they're any good, okay?",
   "maru.loved_treat": "Wow! Thanks, @!$h",
@@ -106,7 +106,7 @@
   "vincent.neutral_treat": "Yay, a treat! Thank you!$h",
   "vincent.hated_treat": "Haha, yuck!$h",
   "vincent.before_trick": "Trick-or-treat with no treat means...$h",
-  "vincent.after_trick": "Haha! Hope you like eggs!$h",
+  "vincent.after_egg": "Haha! Hope you like eggs!$h",
   "vincent.costume_react-goblin": "Whoa! You look freaky, mister!$1^Whoa! You look freaky, miss!$1",
 
   "caroline.fall_27": "Have you tried one of my husband's treats, @? He's been boasting about them all day.",
@@ -177,7 +177,7 @@
   "pam.neutral_treat": "A treat? That's real kind of you, kid.",
   "pam.hated_treat": "Ugh. Where's the fun in boring stuff like this?$s",
   "pam.before_trick": "Hey, kid. You know how today works, right?",
-  "pam.after_trick": "Hope that wasn't too important to you! Ha!$h",
+  "pam.after_egg": "Hope that wasn't too important to you! Ha!$h",
 
   "pierre.fall_27": "If you get any Joja candy, you should just throw it out. I heard they don't even use real sugar, you know.",
   "pierre.loved_treat": "My favorite! Thanks, @.$h",
@@ -195,19 +195,19 @@
   "willy.neutral_treat": "Oh, these always get the fish bitin'. Thanks, @.",
   "willy.hated_treat": "...Hmph. Well, a treat is a treat, I s'pose.$2",
 
-  "dwarf.fall_27": "",
-  "dwarf.loved_treat": "",
-  "dwarf.neutral_treat": "",
-  "dwarf.hated_treat": "",
-  "dwarf.before_trick": "",
-  "dwarf.after_trick": "",
+  "dwarf.fall_27": "The monsters lurking in the mines are especially active today. It's quite bothersome.",
+  "dwarf.loved_treat": "Thank you! I must say, these are one of humanity's best inventions.",
+  "dwarf.neutral_treat": "Hm, you don't see these often. Thank you.",
+  "dwarf.hated_treat": "Your human traditions disgust me.",
+  "dwarf.before_trick": "I want you out of my sight. In fact...",
+  "dwarf.after_trick": "There. I'll have plenty of peace and quiet while you work your way to the center.#$b#If only it could last even longer... Oh, well.",
 
-  "krobus.fall_27": "",
-  "krobus.loved_treat": "",
-  "krobus.neutral_treat": "",
-  "krobus.hated_treat": "",
-  "krobus.before_trick": "",
-  "krobus.after_trick": "",
+  "krobus.fall_27": "There are many footsteps overhead... Do the humans have some kind of gathering today?",
+  "krobus.loved_treat": "Ah, I think I understand... Thank you, @. You are very generous.$h",
+  "krobus.neutral_treat": "I don't quite understand what this is, but thank you.",
+  "krobus.hated_treat": "This human joke is not very funny.$s",
+  "krobus.before_trick": "Oh, that's right - I'm supposed to play a \"trick\" on you, right? Well, then...",
+  "krobus.after_maze": "Don't worry, you're not stuck here. The exit is to your left.#$b#When you return, please let me know if this trick suffices.",
 
   "sandy.fall_27": "",
   "sandy.loved_treat": "",
@@ -221,4 +221,5 @@
   "wizard.hated_treat": "This smells absolutely repugnant.$a",
   "wizard.before_trick": "Perhaps I need to teach you a lesson...",
   "wizard.after_trick": "Now begone. I have much to attend to this evening.",
+  "wizard.after_maze": "I have entrapped you within a mental illusion. Find the exit to the south and I will release you.",
 }

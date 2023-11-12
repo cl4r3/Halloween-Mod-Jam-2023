@@ -196,7 +196,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Linus",
 		"Entries": {
-			"fall_27": "700 Tent 2 2 0/900 Mountain 25 5 1/a1100 Town 29 55 2/2200 Tent 2 2 2",
+			"fall_27": "700 Mountain 25 5 1/a1100 Town 29 55 2/2200 Tent 2 2 2",
 		},
 	},
 	{

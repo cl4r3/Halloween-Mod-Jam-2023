@@ -1,6 +1,17 @@
 {
   "Format": "1.29.0",
 
+  "CustomLocations": [
+    {
+      "Name": "Custom_TaT_Maze-Dwarf",
+      "FromMapFile": "Assets/DwarfMaze.tmx"
+    },
+    {
+      "Name": "Custom_TaT_Maze-Krobus",
+      "FromMapFile": "Assets/KrobusMaze.tmx"
+    },
+  ],
+
   "Changes": [
     {
       "LogName": "Include TaT data",

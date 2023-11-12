@@ -154,15 +154,13 @@
           "HatedTreats": [ "healthy", ],
           "TreatsToGive": [ "TaT.ablaze-orbs", ],
         },
-        /*
         "Dwarf": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "candy", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "all", ],
-          "PreferredTricks": [ "all", ],
+          "PreferredTricks": [ "maze", ],
         },
-        */
         "Evelyn": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "sweet", ],
@@ -196,15 +194,13 @@
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", ],
         },
-        /*
         "Krobus": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "TaT.licorice-swirl", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "sweet", ],
-          "PreferredTricks": [ "all", ],
+          "PreferredTricks": [ "maze", ],
         },
-        */
         "Lewis": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "sweet", ],
@@ -264,7 +260,7 @@
           "LovedTreats": [ "TaT.licorice-swirl", "candy", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "all", ],
-          "PreferredTricks": [ "paint", ],
+          "PreferredTricks": [ "maze", ],
         },
       }
     },

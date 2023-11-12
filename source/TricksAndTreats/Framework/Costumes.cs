@@ -103,7 +103,7 @@ namespace TricksAndTreats
             }
             else if (costume is null)
             {
-                Log.Trace("TaT: No longer wearing costume");
+                Log.Trace("TaT: Currently not wearing costume");
                 foreach (string key in Game1.player.activeDialogueEvents.Keys.Where(x => x.StartsWith(CostumeCT.ToLower())))
                     Game1.player.activeDialogueEvents.Remove(key);
                 if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))

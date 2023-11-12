@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using SpaceCore.Events;
 using StardewModdingAPI;
+using StardewModdingAPI.Enums;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
@@ -51,6 +52,7 @@ namespace TricksAndTreats
             Helper = helper;
             var harmony = new Harmony(ModManifest.UniqueID);
 
+            helper.Events.Specialized.LoadStageChanged += OnLoadStageChanged;
             helper.Events.Content.AssetRequested += OnAssetRequested;
             helper.Events.Content.AssetReady += OnAssetReady;
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
@@ -60,6 +62,14 @@ namespace TricksAndTreats
             Tricks.Initialize(this);
             Treats.Initialize(this);
             Costumes.Initialize(this);
+        }
+
+        private void OnLoadStageChanged(object sender, LoadStageChangedEventArgs e)
+        {
+            if (e.NewStage == LoadStage.CreatedInitialLocations || e.NewStage == LoadStage.SaveAddedLocations)
+            {
+                Game1.locations.Add(new GameLocation(Helper.ModContent.GetInternalAssetName("assets/Maze.tmx").BaseName, "Custom_TaT_Maze"));
+            }
         }
 
         private void OnTimeChange(object sender, TimeChangedEventArgs e)
