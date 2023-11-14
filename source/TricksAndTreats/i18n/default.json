@@ -1,13 +1,21 @@
 ﻿{
   // Generic dialogue for NPCs without these specific keys
-  "generic.loved_treat": "How'd you know this is my favorite Spirit's Eve candy? Thanks, @!$h",
-  "generic.neutral_treat": "Thanks for the treat!",
-  "generic.hated_treat": "You call this Spirit's Eve candy? Yuck!$a",
-  "generic.before_trick": "Well, you know what happens if you don't give a treat...$h",
-  "generic.after_trick": "Take that! Happy Spirit's Eve, @!$h",
-  "generic.cannot_trick": "...$s#$b#...Wait, you don't have anything for me to steal? Aw, man...$s#$b#Well, guess you'll get away with it this time!$h",
   "generic.not_candytaker": "Oh, thank you, but I'm alright.",
   "generic.give_candy": "Oh, are you trick-or-treating this year, @?#$b#Well then, here you go. Happy Spirit's Eve!$h",
+  "generic.loved_treat": "This looks delicious! Thanks, @!$h",
+  "generic.neutral_treat": "Thanks for the treat.",
+  "generic.hated_treat": "This treat looks awful.$s",
+  "generic.before_steal": "Looks like I'll have to choose a treat for myself...!$h",
+  "generic.after_steal": "Don't worry, your stuff will be in the chest at the end of the maze tonight if you want it back.",
+  "generic.cannot_steal": "...Wait, you don't have anything for me to steal? Aw, man...$s#$b#Well, guess you'll get away with it this time!$h",
+  "generic.before_paint": "Well, you know what happens if you don't give a treat...$h",
+  "generic.after_paint": "Don't worry, the paint will wash off by tomorrow! Happy Spirit's Eve, @.",
+  "generic.before_maze": "If you waste my time, then I'll waste yours...",
+  "generic.after_maze": "Find the exit to be released from the illusion. Well then, good luck!",
+  "generic.before_mystery": "You don't know your Spirit's Eve treats very well, do you?",
+  "generic.after_mystery": "Now you definitely won't know them! Good luck telling these apart, if you can...$h",
+  "generic.before_nickname": "Good thing I brought these nametags with me! Now hold still...",
+  "generic.after_nickname": "For the rest of the day, you'll be known as @!$h#$b#Happy Spirit's Eve, @.",
 
   // Non-dialogue info messages
   "info.not_halloween": "You can't give out Spirit's Eve treats when it's not Spirit's Eve!",
@@ -15,7 +23,37 @@
   "info.festival_prep": "Looks like it's time to start setting up for tonight's festival!",
 
   // A list of silly names the player might be called as part of a trick (separated by commas)
-  // Please use similar, gender-neutral names from your language rather than translate literally
+  // Please use similar, gender-neutral names from your language rather than literal translations
   // Just make sure to keep the names separated with commas!
-  "tricks.dumb_names": "Stinky McButtface, Captain Fartface, Doofus Supreme, Fartknocker, Turbo-nerd, Buttmunch, Ferretface",
+  "tricks.dumb_names": "Stinky McButtface, Captain Fartface, Doofus Supreme, Fartknocker, Turbo-nerd, Buttmunch, Ferretface, Boogerbutt",
+
+  "objects.rotten-egg.name": "Rotten Egg",
+  "objects.rotten-egg.description": "This egg is long past its expiration date, if the smell is any indication...",
+  "objects.mystery-treat.name": "Mystery Treat",
+  "objects.mystery-treat.description": "Someone wrapped this treat up in nondescript packaging, and now there's no telling what it is...!",
+
+  "config.bigpranks.name": "Large-Scale Trick Setting",
+  "config.bigpranks.description": "For the large-scale trick that occurs the day after Spirit's Eve if the player does not give out enough treats.",
+  "config.scorecalcmethod.name": "Score Calculation Method",
+  "config.scorecalcmethod.description": "How the player's overall \"score\" for the large-scale trick will be calculated. The options are \"minmult\" (default), \"minval\", or \"none\". If \"none\", the player will never fall victim to the large-scale prank. For descriptions of the other two methods, please see the options below.",
+  "config.customminmult.name": "Custom Minimum Multiplier",
+  "config.customminmult.description": "If the score calculation method is \"minmult\", the minimum score required to avoid the large-scale trick will be calculated by multiplying the total number of candytaker NPCs by this (decimal) number.",
+  "config.customminval.name": "Custom Minimum Value",
+  "config.customminval.description": "If the score calculation method is \"minval\", the minimum score required to avoid the large-scale trick will be this numerical value.",
+  "config.allowtping.name": "Allow TPing",
+  "config.allowtping.description": "Whether the large-scale trick includes TPing. This overlay is based on the vanilla houses, so house retextures whose designs differ significantly from vanilla, disabling this option is recommended. If both this and the above option are disabled, no large-scale prank will occur.",
+  "config.allowegging.name": "Allow Egging",
+  "config.allowegging.description": "Whether the large-scale trick includes egging. This overlay is designed to be more forgiving for house retextures, so we recommend keeping this option enabled. If both this and the above option are disabled, no large-scale prank will occur.",
+  "config.smallpranks.name": "Small-Scale Trick Setting",
+  "config.smallpranks.description": "For the small-scale trick that trickster NPCs pull if the player gives them a hated treat. If all of the below options are disabled, the player will never have NPCs play tricks on them.",
+  "config.allowsteal.name": "Allow Pickpocketing",
+  "config.allowsteal.description": "When enabled, some tricksters may take a random non-essential item from the player's inventory and replace it with an egg. The stolen item can later be retrieved from the chest at the end of the Spirit's Eve maze.",
+  "config.allowpaint.name": "Allow Paint Bombs",
+  "config.allowpaint.description": "When enabled, some tricksters may \"throw a paint bomb\" on the player, changing their skin tone to a bright, colorful one for the rest of the day.",
+  "config.allowmaze.name":  "Allow Maze Puzzles",
+  "config.allowmaze.description": "When enabled, some tricksters may warp the player into a maze that they then must find the exit to in order to return to their previous location.",
+  "config.allowmystery.name": "Allow Mystery Treats",
+  "config.allowmystery.description": "When enabled, some tricksters may wrap all Spirit's Eve treats in the player's inventory in identical packaging, making it hard to tell which treat is which.",
+  "config.allownickname.name": "Allow Silly Names",
+  "config.allownickname.description": "When enabled, some tricksters may give the player a silly nickname for the rest of the day, which all other NPCs/menus/etc will then use.",
 }

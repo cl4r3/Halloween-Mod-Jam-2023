@@ -15,7 +15,12 @@
   "info.festival_prep": "Looks like it's time to start setting up for tonight's festival!",
 
   // A list of silly names the player might be called as part of a trick (separated by commas)
-  // Please use similar, gender-neutral names from your language rather than translate literally
+  // Please use similar, gender-neutral names from your language rather than literal translations
   // Just make sure to keep the names separated with commas!
-  "tricks.dumb_names": "Stinky McButtface, Captain Fartface, Doofus Supreme, Fartknocker, Turbo-nerd, Buttmunch, Ferretface",
+  "tricks.dumb_names": "Stinky McButtface, Captain Fartface, Doofus Supreme, Fartknocker, Turbo-nerd, Buttmunch, Ferretface, Boogerbutt",
+
+  "objects.rotten-egg.name": "Rotten Egg",
+  "objects.rotten-egg.description": "This egg is long past its expiration date, if the smell is any indication...",
+  "objects.mystery-treat.name": "Mystery Treat",
+  "objects.mystery-treat.description": "Someone wrapped this treat up in nondescript packaging, and now there's no telling what it is...!",
 }

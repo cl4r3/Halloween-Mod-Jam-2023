@@ -6,7 +6,7 @@
       "Target": "Mods/TricksAndTreats.NPCs",
       "Entries": {
         /*
-        "(NPC name)": {
+        "(NPC name)": { // In-game name, NOT display name
           "Roles": [
             "candygiver", // Will give player candy when spoken to (if wearing costume)
             "candytaker", // Can receive candy from player
@@ -14,13 +14,19 @@
             "observer" // Neither gives nor receives candy
           ],
           // Valid flavors: "sweet", "sour", "salty", "hot", "gourmet", "candy", "healthy", "joja", "fatty"
-          // But you can also add item names directly into list
+          // You can also add item names directly into list
           // All flavors/items are neutral unless otherwise specified
           "LovedTreats": [ "salty", "hot", ],
           "NeutralTreats": [ "TaT.specific-salty-treat" ],
           "HatedTreats": [ "candy", ],
-          "TreatsToGive": [ "TaT.candy-corn", "TaT.some-other-treat" ], // Optional. If candygiver, will randomly give one of these in list (items, not flavors)
-          "PreferredTricks": [ "egg", ], // Optional. If trickster, will pull a random prank from within this list (currently just "egg", "paint", or "all")
+          "TreatsToGive": [ "TaT.candy-corn", "TaT.some-other-treat" ], // Candygivers only, optional. If candygiver, will randomly give one of these in list (items, not flavors)
+          "PreferredTricks": [ "steal", "paint" ], // Tricksters only, optional. If trickster, will pull a random prank from within this list ("steal", "paint", "maze", "mystery", "nickname", or "all")
+          // "steal": Take a random non-essential item from the player's inventory and replace it with an egg. The stolen item can later be retrieved from the chest at the end of the Spirit's Eve maze
+          // "paint": "Throw a paint bomb" on the player, changing their skin tone to a bright, colorful one for the rest of the day
+          // "maze": Warp the player into a maze that they then must find the exit to in order to return to their previous location. To use a custom maze, please see the documentation
+          // "mystery": Wrap all Spirit's Eve treats in the player's inventory in identical packaging, making it hard to tell which treat is which
+          // "nickname": Give the player a silly nickname for the rest of the day, which all other NPCs/menus/etc will then use
+          // "all": Randomly choose from all of the above tricks
         },
         */
 
@@ -36,20 +42,20 @@
           "LovedTreats": [ "gourmet", "healthy" ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", "fatty", "salty", ],
-          "TreatsToGive": [ "TaT.candy-corn", ],
+          "TreatsToGive": [ "TaT.candy-corn", "TaT.twisty-taffy", "TaT.peanut-butter-eyecups" ],
         },
         "Harvey": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "TaT.raisins", "healthy", "gourmet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "sweet", "fatty", "salty", ],
-          "TreatsToGive": [ "TaT.gingerbread-tombstone", ],
+          "TreatsToGive": [ "TaT.gingerbread-tombstone", "TaT.candy-corn", "TaT.twisty-taffy", "TaT.raisins" ],
         },
         "Sam": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "joja", "candy", ],
           "NeutralTreats": [ ],
-          "PreferredTricks": [ "all", ],
+          "PreferredTricks": [ "steal", "paint", "nickname" ],
           "HatedTreats": [ "healthy", "gourmet", ],
         },
         "Sebastian": {
@@ -57,7 +63,7 @@
           "LovedTreats": [ "TaT.candied-apple", "salty", "hot", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "TaT.candy-corn", "gourmet", ],
-          "PreferredTricks": [ "egg", ],
+          "PreferredTricks": [ "steal", "paint" ],
         },
         "Shane": {
           "Roles": [ "candytaker", ],
@@ -72,29 +78,29 @@
           "LovedTreats": [ "TaT.witch-cauldron", "candy", "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", ],
-          "PreferredTricks": [ "paint", "egg", ],
+          "PreferredTricks": [ "paint", "steal", "nickname", "mystery" ],
         },
         "Emily": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "TaT.eye-candy", "healthy", "gourmet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "fatty", "salty", ],
-          "PreferredTricks": [ "paint", ],
+          "PreferredTricks": [ "paint", "mystery" ],
         },
         "Haley": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "fatty", "salty", ],
-          "TreatsToGive": [ "TaT.dino-cookie", ],
+          "TreatsToGive": [ "TaT.dino-cookie", "TaT.ghost-meringue" ],
         },
         "Leah": {
           "Roles": [ "candygiver", "candytaker", "trickster", ],
           "LovedTreats": [ "TaT.raisins", "healthy", "gourmet" ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "fatty", "salty" ],
-          "TreatsToGive": [ "TaT.ghost-meringue", ],
-          "PreferredTricks": [ "paint", ],
+          "TreatsToGive": [ "TaT.ghost-meringue", "Maple Bar" ],
+          "PreferredTricks": [ "paint", "mystery" ],
         },
         "Maru": {
           "Roles": [ "candytaker", ],
@@ -107,7 +113,7 @@
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "sour", ],
-          "TreatsToGive": [ "TaT.joja-gummies", ],
+          "TreatsToGive": [ "TaT.joja-gummies", "TaT.joja-canes" ],
         },
 
         // Children
@@ -117,20 +123,18 @@
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", "gourmet", "salty", ],
         },
-        /*
         "Leo": {
           "Roles": [ "candytaker", ],
           "LovedTreats": [ "all", ],
           "NeutralTreats": [ ],
           "HatedTreats": [  ],
         },
-        */
         "Vincent": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "sweet", "candy", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", "gourmet", ],
-          "PreferredTricks": [ "egg", ],
+          "PreferredTricks": [ "steal", "nickname" ],
         },
 
         // Other
@@ -145,7 +149,7 @@
           "LovedTreats": [ "fatty", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", ],
-          "TreatsToGive": [ "TaT.joja-cane", ],
+          "TreatsToGive": [ "TaT.joja-cane", "TaT.joja-gummies", "TaT.candy-corn", "TaT.dino-cookie", "Miner's Treat" ],
         },
         "Demetrius": {
           "Roles": [ "candygiver", "candytaker", ],
@@ -166,7 +170,7 @@
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "salty", "hot", ],
-          "TreatsToGive": [ "TaT.gingerbread-tombstone", ],
+          "TreatsToGive": [ "TaT.gingerbread-tombstone", "TaT.ghost-meringue", "Cookie" ],
         },
         "George": {
           "Roles": [ "candytaker", ],
@@ -179,14 +183,14 @@
           "LovedTreats": [ "gourmet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", "candy", ],
-          "TreatsToGive": [ "TaT.ablaze-orbs", ],
+          "TreatsToGive": [ "TaT.luxurious-truffles", "TaT.peanut-butter-eyecup", "TaT.candied-apple" ],
         },
         "Jodi": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "fatty", "hot", "salty", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", "healthy", ],
-          "TreatsToGive": [ "TaT.candy-corn", ],
+          "TreatsToGive": [ "TaT.candy-corn", "TaT.twisty-taffy" ],
         },
         "Kent": {
           "Roles": [ "candytaker", ],
@@ -206,33 +210,35 @@
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", ],
-          "TreatsToGive": [ "TaT.braincell-gum", ],
+          "TreatsToGive": [ "TaT.twisty-taffy", "TaT.braincell-gum", "TaT.candy-corn" ],
         },
         "Linus": {
-          "Roles": [ "candytaker", ],
+          "Roles": [ "candytaker", "candygiver" ],
           "LovedTreats": [ "healthy", "gourmet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "joja", ],
+          "TreatsToGive": [ "Maple Bar" ],
         },
         "Marnie": {
           "Roles": [ "candytaker", ],
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "salty", ],
+          "TreatsToGive": [ "TaT.twisty-taffy", "TaT.braincell-gum", "TaT.candy-corn" ],
         },
         "Pam": {
           "Roles": [ "candytaker", "trickster", ],
           "LovedTreats": [ "salty", "fatty", "joja", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", "gourmet", ],
-          "PreferredTricks": [ "egg", ],
+          "PreferredTricks": [ "steal", ],
         },
         "Pierre": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "hot", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "joja", ],
-          "TreatsToGive": [ "TaT.candy-corn", ],
+          "TreatsToGive": [ "TaT.eye-candy", "TaT.licorice-swirl" ],
         },
         "Robin": {
           "Roles": [ "candytaker", ],
@@ -240,15 +246,13 @@
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", ],
         },
-        /*
         "Sandy": {
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "gourmet", "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", ],
-          "TreatsToGive": [ "TaT.witch-cauldron", ],
+          "TreatsToGive": [ "TaT.witch-cauldron", "TaT.dino-cookie" ],
         },
-        */
         "Willy": {
           "Roles": [ "candytaker", ],
           "LovedTreats": [ "hot", "fatty", "salty", ],

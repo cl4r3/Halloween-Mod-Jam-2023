@@ -28,12 +28,12 @@ namespace TricksAndTreats
             Monitor = ModInstance.Monitor;
             r = new();
 
-            Helper.Events.Content.AssetRequested += RetextureHouse;
             Helper.Events.GameLoop.SaveLoaded += CheckTricksters;
-            Helper.Events.GameLoop.DayStarted += BeforeDayStuff;
-            Helper.Events.GameLoop.DayEnding += DayEnd;
+            Helper.Events.Content.AssetRequested += HouseTrick;
+            Helper.Events.Multiplayer.PeerConnected += (object sender, PeerConnectedEventArgs e) => { CheckHouseTrick(); };
+            Helper.Events.GameLoop.DayStarted += DayStart;
             Helper.Events.Input.ButtonPressed += OpenHalloweenChest;
-            Helper.Events.Multiplayer.PeerConnected += (object sender, PeerConnectedEventArgs e) => { ReloadHouseExteriorsMaybe(); };
+            Helper.Events.GameLoop.DayEnding += DayEnd;
         }
 
         internal static void OpenHalloweenChest(object sender, ButtonPressedEventArgs e)
@@ -51,7 +51,7 @@ namespace TricksAndTreats
                     }
                     Game1.currentLocation.localSound("openChest");
                     List<Item> items = new();
-                    if (!Game1.player.modData.ContainsKey("reached_yet") || Game1.player.modData["reached_yet"] != "true")
+                    if (!Game1.player.modData.ContainsKey(ChestKey) || Game1.player.modData[ChestKey] != "true")
                     {
                         items.Add(new StardewValley.Object(373, 1));
                         var logged = val.Split('\\');
@@ -64,7 +64,10 @@ namespace TricksAndTreats
                         Game1.activeClickableMenu = new ItemGrabMenu(items).setEssential(essential: true);
                         (Game1.activeClickableMenu as ItemGrabMenu).source = 3;
                         Game1.player.completelyStopAnimatingOrDoingAction();
-                        Game1.player.modData["reached_yet"] = "true";
+
+                        // after menu closed
+                        Game1.player.modData[ChestKey] = "true";
+                        Game1.player.modData.Remove(StolenKey);
                         if (!Game1.IsMultiplayer)
                             Game1.currentLocation.Objects.Remove(new Vector2(33, 13));
                         else
@@ -83,7 +86,6 @@ namespace TricksAndTreats
                 {
                     NPC npc = Game1.getCharacterFromName(entry.Key);
 
-                    // technically taken care of in util function, but needed now
                     if (!npc.Dialogue.ContainsKey("hated_treat"))
                     {
                         npc.Dialogue.Add("hated_treat", Helper.Translation.Get("generic.hated_treat"));
@@ -104,9 +106,9 @@ namespace TricksAndTreats
         }
 
         [EventPriority(EventPriority.Low)]
-        private static void BeforeDayStuff(object sender, DayStartedEventArgs e)
+        private static void DayStart(object sender, DayStartedEventArgs e)
         {
-            ReloadHouseExteriorsMaybe();
+            CheckHouseTrick();
 
             Farmer farmer = Game1.player;
             if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
@@ -128,11 +130,23 @@ namespace TricksAndTreats
                 // reset nickname if changed
                 Game1.player.Name = Game1.player.displayName;
 
-                int score = int.Parse(Game1.player.modData[ScoreKey]);
-                Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}.");
-                if (score < NPCData.Keys.Count)
-                    Game1.player.mailReceived.Add(HouseFlag);
-                Game1.player.modData.Remove(ScoreKey);
+                // remove moddata stuff
+                if (Game1.player.modData.ContainsKey(ChestKey))
+                    Game1.player.modData.Remove(ChestKey);
+                if (Game1.player.modData.ContainsKey(CostumeKey))
+                    Game1.player.modData.Remove(CostumeKey);
+
+                if (Config.ScoreCalcMethod != "none")
+                {
+                    int score = int.Parse(Game1.player.modData[ScoreKey]);
+                    int min = Config.ScoreCalcMethod == "minmult" ? (int)Math.Round(NPCData.Keys.Count * Config.CustomMinMult) : Config.CustomMinVal;
+                    Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}, min score needed to avoid house prank is {min}.");
+                    if (score < min)
+                        Game1.player.mailReceived.Add(HouseFlag);
+                    Game1.player.modData.Remove(ScoreKey);
+                }
+                else
+                    Log.Trace($"TaT: House pranks disabled; skipping score calculation.");
             }
             else if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
             {
@@ -142,24 +156,42 @@ namespace TricksAndTreats
         }
 
         [EventPriority(EventPriority.Low)]
-        private static void RetextureHouse(object sender, AssetRequestedEventArgs e)
+        private static void HouseTrick(object sender, AssetRequestedEventArgs e)
         {
             if (!Context.IsWorldReady)
                 return;
 
             if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
             {
+                if (!Config.AllowEgging && !Config.AllowTPing)
+                {
+                    Log.Trace("TaT: Neither TPing nor egging allowed, so no prank will be pulled.");
+                    return;
+                }
+
                 if (Game1.MasterPlayer.mailReceived.Contains(HouseFlag)) 
                 {
                     if (e.Name.IsEquivalentTo("Buildings/houses"))
                     {
-                        Log.Debug("TaT: TPing main farmhouse...");
-                        e.Edit(asset =>
+                        Log.Trace("TaT: Pranking main farmhouse...");
+                        if (Config.AllowEgging)
                         {
-                            var editor = asset.AsImage();
-                            IRawTextureData sourceImage = Helper.ModContent.Load<IRawTextureData>("assets/houses.png");
-                            editor.PatchImage(sourceImage, sourceArea: new Rectangle(0, 0, 272, 432), targetArea: new Rectangle(0, 0, 272, 432), patchMode: PatchMode.Overlay);
-                        });
+                            e.Edit(asset =>
+                            {
+                                var editor = asset.AsImage();
+                                var sourceImage = Helper.ModContent.Load<IRawTextureData>("assets/egged-houses.png");
+                                editor.PatchImage(sourceImage, sourceArea: new Rectangle(0, 0, 272, 432), targetArea: new Rectangle(0, 0, 272, 432), patchMode: PatchMode.Overlay);
+                            });
+                        }
+                        if (Config.AllowTPing)
+                        {
+                            e.Edit(asset =>
+                            {
+                                var editor = asset.AsImage();
+                                var sourceImage = Helper.ModContent.Load<IRawTextureData>("assets/tp-houses.png");
+                                editor.PatchImage(sourceImage, sourceArea: new Rectangle(0, 0, 272, 432), targetArea: new Rectangle(0, 0, 272, 432), patchMode: PatchMode.Overlay);
+                            });
+                        }
                     }
                 }
 
@@ -171,21 +203,34 @@ namespace TricksAndTreats
                         FarmHouse home = (FarmHouse)place.indoors.Value;
                         if (home.owner is not null && home.owner.mailReceived.Contains(HouseFlag)) 
                         {
-                            Log.Debug($"TaT: TPing {Game1.player.Name}'s cabin...");
-                            string img = place.textureName().Split('\\')[1].Replace(' ', '-').ToLower() + ".png";
-                            e.Edit(asset =>
+                            Log.Debug($"TaT: Pranking {home.owner.Name}'s cabin...");
+                            if (Config.AllowEgging)
                             {
-                                var editor = asset.AsImage();
-                                IRawTextureData sourceImage = Helper.ModContent.Load<IRawTextureData>("assets/" + img);
-                                editor.PatchImage(sourceImage, sourceArea: new Rectangle(0, 0, 240, 112), targetArea: new Rectangle(0, 0, 240, 112), patchMode: PatchMode.Overlay);
-                            });
+                                e.Edit(asset =>
+                                {
+                                    var editor = asset.AsImage();
+                                    IRawTextureData sourceImage = Helper.ModContent.Load<IRawTextureData>("assets/egged-cabin.png");
+                                    editor.PatchImage(sourceImage, sourceArea: new Rectangle(0, 0, 240, 112), targetArea: new Rectangle(0, 0, 240, 112), patchMode: PatchMode.Overlay);
+                                });
+                            }
+                            if (Config.AllowTPing)
+                            {
+                                Log.Debug($"TaT: TPing {Game1.player.Name}'s cabin...");
+                                string img = place.textureName().Split('\\')[1].Replace(' ', '-').ToLower() + ".png";
+                                e.Edit(asset =>
+                                {
+                                    var editor = asset.AsImage();
+                                    IRawTextureData sourceImage = Helper.ModContent.Load<IRawTextureData>("assets/tp-" + img);
+                                    editor.PatchImage(sourceImage, sourceArea: new Rectangle(0, 0, 240, 112), targetArea: new Rectangle(0, 0, 240, 112), patchMode: PatchMode.Overlay);
+                                });
+                            }
                         }
                     }
                 }
             }
         }
 
-        internal static void ReloadHouseExteriorsMaybe()
+        internal static void CheckHouseTrick()
         {
             if ((Game1.currentSeason == "winter" && Game1.dayOfMonth == 1) || (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28))
             {
@@ -196,23 +241,18 @@ namespace TricksAndTreats
             }
         }
 
-        internal static void NPCTrick(NPC npc)
+        internal static void SmallTrick(NPC npc)
         {
             Farmer farmer = Game1.player;
-            var tricks = NPCData[npc.Name].PreferredTricks;
-            string trick;
-            if (tricks.Contains("all") || tricks.Length > 1)
+            // Get enabled tricks only
+            var tricks = NPCData[npc.Name].PreferredTricks.Where(x => Config.SmallTricks[x]).ToArray();
+            if (tricks.Length == 0)
             {
-                trick = ValidTricks[r.Next(ValidTricks.Length)];
+                Log.Trace($"TaT: NPC {npc.Name} has no valid tricks to choose from, therefore will not play a trick.");
+                return;
             }
-            else if (tricks.Length == 1)
-            {
-                trick = tricks[0];
-            }
-            else
-            {
-                trick = tricks[r.Next(tricks.Length)];
-            }
+
+            string trick = tricks[r.Next(tricks.Length)];
             Utils.Speak(npc, "before_" + trick);
 
             Game1.afterDialogues = delegate
@@ -220,61 +260,75 @@ namespace TricksAndTreats
                 string after_trick = "after_" + trick;
                 switch (trick)
                 {
-                    case "egg":
-                        if (!EggSteal(farmer))
-                            after_trick = "cannot_trick";
+                    case "steal":
+                        if (!StealTrick(farmer))
+                            after_trick = "cannot_steal";
                         break;
                     case "paint":
-                        PaintSkin(farmer);
+                        PaintTrick(farmer);
                         break;
                     case "maze":
-                        MazeWarp(farmer, npc);
+                        MazeTrick(farmer, npc);
                         break;
                     case "nickname":
-                        ChangeNickname(farmer);
+                        NicknameTrick(farmer);
                         break;
+                    case "mystery":
+                        MysteryTrick(farmer);
+                        break;
+                    //case "cobweb": break;
                     default:
-                        Log.Error("No trick found for NPC " + npc.Name);
+                        Log.Error($"TaT: Unhandled small trick option {trick} for {npc.Name}");
                         break;
                 }
                 DelayedAction.functionAfterDelay(
                     () =>
                     {
-                        Game1.player.freezePause = 1000;
-                        Game1.player.canMove = false;
+                        farmer.freezePause = 2000;
+                        farmer.Halt();
+                        farmer.CanMove = false;
                         Utils.Speak(npc, after_trick);
-                        Game1.player.canMove = true;
+                        farmer.CanMove = true;
                     },
-                    1000 // delay in milliseconds
+                    2000 // delay in milliseconds
                 );
             };
         }
-
-        internal static void ThrowCobwebs(Farmer farmer)
+        
+        /*
+        // Disabled till I can figure out graphics
+        internal static void CobwebTrick(Farmer farmer)
         {
-            Game1.player.addedSpeed = (Game1.player.Speed + Game1.player.addedSpeed)/2; 
+            if (!farmer.modData.ContainsKey(CobwebKey) || int.Parse(farmer.modData[CobwebKey]) > farmer.Speed*-1)
+            {
+                farmer.addedSpeed -= Math.Max(farmer.Speed * -1, (farmer.Speed + farmer.addedSpeed) / 2);
+                farmer.modData.Add(CobwebKey, farmer.addedSpeed.ToString());
+            }
         }
+        */
 
-        internal static void ChangeNickname(Farmer farmer)
+        internal static void NicknameTrick(Farmer farmer)
         {
             var nicknames = Helper.Translation.Get("tricks.dumb_names").ToString().Split(',');
-            Game1.player.Name = nicknames[r.Next(nicknames.Length)];
+            farmer.Name = nicknames[r.Next(nicknames.Length)];
         }
 
-        internal static void MysteryTreat(Farmer farmer)
+        internal static void MysteryTrick(Farmer farmer)
         {
+            int mystery_id = JA.GetObjectId("TaT.mystery-treat");
             for (int i = 0; i < farmer.MaxItems; i++)
             {
                 Item item = farmer.Items[i];
                 if (item is not null && TreatData.ContainsKey(item.Name))
                 {
-                    // One mystery candy for each flavor 
-                    //farmer.Items[i] = new StardewValley.Object(mystery_candy, farmer.Items[i].Stack);
+                    var tmp = new StardewValley.Object(mystery_id, farmer.Items[i].Stack);
+                    tmp.modData.Add(MysteryKey, item.Name);
+                    farmer.Items[i] = tmp;
                 }
             }
         }
 
-        internal static void MazeWarp(Farmer farmer, NPC warper)
+        internal static void MazeTrick(Farmer farmer, NPC warper)
         {
             GameLocation where = null;
             string[] start = null;
@@ -306,19 +360,18 @@ namespace TricksAndTreats
             where.updateWarps();
 
             Game1.warpFarmer(where.Name, int.Parse(start[0]), int.Parse(start[1]), int.Parse(start[2]));
-        }
-            
+        }          
 
-        internal static void PaintSkin(Farmer farmer)
+        internal static void PaintTrick(Farmer farmer)
         {
             farmer.modData.Add(PaintKey, farmer.skinColor.ToString());
             farmer.changeSkinColor(r.Next(17, 23), true);
             farmer.currentLocation.localSound("slimedead");
         }
 
-        internal static bool EggSteal(Farmer farmer)
+        internal static bool StealTrick(Farmer farmer)
         {
-            int dud_item = Helper.ModRegistry.IsLoaded("ch20youk.TaTPelicanTown.CP") ? JA.GetObjectId("TaT.rotten-egg") : 176; // 176 is Egg
+            int dud_item = JA.GetObjectId("TaT.rotten-egg");
             List<int> stealables = new();
             for (int i = 0; i < farmer.MaxItems; i++)
             {

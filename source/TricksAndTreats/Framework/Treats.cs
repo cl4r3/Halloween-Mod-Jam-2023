@@ -26,7 +26,7 @@ namespace TricksAndTreats
 
             //Helper.Events.GameLoop.DayStarted += CheckCandyCT;
             Helper.Events.GameLoop.SaveLoaded += CheckCandyGivers;
-            SpaceEvents.BeforeGiftGiven += TreatForNPC;
+            SpaceEvents.BeforeGiftGiven += GiveTreat;
         }
 
         private static void CheckCandyCT(object sender, DayStartedEventArgs e)
@@ -56,15 +56,14 @@ namespace TricksAndTreats
                     var TreatsToGive = entry.Value.TreatsToGive;
                     Random random = new();
                     int gift = JA.GetObjectId(TreatsToGive[random.Next(TreatsToGive.Length)]);
-                    //Log.Debug($"NPC {entry.Value} will give treat ID {gift}.");
                     npc.Dialogue[TreatCT] = npc.Dialogue[TreatCT] + $" [{gift}]";
                 }
             }
         }
 
-        private static void TreatForNPC(object sender, EventArgsBeforeReceiveObject e)
+        private static void GiveTreat(object sender, EventArgsBeforeReceiveObject e)
         {
-            if (!TreatData.ContainsKey(e.Gift.Name))
+            if (e.Gift.Name != "TaT.mystery-treat" && !TreatData.ContainsKey(e.Gift.Name))
                 return;
 
             e.Cancel = true;
@@ -74,7 +73,7 @@ namespace TricksAndTreats
 
             if (!(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27))
             {
-                if (TreatData[e.Gift.Name].HalloweenOnly)
+                if (e.Gift.Name == "TaT.mystery-treat" || TreatData[e.Gift.Name].HalloweenOnly)
                 {
                     Game1.activeClickableMenu = new DialogueBox(Helper.Translation.Get("info.not_halloween"));
                     return;
@@ -103,7 +102,7 @@ namespace TricksAndTreats
             else score = int.Parse(gifter.modData[ScoreKey]);
             string response_key;
             bool play_trick = false;
-            int gift_taste = GetTreatTaste(giftee.Name, gift.Name);
+            int gift_taste = e.Gift.Name != "TaT.mystery-treat" ? GetTreatTaste(giftee.Name, gift.modData[MysteryKey]) : GetTreatTaste(giftee.Name, gift.Name);
             switch (gift_taste)
             {
                 case NPC.gift_taste_like:
@@ -131,7 +130,7 @@ namespace TricksAndTreats
             gifter.reduceActiveItemByOne();
             gifter.currentLocation.localSound("give_gift");
             if (play_trick)
-                Tricks.NPCTrick(giftee);
+                Tricks.SmallTrick(giftee);
             else
                 Utils.Speak(giftee, response_key, clear: false);
         }
@@ -139,6 +138,7 @@ namespace TricksAndTreats
         private static int GetTreatTaste(string npc, string item)
         {
             var my_data = NPCData[npc];
+
             if (my_data.HatedTreats.ToList().Contains(item))
                 return NPC.gift_taste_hate;
             if (my_data.NeutralTreats.ToList().Contains(item))
