@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using StardewModdingAPI;
+using StardewValley;
+using static TricksAndTreats.ModEntry;
+
+namespace TricksAndTreats
+{
+    internal static class ConsoleCommands
+    {
+        static IModHelper Helper;
+        static IMonitor Monitor;
+        static ICommandHelper CommandHelper;
+
+        internal static void Register(IMod ModInstance)
+        {
+            Helper = ModInstance.Helper;
+            Monitor = ModInstance.Monitor;
+            CommandHelper = Helper.ConsoleCommands;
+
+            CommandHelper.Add(
+                name: ModPrefix + "show_score",
+                documentation: Helper.Translation.Get("commands.show_score"),
+                callback: ConsoleShowScore);
+            CommandHelper.Add(
+                name: ModPrefix + "check_costume",
+                documentation: Helper.Translation.Get("commands.check_costume"),
+                callback: static (string command, string[] args) => Costumes.CheckForCostume(true));
+        }
+
+        private static void ConsoleShowScore(string command, string[] args)
+        {
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
+            {
+                int min_score = 0;
+                switch(Config.ScoreCalcMethod)
+                {
+                    case "none":
+                        Log.Info($"({Helper.Translation.Get("commands.no_min")})");
+                        break;
+                    case "minval":
+                        min_score = Config.CustomMinVal;
+                        break;
+                    case "minmult":
+                        min_score = (int)Math.Round(NPCData.Keys.Count * Config.CustomMinMult);
+                        break;
+                }
+                if (min_score < 1)
+                    Log.Info($"({Helper.Translation.Get("commands.no_min")})");
+                else
+                    Log.Info($"({Helper.Translation.Get("commands.min_score")}: {min_score})");
+                Log.Info($"{Helper.Translation.Get("commands.current_score")}: {Game1.player.modData[ScoreKey]}");
+            }
+            else
+                Log.Info($"{Helper.Translation.Get("commands.not_halloween")}");
+        }
+    }
+}

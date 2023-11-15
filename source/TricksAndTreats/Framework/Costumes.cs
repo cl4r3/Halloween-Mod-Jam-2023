@@ -50,7 +50,7 @@ namespace TricksAndTreats
                 CheckForCostume();
         }
 
-        internal static void CheckForCostume()
+        internal static void CheckForCostume(bool verbose = false)
         {
             if (!Context.IsWorldReady || !(Game1.currentSeason == "fall" && Game1.dayOfMonth == 27))
                 return;
@@ -71,6 +71,30 @@ namespace TricksAndTreats
                 if (bot == entry.Value.Bottom)
                     clothes.SetValue(entry.Key, 2);
             }
+            if (verbose)
+            {
+                // Hat
+                if (hat != "" && clothes[0] != "")
+                    Log.Info(Helper.Translation.Get("commands.hat_costume").ToString().Replace("{hat}", hat).Replace("{costume}", clothes[0]));
+                else if (hat != "")
+                    Log.Info(Helper.Translation.Get("commands.hat_no-costume").ToString().Replace("{hat}", hat));
+                else
+                    Log.Info(Helper.Translation.Get("commands.no_hat"));
+                // Top
+                if (top != "" && clothes[0] != "")
+                    Log.Info(Helper.Translation.Get("commands.top_costume").ToString().Replace("{top}", top).Replace("{costume}", clothes[0]));
+                else if (top != "")
+                    Log.Info(Helper.Translation.Get("commands.top_no-costume").ToString().Replace("{top}", top));
+                else
+                    Log.Info(Helper.Translation.Get("commands.no_top"));
+                // Bottom
+                if (bot != "" && clothes[0] != "")
+                    Log.Info(Helper.Translation.Get("commands.bot_costume").ToString().Replace("{bot}", bot).Replace("{costume}", clothes[0]));
+                else if (bot != "")
+                    Log.Info(Helper.Translation.Get("commands.bot_no-costume").ToString().Replace("{bot}", bot));
+                else
+                    Log.Info(Helper.Translation.Get("commands.no_bot"));
+            }
 
             string[] costumes_only = Array.Empty<string>();
             foreach (string i in clothes)
@@ -90,20 +114,23 @@ namespace TricksAndTreats
             if (costume is not null && !Game1.player.activeDialogueEvents.ContainsKey(CostumeCT + costume.ToLower().Replace(' ', '_')))
             {
                 Game1.player.modData[CostumeKey] = costume;
-                Log.Trace("TaT: Previously wearing costume " + costume);
-                //Game1.player.currentLocation.localSound("yoba");
-                // TODO: Check for current costume and remove before adding new one
-                foreach(string key in Game1.player.activeDialogueEvents.Keys.Where(x => x.StartsWith(CostumeCT.ToLower()))) {
+                if (verbose)
+                    Log.Info(Helper.Translation.Get("commands.new_costume").ToString().Replace("{costume}", costume));
+                else
+                    Log.Trace("TaT: Now wearing costume " + costume);
+                foreach (string key in Game1.player.activeDialogueEvents.Keys.Where(x => x.StartsWith(CostumeCT.ToLower()))) {
                     Game1.player.activeDialogueEvents.Remove(key);
                 }
                 Game1.player.activeDialogueEvents.Add(CostumeCT + costume.ToLower().Replace(' ', '_'), 1);
-                // TODO: Check that TreatCT is not already added before removing
                 if (!Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
                     Game1.player.activeDialogueEvents.Add(TreatCT, 1);
             }
             else if (costume is null)
             {
-                Log.Trace("TaT: Currently not wearing costume");
+                if (verbose)
+                    Log.Info(Helper.Translation.Get("commands.no_costume"));
+                else
+                    Log.Trace("TaT: Currently not wearing costume");
                 foreach (string key in Game1.player.activeDialogueEvents.Keys.Where(x => x.StartsWith(CostumeCT.ToLower())))
                     Game1.player.activeDialogueEvents.Remove(key);
                 if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))

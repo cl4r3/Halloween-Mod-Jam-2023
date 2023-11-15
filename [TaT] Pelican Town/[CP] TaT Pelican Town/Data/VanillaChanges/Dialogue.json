@@ -1,6 +1,6 @@
 {
 "Changes": [
-	//Bachelors
+	// Bachelors
 	{
 		"LogName": "Treat Dialogue - Alex",
 		"Action": "EditData",
@@ -10,8 +10,16 @@
 		  "loved_treat": "{{i18n:alex.loved_treat}}",
 		  "neutral_treat": "{{i18n:alex.neutral_treat}}",
 		  "hated_treat": "{{i18n:alex.hated_treat}}",
-		  "house_prank-egg": "{{i18n:alex.house_prank-egg}}",
 		},
+	},
+	{
+		"LogName": "Treat Dialogue - Alex",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Alex",
+		"Entries": {
+		  "house_prank": "{{i18n:alex.house_prank-egg}}",
+		},
+		"When": { "Query: '{{ch20youk.TricksAndTreats/AllowEgging}}' = 'true'": true }
 	},
 	{
 		"LogName": "Treat Dialogue - Elliott",
@@ -89,12 +97,21 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Shane",
 		"Entries": {
+		  "house_prank": "{{i18n:shane.house_prank-egg}}",
+		},
+		"When": { "Query: '{{ch20youk.TricksAndTreats/AllowEgging}}' = 'true'": true }
+	},
+	{
+		"LogName": "Treat Dialogue - Shane",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Shane",
+		"Entries": {
 		  "costume_react-skeleton": "{{i18n:shane.costume_react-skeleton.spouse}}",
 		},
 		"When": { "Relationship:Shane|contains=married": true },
 	},
 
-	//Bachelorettes
+	// Bachelorettes
 	{
 		"LogName": "Treat Dialogue - Abigail",
 		"Action": "EditData",
@@ -198,7 +215,7 @@
 		},
 	},
 
-	//Children
+	// Children
 	{
 		"LogName": "Treat Dialogue - Jas",
 		"Action": "EditData",
@@ -229,7 +246,7 @@
 		},
 	},
 
-	//Villagers
+	// Villagers
 	{
 		"LogName": "Treat Dialogue - Caroline",
 		"Action": "EditData",
@@ -332,6 +349,7 @@
 		  "hated_treat": "{{i18n:kent.hated_treat}}",
 		  "house_prank": "{{i18n:kent.house_prank}}",
 		},
+		"When": { "HasSeenEvent|contains=63": true },
 	},
 	{
 		"LogName": "Treat Dialogue - Lewis",
@@ -416,7 +434,7 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Willy",
 		"Entries": {
-			"willy.fall_27": "I saw Clint all by his lonesome, so I thought I'd come keep him company!$h",
+			"fall_27": "{{i18n:willy.fall_27}}",
 		  "loved_treat": "{{i18n:willy.loved_treat}}",
 		  "neutral_treat": "{{i18n:willy.neutral_treat}}",
 		  "hated_treat": "{{i18n:willy.hated_treat}}",
@@ -424,7 +442,7 @@
 		},
 	},
 
-	//Outsiders
+	// Outsiders
 	{
 		"LogName": "Treat Dialogue - Dwarf",
 		"Action": "EditData",

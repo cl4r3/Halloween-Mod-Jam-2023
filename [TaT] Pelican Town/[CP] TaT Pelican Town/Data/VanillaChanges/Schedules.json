@@ -1,6 +1,6 @@
 {
 "Changes": [
-	//Vanilla Girls
+	// Bachelorettes
 	{
 		"LogName": "Spirit's Eve schedule - Abigail",
 		"Action": "EditData",
@@ -50,7 +50,7 @@
 		},
 	},
 
-	//Vanilla Boys
+	// Bachelors
 	{
 		"LogName": "Spirit's Eve schedule - Alex",
 		"Action": "EditData",
@@ -100,7 +100,7 @@
 		},
 	},
 
-	//Kids
+	// Children
 	{
 		"LogName": "Spirit's Eve schedule - Jas",
 		"Action": "EditData",
@@ -118,7 +118,7 @@
 		},
 	},
 
-	//Vanilla Villagers
+	// Villagers
 	{
 		"LogName": "Spirit's Eve schedule - Caroline",
 		"Action": "EditData",
@@ -182,6 +182,7 @@
 		"Entries": {
 			"fall_27": "830 SamHouse 8 12 2/1100 Town 9 86 2/2200 SamHouse 21 5 3 kent_sleep",
 		},
+		"When": { "HasSeenEvent|contains=63": true },
 	},
 	{
 		"LogName": "Spirit's Eve schedule - Lewis",
@@ -238,6 +239,17 @@
 		"Entries": {
 			"fall_27": "610 Beach 38 36 2 dick_fish/a1100 Town 95 82 3/2200 FishShop 5 4 2",
 		},
+	},
+
+	// Outsiders
+	{
+		"LogName": "Spirit's Eve schedule - Sandy",
+		"Action": "EditData",
+		"Target": "Characters/schedules/Sandy",
+		"Entries": {
+			"fall_27": "",
+		},
+		"When": { "HasFlag|contains=ccBoilerRoom": true },
 	},
 ]
 }

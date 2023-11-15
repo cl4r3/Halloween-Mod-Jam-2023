@@ -13,8 +13,6 @@ namespace TricksAndTreats
 {
 	public static class HarmonyPatches
 	{
-		//private static Texture2D sourceImage;
-
 		internal class PatchTemplate
 		{
 			public readonly HarmonyPatchType type;
