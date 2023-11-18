@@ -6,7 +6,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Abigail",
 		"Entries": {
-			"fall_27": "a1100 Town 37 58 0/1200 Town 44 58 0/1300 Town 54 64 1/1400 Town 71 71 0/1500 Town 59 88 0/1600 Town 00 91 0/1700 Town 10 88 0/1800 Town 45 73 0/1900 Town 37 58 0/2000 Town 44 58 0/2100 Town 54 64 1/2200 SeedShop 1 9 3 abigail_sleep",
+			"fall_27": "a1100 Town 37 58 0/1210 Town 44 58 0/1310 Town 54 64 1/1410 Town 71 71 0/1510 Town 59 88 0/1610 Town 20 91 0/1710 Town 10 88 0/1810 Town 45 73 0/1910 Town 37 58 0/2010 Town 44 58 0/2110 Town 54 64 1/2200 SeedShop 1 9 3 abigail_sleep",
 		},
 	},
 	{
@@ -22,7 +22,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Haley",
 		"Entries": {
-			"fall_27": "830 HaleyHouse 6 5 0/a1100 Town 20 89 2/2200 HaleyHouse 1 5 3 haley_sleep",
+			"fall_27": "830 HaleyHouse 6 5 0/1100 Town 20 89 2/2200 HaleyHouse 1 5 3 haley_sleep",
 		},
 	},
 	{
@@ -80,7 +80,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Sam",
 		"Entries": {
-			"fall_27": "1000 SamHouse 15 13 0/a1100 Town 9 88 0/1200 Town 44 73 0/1300 Town 36 58 0/1400 Town 43 58 0/1500 Town 54 65 1/1600 Town 72 71 0/1700 Town 58 88 0/1800 Town 21 91 0/1900 Town 9 88 0/2000 Town 44 73 0/2100 Town 36 58 0/2200 SamHouse 22 13 1 sam_sleep",
+			"fall_27": "1000 SamHouse 15 13 0/a1100 Town 9 88 0/a1200 Town 44 73 0/a1300 Town 36 58 0/a1400 Town 43 58 0/a1500 Town 54 65 1/a1600 Town 72 71 0/a1700 Town 58 88 0/a1800 Town 21 91 0/a1900 Town 9 88 0/a2000 Town 44 73 0/a2100 Town 36 58 0/2200 SamHouse 22 13 1 sam_sleep",
 		},
 	},
 	{
@@ -88,7 +88,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Sebastian",
 		"Entries": {
-			"fall_27": "a1100 Town 36 58 0/1200 Town 43 58 0/1300 Town 54 65 1/1400 Town 72 71 0/1500 Town 58 88 0/1600 Town 21 91 0/1700 Town 9 88 0/1800 Town 44 73 0/1900 Town 36 58 0/2000 Town 43 58 0/2100 Town 54 65 1/2200 SebastianRoom 11 9 1 sebastian_sleep",
+			"fall_27": "a1100 Town 36 58 0/1210 Town 43 58 0/1310 Town 54 65 1/1410 Town 72 71 0/1510 Town 58 88 0/1610 Town 21 91 0/1710 Town 9 88 0/1810 Town 44 73 0/1910 Town 36 58 0/2010 Town 43 58 0/2110 Town 54 65 1/2200 SebastianRoom 11 9 1 sebastian_sleep",
 		},
 	},
 	{
@@ -96,7 +96,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Shane",
 		"Entries": {
-			"fall_27": "700 AnimalShop 24 15 0/a1100 Town 43 58 0/1200 Town 54 65 1/1300 Town 72 71 0/1400 Town 58 88 0/1500 Town 21 91 0/1600 Town 9 88 0/1700 Town 44 73 0/1800 Town 36 58 0/1900 Town 43 58 0/2000 Town 54 65 1/2100 Town 36 58 0/2200 AnimalShop 27 4 1 shane_sleep",
+			"fall_27": "700 AnimalShop 24 15 0/a1100 Town 43 58 0/1130 Town 54 65 1/1230 Town 72 71 0/1330 Town 58 88 0/1430 Town 21 91 0/1530 Town 9 88 0/1630 Town 44 73 0/1730 Town 36 58 0/1830 Town 43 58 0/1930 Town 54 65 1/2030 Town 36 58 0/2200 AnimalShop 27 4 1 shane_sleep",
 		},
 	},
 
@@ -106,7 +106,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Jas",
 		"Entries": {
-			"fall_27": "900 AnimalShop 7 5 0/a1100 Town 44 58 0/1200 Town 54 64 1/1300 Town 71 71 0/1400 Town 59 88 0/1500 Town 20 91 0/1600 Town 10 88 0/1700 Town 45 73 0/1800 Town 37 58 0/1900 Town 44 58 0/2000 Town 54 64 1/2100 Town 37 58 0/2200 AnimalShop 1 7 3 jas_sleep",
+			"fall_27": "900 AnimalShop 7 5 0/a1100 Town 44 58 0/1130 Town 54 64 1/1230 Town 71 71 0/1330 Town 59 88 0/1430 Town 20 91 0/1530 Town 10 88 0/1630 Town 45 73 0/1730 Town 37 58 0/1830 Town 44 58 0/1930 Town 54 64 1/2030 Town 37 58 0/2200 AnimalShop 1 7 3 jas_sleep",
 		},
 	},
 	{
@@ -114,7 +114,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Vincent",
 		"Entries": {
-			"fall_27": "900 SamHouse 4 8 0/a1100 Town 10 88 0/1200 Town 45 73 0/1300 Town 37 58 0/1400 Town 44 58 0/1500 Town 54 64 1/1600 Town 71 71 0/1700 Town 59 88 0/1800 Town 20 91 0/1900 Town 10 88 0/2000 Town 45 73 0/2100 Town 37 58 0/2200 SamHouse 8 22 3 vincent_sleep",
+			"fall_27": "900 SamHouse 4 8 0/a1100 Town 10 88 0/a1200 Town 45 73 0/a1300 Town 37 58 0/a1400 Town 44 58 0/a1500 Town 54 64 1/a1600 Town 71 71 0/a1700 Town 59 88 0/a1800 Town 20 91 0/a1900 Town 10 88 0/a2000 Town 45 73 0/a2100 Town 37 58 0/2200 SamHouse 8 22 3 vincent_sleep",
 		},
 	},
 
@@ -205,7 +205,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Marnie",
 		"Entries": {
-			"fall_27": "830 AnimalShop 17 5 0/850 AnimalShop 12 14 2/a1100 Town 59 87 3/2200 AnimalShop 12 5 3 marnie_sleep"
+			"fall_27": "830 AnimalShop 17 5 0/850 AnimalShop 12 14 2/a1100 Town 59 86 3/2200 AnimalShop 12 5 3 marnie_sleep"
 		},
 	},
 	{
@@ -221,7 +221,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Pierre",
 		"Entries": {
-			"fall_27": "700 SeedShop 10 20 0/830 SeedShop 4 17 2/1100 Town 43 57 2/2200 SeedShop 24 4 1 pierre_sleep"
+			"fall_27": "700 SeedShop 10 20 0/830 SeedShop 4 17 2/a1100 Town 43 57 2/2200 SeedShop 24 4 1 pierre_sleep"
 		},
 	},
 	{

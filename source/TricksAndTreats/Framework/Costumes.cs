@@ -123,7 +123,16 @@ namespace TricksAndTreats
                 }
                 Game1.player.activeDialogueEvents.Add(CostumeCT + costume.ToLower().Replace(' ', '_'), 1);
                 if (!Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
+                {
                     Game1.player.activeDialogueEvents.Add(TreatCT, 1);
+                    /*
+                    foreach (string name in NPCData.Keys)
+                    {
+                        var npc = Game1.getCharacterFromName(name);
+                        npc.checkForNewCurrentDialogue(1);
+                    }
+                    */
+                }
             }
             else if (costume is null)
             {

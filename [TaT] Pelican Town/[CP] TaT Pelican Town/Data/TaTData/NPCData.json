@@ -113,7 +113,7 @@
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "sour", ],
-          "TreatsToGive": [ "TaT.joja-gummies", "TaT.joja-canes" ],
+          "TreatsToGive": [ "TaT.joja-gummies", "TaT.joja-cane" ],
         },
 
         // Children
@@ -156,7 +156,7 @@
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", ],
-          "TreatsToGive": [ "TaT.ablaze-orbs", ],
+          "TreatsToGive": [ "TaT.dino-cookie", ],
         },
         "Dwarf": {
           "Roles": [ "candytaker", "trickster", ],
@@ -220,7 +220,7 @@
           "TreatsToGive": [ "Maple Bar" ],
         },
         "Marnie": {
-          "Roles": [ "candytaker", ],
+          "Roles": [ "candytaker", "candygiver" ],
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "salty", ],
@@ -254,10 +254,11 @@
           "TreatsToGive": [ "TaT.witch-cauldron", "TaT.dino-cookie" ],
         },
         "Willy": {
-          "Roles": [ "candytaker", ],
+          "Roles": [ "candytaker", "candygiver" ],
           "LovedTreats": [ "hot", "fatty", "salty", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", "healthy", "gourmet" ],
+          "TreatsToGive": [ "TaT.braincell-gum", "TaT.candy-corn", "TaT.eye-candy" ],
         },
         "Wizard": {
           "Roles": [ "candytaker", "trickster", ],

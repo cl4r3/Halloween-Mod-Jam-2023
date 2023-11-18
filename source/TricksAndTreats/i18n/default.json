@@ -68,8 +68,8 @@
   "commands.top_costume": "Player is currently wearing top {top}, part of the \"{costume}\" costume set.",
   "commands.top_no-costume": "Player is currently wearing top {top}, which is not part of a costume set.",
   "commands.no_top": "Player is currently not wearing a top.",
-  "commands.bot_costume": "Player is currently wearing bottom {bottom}, part of the \"{costume}\" costume set.",
-  "commands.bot_no-costume": "Player is currently wearing bottom {bottom}, which is not part of a costume set.",
+  "commands.bot_costume": "Player is currently wearing bottom {bot}, part of the \"{costume}\" costume set.",
+  "commands.bot_no-costume": "Player is currently wearing bottom {bot}, which is not part of a costume set.",
   "commands.no_bot": "Player is currently not wearing a bottom.",
   "commands.new_costume": "Player is currently wearing the \"{costume}\" costume set.",
 }

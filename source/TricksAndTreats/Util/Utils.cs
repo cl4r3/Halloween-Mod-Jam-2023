@@ -60,6 +60,9 @@ namespace TricksAndTreats
                     {
                         Log.Warn($"NPC {entry.Key} has treats to give listed even though they do not have the role \"candygiver\", meaning they do not give candy.");
                     }
+                    entry.Value.TreatsToGive = entry.Value.TreatsToGive.Where(x => { return TreatData.ContainsKey(x); }).ToArray();
+                    if (entry.Value.TreatsToGive.Length < 1)
+                        entry.Value.Roles = entry.Value.Roles.Where(x => { return x != "candygiver"; }).ToArray();
                 }
                 else if (NPCData[entry.Key].Roles.Contains("candygiver"))
                 {
@@ -108,7 +111,7 @@ namespace TricksAndTreats
                     CostumeData.Remove(entry.Key);
                     continue;
                 }
-                if (entry.Value.Hat is not null && entry.Value.Hat.Length > 0 && JA.GetHatId(entry.Value.Hat) >= 0)
+                if (entry.Value.Hat is not null && entry.Value.Hat.Length > 0 && (JA.GetHatId(entry.Value.Hat) >= 0 || HatInfo.ContainsKey(entry.Value.Hat)))
                     count++;
                 else { CostumeData[entry.Key].Hat = ""; }
                 if (entry.Value.Top is not null && entry.Value.Top.Length > 0 && (JA.GetClothingId(entry.Value.Top) >= 0 || ClothingInfo.ContainsKey(entry.Value.Top)))
@@ -139,7 +142,8 @@ namespace TricksAndTreats
                     TreatData.Remove(name);
                 }
                 var ja_id = JA.GetObjectId(name);
-                TreatData[name].ObjectId = ja_id != -1 ? ja_id : FoodInfo[name];
+                TreatData[name].ObjectId = ja_id > -1 ? ja_id : FoodInfo[name];
+                Log.Debug($"TaT: {name} has JA id {ja_id}, object ID {TreatData[name].ObjectId}");
                 if (TreatData[name].ObjectId is null || TreatData[name].ObjectId < 0)
                 {
                     Log.Warn($"TaT: No valid object ID found for treat {name}.");

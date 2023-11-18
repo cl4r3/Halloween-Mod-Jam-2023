@@ -21,6 +21,7 @@ namespace TricksAndTreats
         static IModHelper Helper;
         static IMonitor Monitor;
         static Random r;
+        static int mystery_id = -1;
 
         internal static void Initialize(IMod ModInstance)
         {
@@ -31,9 +32,8 @@ namespace TricksAndTreats
             Helper.Events.GameLoop.SaveLoaded += CheckTricksters;
             Helper.Events.Content.AssetRequested += HouseTrick;
             Helper.Events.Multiplayer.PeerConnected += (object sender, PeerConnectedEventArgs e) => { CheckHouseTrick(); };
-            Helper.Events.GameLoop.DayStarted += DayStart;
             Helper.Events.Input.ButtonPressed += OpenHalloweenChest;
-            Helper.Events.GameLoop.DayEnding += DayEnd;
+            
         }
 
         internal static void OpenHalloweenChest(object sender, ButtonPressedEventArgs e)
@@ -102,56 +102,6 @@ namespace TricksAndTreats
                         npc.Dialogue["before_" + trick] = npc.Dialogue["hated_treat"] + "#$b#" + npc.Dialogue["before_" + trick];
                     }
                 }
-            }
-        }
-
-        [EventPriority(EventPriority.Low)]
-        private static void DayStart(object sender, DayStartedEventArgs e)
-        {
-            CheckHouseTrick();
-
-            Farmer farmer = Game1.player;
-            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
-            {
-                if (farmer.modData.ContainsKey(PaintKey))
-                {
-                    farmer.changeSkinColor(int.Parse(farmer.modData[PaintKey]), true);
-                    farmer.modData.Remove(PaintKey);
-                }
-                if (farmer.mailReceived.Contains(HouseFlag))
-                    farmer.activeDialogueEvents.Add(HouseFlag, 1);
-            }
-        }
-
-        private static void DayEnd(object sender, DayEndingEventArgs e)
-        {
-            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
-            {
-                // reset nickname if changed
-                Game1.player.Name = Game1.player.displayName;
-
-                // remove moddata stuff
-                if (Game1.player.modData.ContainsKey(ChestKey))
-                    Game1.player.modData.Remove(ChestKey);
-                if (Game1.player.modData.ContainsKey(CostumeKey))
-                    Game1.player.modData.Remove(CostumeKey);
-
-                if (Config.ScoreCalcMethod != "none")
-                {
-                    int score = int.Parse(Game1.player.modData[ScoreKey]);
-                    int min = Config.ScoreCalcMethod == "minmult" ? (int)Math.Round(NPCData.Keys.Count * Config.CustomMinMult) : Config.CustomMinVal;
-                    Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}, min score needed to avoid house prank is {min}.");
-                    if (score < min)
-                        Game1.player.mailReceived.Add(HouseFlag);
-                    Game1.player.modData.Remove(ScoreKey);
-                }
-                else
-                    Log.Trace($"TaT: House pranks disabled; skipping score calculation.");
-            }
-            else if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
-            {
-                if (Game1.player.mailReceived.Contains(HouseFlag))
-                    Game1.player.mailReceived.Remove(HouseFlag);
             }
         }
 
@@ -315,7 +265,8 @@ namespace TricksAndTreats
 
         internal static void MysteryTrick(Farmer farmer)
         {
-            int mystery_id = JA.GetObjectId("TaT.mystery-treat");
+            if (mystery_id == -1)
+                mystery_id = JA.GetObjectId("TaT.mystery-treat");
             for (int i = 0; i < farmer.MaxItems; i++)
             {
                 Item item = farmer.Items[i];
@@ -364,7 +315,8 @@ namespace TricksAndTreats
 
         internal static void PaintTrick(Farmer farmer)
         {
-            farmer.modData.Add(PaintKey, farmer.skinColor.ToString());
+            if (!farmer.modData.ContainsKey(PaintKey))
+                farmer.modData.Add(PaintKey, farmer.skinColor.ToString());
             farmer.changeSkinColor(r.Next(17, 23), true);
             farmer.currentLocation.localSound("slimedead");
         }

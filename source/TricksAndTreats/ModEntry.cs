@@ -5,6 +5,7 @@ using System.Linq;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Netcode;
 using SpaceCore.Events;
 using StardewModdingAPI;
 using StardewModdingAPI.Enums;
@@ -50,6 +51,7 @@ namespace TricksAndTreats
 
         internal static Dictionary<string, int> ClothingInfo;
         internal static Dictionary<string, int> FoodInfo;
+        internal static Dictionary<string, int> HatInfo;
 
         internal static Dictionary<string, Celebrant> NPCData;
         internal static Dictionary<string, Costume> CostumeData;
@@ -63,6 +65,8 @@ namespace TricksAndTreats
             ConsoleCommands.Register(this);
 
             //helper.Events.Display.RenderingWorld += OnRenderingWorld;
+            Helper.Events.GameLoop.DayStarted += DayStart;
+            Helper.Events.GameLoop.DayEnding += DayEnd;
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.Specialized.LoadStageChanged += OnLoadStageChanged;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
@@ -84,10 +88,83 @@ namespace TricksAndTreats
         }
         */
 
+        [EventPriority(EventPriority.Low)]
+        private static void DayStart(object sender, DayStartedEventArgs e)
+        {
+            Tricks.CheckHouseTrick();
+
+            Farmer farmer = Game1.player;
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
+            {
+                // Reset dialogue
+                if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
+                    Game1.player.activeDialogueEvents.Remove(TreatCT);
+                foreach (string key in Game1.player.activeDialogueEvents.Keys.Where(x => { return (x.Contains(CostumeCT.ToLower()) || x == "HouseFlag"); }))
+                    Game1.player.activeDialogueEvents.Remove(key);
+                foreach (string mail in farmer.mailReceived)
+                {
+                    if (mail.Contains("_" + TreatCT) || mail.Contains("_" + CostumeCT))
+                        farmer.mailReceived.Remove(mail);
+                }
+                Costumes.CheckForCostume();
+            }
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
+            {
+                // Undo pranks
+                farmer.Name = farmer.displayName;
+                if (farmer.modData.ContainsKey(PaintKey))
+                {
+                    farmer.changeSkinColor(int.Parse(farmer.modData[PaintKey]), true);
+                    farmer.modData.Remove(PaintKey);
+                }
+                if (farmer.modData.ContainsKey(StolenKey))
+                    farmer.modData.Remove(StolenKey);
+                if (farmer.modData.ContainsKey(ChestKey))
+                    farmer.modData.Remove(ChestKey);
+
+                // Add House CT if necessary
+                if (farmer.mailReceived.Contains(HouseFlag))
+                    farmer.activeDialogueEvents.Add(HouseCT, 1);
+            }
+        }
+
+        private static void DayEnd(object sender, DayEndingEventArgs e)
+        {
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
+            {
+                // reset nickname if changed
+                Game1.player.Name = Game1.player.displayName;
+
+                // remove moddata stuff
+                if (Game1.player.modData.ContainsKey(ChestKey))
+                    Game1.player.modData.Remove(ChestKey);
+                if (Game1.player.modData.ContainsKey(CostumeKey))
+                    Game1.player.modData.Remove(CostumeKey);
+
+                if (Config.ScoreCalcMethod != "none")
+                {
+                    int score = int.Parse(Game1.player.modData[ScoreKey]);
+                    int min = Config.ScoreCalcMethod == "minmult" ? (int)Math.Round(NPCData.Keys.Count * Config.CustomMinMult) : Config.CustomMinVal;
+                    Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}, min score needed to avoid house prank is {min}.");
+                    if (score < min)
+                        Game1.player.mailReceived.Add(HouseFlag);
+                    Game1.player.modData.Remove(ScoreKey);
+                }
+                else
+                    Log.Trace($"TaT: House pranks disabled; skipping score calculation.");
+            }
+            else if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
+            {
+                if (Game1.player.mailReceived.Contains(HouseFlag))
+                    Game1.player.mailReceived.Remove(HouseFlag);
+            }
+        }
+
         private void OnGameLaunched(object sender, EventArgs e)
         {
             ClothingInfo = Helper.Data.ReadJsonFile<Dictionary<string, int>>(PathUtilities.NormalizePath("assets/clothing.json"));
             FoodInfo = Helper.Data.ReadJsonFile<Dictionary<string, int>>(PathUtilities.NormalizePath("assets/food.json"));
+            HatInfo = Helper.Data.ReadJsonFile<Dictionary<string, int>>(PathUtilities.NormalizePath("assets/hats.json"));
 
             JA = Helper.ModRegistry.GetApi<IJsonAssetsApi>("spacechase0.JsonAssets");
             if (JA == null)

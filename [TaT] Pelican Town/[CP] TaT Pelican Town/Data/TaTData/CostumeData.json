@@ -31,7 +31,7 @@
         },
         "Skeleton": {
           "Hat": "Skeleton Mask",
-          "Top": "Black and White top",
+          "Top": "Skeleton Shirt",
           "Bottom": "TaT.skeleton-pants",
         },
         "Stone Golem": {
@@ -52,21 +52,37 @@
           "Top": "TaT.mummy-shirt",
           "Bottom": "TaT.mummy-pants",
         },
-    /*
-    "Wizard": {
-          "Hat": "Arcane Hat", //There's Witch's hat too?
-          "Top": "Arcane Shirt",
-        },
-    "Caveman": {
+        "Caveman": {
           "Hat": "Hair Bone",
           "Top": "Caveman Shirt",
+          "Bottom": "Luau Skirt",
         },
-    "Dino": {
-          "Hat": "Dino Hat",
-          "Bottom": "Dino Pants",
+        "Wizard": {
+          "Hat": "Arcane Hat",
+          "Top": "Arcane Shirt",
         },
-    */
+        "Pirate": {
+          "Hat": "Pirate Hat",
+          "Top": "Red Striped Shirt",
+        },
+        "Deluxe Pirate": {
+          "Hat": "Deluxe Pirate Hat",
+          "Top": "Red Striped Shirt",
+        },
       },
     },
+    {
+  		"LogName": "Data for Dino costume",
+  		"Action": "EditData",
+  		"Target": "Mods/TricksAndTreats.Costumes",
+  		"Entries": {
+        "Dino": {
+          "Hat": "Dino Hat",
+          "Shirt": "Dinosaur Shirt",
+          "Bottom": "Dino Pants",
+        },
+  		},
+  		"When": { "HasMod|contains=MouseyPounds.DinosaurShirt": true },
+  	},
   ]
 }

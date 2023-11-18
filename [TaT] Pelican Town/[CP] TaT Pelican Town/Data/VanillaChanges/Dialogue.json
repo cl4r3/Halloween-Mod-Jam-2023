@@ -88,7 +88,6 @@
 		  "neutral_treat": "{{i18n:shane.neutral_treat}}",
 		  "hated_treat": "{{i18n:shane.hated_treat}}",
 			"costume_react-skeleton": "{{i18n:shane.costume_react-skeleton}}",
-		  "costume_react-skeleton": "{{i18n:shane.costume_react-skeleton.spouse}}",
 		  "house_prank": "{{i18n:shane.house_prank}}",
 		},
 	},
@@ -118,7 +117,7 @@
 		"Target": "Characters/Dialogue/Abigail",
 		"Entries": {
 			"fall_27": "{{i18n:abigail.fall_27}}",
-		  "loved_treat": "{{i18n:abigail.loved_treat}}"
+		  "loved_treat": "{{i18n:abigail.loved_treat}}",
 		  "neutral_treat": "{{i18n:abigail.neutral_treat}}",
 		  "hated_treat": "{{i18n:abigail.hated_treat}}",
 		  "before_steal": "{{i18n:abigail.before_steal}}",
@@ -225,7 +224,7 @@
 		  "loved_treat": "{{i18n:jas.loved_treat}}",
 		  "neutral_treat": "{{i18n:jas.neutral_treat}}",
 		  "hated_treat": "{{i18n:jas.hated_treat}}",
-		  "house_prank": "{{i18n:jas.house_prank}}",
+		  //"house_prank": "{{i18n:jas.house_prank}}",
 		},
 	},
 	{
@@ -270,7 +269,7 @@
 		  "hated_treat": "{{i18n:clint.hated_treat}}",
 		  "give_candy": "{{i18n:clint.give_candy}}",
 		  "costume_react-ghost": "{{i18n:clint.costume_react-ghost}}",
-		  "house_prank": "{{i18n:clint.house_prank}}",
+		  //"house_prank": "{{i18n:clint.house_prank}}",
 		},
 	},
 	{
@@ -322,7 +321,7 @@
 		  "neutral_treat": "{{i18n:gus.neutral_treat}}",
 		  "hated_treat": "{{i18n:gus.hated_treat}}",
 		  "give_candy": "{{i18n:gus.give_candy}}",
-		  "house_prank": "{{i18n:gus.house_prank}}",
+		  //"house_prank": "{{i18n:gus.house_prank}}",
 		},
 	},
 	{
@@ -375,6 +374,7 @@
 		  "hated_treat": "{{i18n:linus.hated_treat}}",
 		  "give_candy": "{{i18n:linus.give_candy}}",
 		  "house_prank": "{{i18n:linus.house_prank}}",
+			"costume_react-caveman": "{{i18n:linus.costume_react-caveman}}",
 		},
 	},
 	{
@@ -387,7 +387,7 @@
 		  "neutral_treat": "{{i18n:marnie.neutral_treat}}",
 		  "hated_treat": "{{i18n:marnie.hated_treat}}",
 		  "give_candy": "{{i18n:marnie.give_candy}}",
-		  "house_prank": "{{i18n:marnie.house_prank}}",
+		  //"house_prank": "{{i18n:marnie.house_prank}}",
 		},
 	},
 	{
@@ -438,7 +438,9 @@
 		  "loved_treat": "{{i18n:willy.loved_treat}}",
 		  "neutral_treat": "{{i18n:willy.neutral_treat}}",
 		  "hated_treat": "{{i18n:willy.hated_treat}}",
-		  "house_prank": "{{i18n:willy.house_prank}}",
+		  //"house_prank": "{{i18n:willy.house_prank}}",
+			"costume_react-pirate": "{{i18n:willy.costume_react-pirate}}",
+			"costume_react-deluxe_pirate": "{{i18n:willy.costume_react-pirate}}",
 		},
 	},
 
@@ -470,6 +472,19 @@
 		},
 	},
 	{
+		"LogName": "Treat Dialogue - Sandy",
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/Sandy",
+		"Entries": {
+			"fall_27": "{{i18n:sandy.fall_27}}",
+		  "loved_treat": "{{i18n:sandy.loved_treat}}",
+		  "neutral_treat": "{{i18n:sandy.neutral_treat}}",
+		  "hated_treat": "{{i18n:sandy.hated_treat}}",
+			"give_candy": "{{i18n:sandy.give_candy}}",
+			"costume_react-mummy": "{{i18n:sandy.costume_react-mummy}}",
+		},
+	},
+	{
 		"LogName": "Treat Dialogue - Wizard",
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Wizard",
@@ -480,6 +495,7 @@
 		  "hated_treat": "{{i18n:wizard.hated_treat}}",
 		  "before_maze": "{{i18n:wizard.before_maze}}",
 		  "after_maze": "{{i18n:wizard.after_maze}}",
+			"costume_react-wizard": "{{i18n:wizard.costume_react-wizard}}",
 		},
 	},
 ]

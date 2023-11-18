@@ -24,25 +24,12 @@ namespace TricksAndTreats
             Helper = ModInstance.Helper;
             Monitor = ModInstance.Monitor;
 
-            //Helper.Events.GameLoop.DayStarted += CheckCandyCT;
-            Helper.Events.GameLoop.SaveLoaded += CheckCandyGivers;
+            Helper.Events.GameLoop.DayStarted += CheckCandyGivers;
             SpaceEvents.BeforeGiftGiven += GiveTreat;
         }
 
-        private static void CheckCandyCT(object sender, DayStartedEventArgs e)
-        {
-            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
-            {
-                Game1.player.activeDialogueEvents.Add(TreatCT, 1);
-            }
-            else if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
-            {
-                    Game1.player.activeDialogueEvents.Remove(TreatCT);
-            }
-        }
-
         [EventPriority(EventPriority.Low)]
-        private static void CheckCandyGivers(object sender, SaveLoadedEventArgs e)
+        private static void CheckCandyGivers(object sender, DayStartedEventArgs e)
         {
             foreach (KeyValuePair<string, Celebrant> entry in NPCData)
             {
@@ -55,8 +42,9 @@ namespace TricksAndTreats
                     }
                     var TreatsToGive = entry.Value.TreatsToGive;
                     Random random = new();
-                    int gift = JA.GetObjectId(TreatsToGive[random.Next(TreatsToGive.Length)]);
+                    int gift = (int)TreatData[TreatsToGive[random.Next(TreatsToGive.Length)]].ObjectId;
                     npc.Dialogue[TreatCT] = npc.Dialogue[TreatCT] + $" [{gift}]";
+                    Log.Trace($"TaT: NPC {entry.Key} will give treat ID {gift}");
                 }
             }
         }
@@ -102,7 +90,7 @@ namespace TricksAndTreats
             else score = int.Parse(gifter.modData[ScoreKey]);
             string response_key;
             bool play_trick = false;
-            int gift_taste = e.Gift.Name != "TaT.mystery-treat" ? GetTreatTaste(giftee.Name, gift.modData[MysteryKey]) : GetTreatTaste(giftee.Name, gift.Name);
+            int gift_taste = e.Gift.Name == "TaT.mystery-treat" ? GetTreatTaste(giftee.Name, gift.modData[MysteryKey]) : GetTreatTaste(giftee.Name, gift.Name);
             switch (gift_taste)
             {
                 case NPC.gift_taste_like:
