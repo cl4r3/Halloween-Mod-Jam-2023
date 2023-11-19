@@ -27,11 +27,13 @@
   // Just make sure to keep the names separated with commas!
   "tricks.dumb_names": "Stinky McButtface, Captain Fartface, Doofus Supreme, Fartknocker, Turbo-nerd, Buttmunch, Ferretface, Boogerbutt",
 
+  // For custom items in assets/JsonAssets
   "objects.rotten-egg.name": "Rotten Egg",
   "objects.rotten-egg.description": "This egg is long past its expiration date, if the smell is any indication...",
   "objects.mystery-treat.name": "Mystery Treat",
   "objects.mystery-treat.description": "Someone wrapped this treat up in nondescript packaging, and now there's no telling what it is...!",
 
+  // Descriptions for config options in GMCM
   "config.bigpranks.name": "Large-Scale Trick Setting",
   "config.bigpranks.description": "For the large-scale trick that occurs the day after Spirit's Eve if the player does not give out enough treats.",
   "config.scorecalcmethod.name": "Score Calculation Method",
@@ -50,18 +52,22 @@
   "config.allowsteal.description": "When enabled, some tricksters may take a random non-essential item from the player's inventory and replace it with an egg. The stolen item can later be retrieved from the chest at the end of the Spirit's Eve maze.",
   "config.allowpaint.name": "Allow Paint Bombs",
   "config.allowpaint.description": "When enabled, some tricksters may \"throw a paint bomb\" on the player, changing their skin tone to a bright, colorful one for the rest of the day.",
-  "config.allowmaze.name":  "Allow Maze Puzzles",
+  "config.allowmaze.name": "Allow Maze Puzzles",
   "config.allowmaze.description": "When enabled, some tricksters may warp the player into a maze that they then must find the exit to in order to return to their previous location.",
   "config.allowmystery.name": "Allow Mystery Treats",
   "config.allowmystery.description": "When enabled, some tricksters may wrap all Spirit's Eve treats in the player's inventory in identical packaging, making it hard to tell which treat is which.",
   "config.allownickname.name": "Allow Silly Names",
   "config.allownickname.description": "When enabled, some tricksters may give the player a silly nickname for the rest of the day, which all other NPCs/menus/etc will then use.",
 
-  "commands.not_halloween": "This command is only valid on Spirit's Eve.",
+  // Console Commands strings
   "commands.show_score": "Enter this command to see your current treat-giving score, and the minimum score you need to avoid a large-scale prank tomorrow.",
+  "commands.set_score": "Enter this command to manually set the value for your treat-giving score.",
+  "commands.check_costume":  "Enter this command to have the mod double-check your costume, in case it seems that it did not detect your costume automatically.",
+  "commands.not_halloween": "This command is only valid on Spirit's Eve.",
   "commands.no_min": "You have no minimum score requirement, meaning you will not be pranked tomorrow no matter what score you get.",
   "commands.min_score": "Minimum score needed to avoid a large-scale prank tomorrow: ",
   "commands.current_score": "Current score: ",
+  "commands.not_int": "Input value was not a valid number.",
   "commands.hat_costume": "Player is currently wearing hat {hat}, part of the \"{costume}\" costume set.",
   "commands.hat_no-costume": "Player is currently wearing hat {hat}, which is not part of a costume set.",
   "commands.no_hat": "Player is currently not wearing a hat.",
@@ -71,5 +77,5 @@
   "commands.bot_costume": "Player is currently wearing bottom {bot}, part of the \"{costume}\" costume set.",
   "commands.bot_no-costume": "Player is currently wearing bottom {bot}, which is not part of a costume set.",
   "commands.no_bot": "Player is currently not wearing a bottom.",
-  "commands.new_costume": "Player is currently wearing the \"{costume}\" costume set.",
+  "commands.new_costume": "Player is currently wearing the \"{costume}\" costume set."
 }

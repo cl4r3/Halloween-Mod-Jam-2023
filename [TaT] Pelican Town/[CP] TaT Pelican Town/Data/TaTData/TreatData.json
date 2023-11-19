@@ -34,7 +34,7 @@
         },
         "Strange Bun": {
           "HalloweenOnly": false,
-          "Flavors": [ "sweet", ],
+          "Flavors": [ "salty", "sour", "hot" ],
         },
 
         // Mod items
@@ -54,17 +54,21 @@
           "HalloweenOnly": true,
           "Flavors": [ "healthy", "sweet", "candy" ],
         },
+        "TaT.candied-bacon-stick": {
+          "HalloweenOnly": true,
+          "Flavors": [ "fatty", "sweet", ],
+        },
         "TaT.candy-corn": {
+          "HalloweenOnly": true,
+          "Flavors": [ "candy", "sweet", ],
+        },
+        "TaT.cottonweb-candy": {
           "HalloweenOnly": true,
           "Flavors": [ "candy", "sweet", ],
         },
         "TaT.dino-cookie": {
           "HalloweenOnly": true,
           "Flavors": [ "hot" ],
-        },
-    		"TaT.candied-bacon-stick": {
-          "HalloweenOnly": true,
-          "Flavors": [ "fatty", "sweet", ],
         },
     		"TaT.eye-candy": {
           "HalloweenOnly": true,

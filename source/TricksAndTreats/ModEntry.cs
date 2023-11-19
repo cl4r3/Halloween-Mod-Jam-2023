@@ -44,7 +44,7 @@ namespace TricksAndTreats
         internal const string CostumeKey = ModPrefix + "costume-set";
         internal const string ChestKey = ModPrefix + "reached-chest";
         internal const string MysteryKey = ModPrefix + "original-treat";
-        internal const string CobwebKey = ModPrefix + "cobwebbed";
+        //internal const string CobwebKey = ModPrefix + "cobwebbed";
 
         public static string[] ValidRoles = { "candygiver", "candytaker", "trickster", "observer", };
         //public static string[] ValidFlavors = { "sweet", "sour", "salty", "hot", "gourmet", "candy", "healthy", "joja", "fatty", };
@@ -96,31 +96,29 @@ namespace TricksAndTreats
             Farmer farmer = Game1.player;
             if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
             {
-                // Reset dialogue
-                if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
-                    Game1.player.activeDialogueEvents.Remove(TreatCT);
-                foreach (string key in Game1.player.activeDialogueEvents.Keys.Where(x => { return (x.Contains(CostumeCT.ToLower()) || x == "HouseFlag"); }))
-                    Game1.player.activeDialogueEvents.Remove(key);
-                foreach (string mail in farmer.mailReceived)
-                {
-                    if (mail.Contains("_" + TreatCT) || mail.Contains("_" + CostumeCT))
-                        farmer.mailReceived.Remove(mail);
-                }
+                // Reset modData stuff
+                foreach (string key in farmer.modData.Keys.Where(x => { return (x == StolenKey || x == ChestKey || x == CostumeKey); }))
+                    Log.Debug($"TaT: Removed modData key {key}: " + farmer.modData.Remove(key));
+                // Remove CTs
+                foreach (string key in farmer.activeDialogueEvents.Keys.Where(x => { return (x.Contains(CostumeCT) || x == HouseCT || x == TreatCT); }))
+                    Log.Debug($"TaT: Removed CT key {key}: " + farmer.activeDialogueEvents.Remove(key));
+                // Remove individual NPC flags for CTs
+                foreach (string mail in farmer.mailReceived.Where(x => { return (x.Contains(TreatCT) || x.Contains(HouseCT) || x == HouseFlag); }))
+                    Log.Debug($"TaT: Removed mail flag {mail}: " + farmer.mailReceived.Remove(mail));
+                // Do costume CTs separately for some reason
+                foreach (string mail in farmer.mailReceived.Where(x => { return x.Contains(CostumeCT); }))
+                    Log.Debug($"TaT: Removed CT mail flag {mail}: " + farmer.mailReceived.Remove(mail));
+                // In case player is already wearing costume
                 Costumes.CheckForCostume();
             }
             if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
             {
-                // Undo pranks
-                farmer.Name = farmer.displayName;
+                // Undo paint
                 if (farmer.modData.ContainsKey(PaintKey))
                 {
                     farmer.changeSkinColor(int.Parse(farmer.modData[PaintKey]), true);
                     farmer.modData.Remove(PaintKey);
                 }
-                if (farmer.modData.ContainsKey(StolenKey))
-                    farmer.modData.Remove(StolenKey);
-                if (farmer.modData.ContainsKey(ChestKey))
-                    farmer.modData.Remove(ChestKey);
 
                 // Add House CT if necessary
                 if (farmer.mailReceived.Contains(HouseFlag))
@@ -134,12 +132,6 @@ namespace TricksAndTreats
             {
                 // reset nickname if changed
                 Game1.player.Name = Game1.player.displayName;
-
-                // remove moddata stuff
-                if (Game1.player.modData.ContainsKey(ChestKey))
-                    Game1.player.modData.Remove(ChestKey);
-                if (Game1.player.modData.ContainsKey(CostumeKey))
-                    Game1.player.modData.Remove(CostumeKey);
 
                 if (Config.ScoreCalcMethod != "none")
                 {

@@ -183,7 +183,7 @@
           "LovedTreats": [ "gourmet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", "candy", ],
-          "TreatsToGive": [ "TaT.luxurious-truffles", "TaT.peanut-butter-eyecup", "TaT.candied-apple" ],
+          "TreatsToGive": [ "TaT.luxurious-truffles", "TaT.peanut-butter-eyecup", "TaT.candied-apple", "TaT.cottonweb-candy" ],
         },
         "Jodi": {
           "Roles": [ "candygiver", "candytaker", ],
@@ -210,7 +210,7 @@
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "candy", ],
-          "TreatsToGive": [ "TaT.twisty-taffy", "TaT.braincell-gum", "TaT.candy-corn" ],
+          "TreatsToGive": [ "TaT.twisty-taffy", "TaT.candy-corn" ],
         },
         "Linus": {
           "Roles": [ "candytaker", "candygiver" ],
@@ -224,7 +224,7 @@
           "LovedTreats": [ "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "salty", ],
-          "TreatsToGive": [ "TaT.twisty-taffy", "TaT.braincell-gum", "TaT.candy-corn" ],
+          "TreatsToGive": [ "TaT.twisty-taffy", "TaT.braincell-gum", ],
         },
         "Pam": {
           "Roles": [ "candytaker", "trickster", ],

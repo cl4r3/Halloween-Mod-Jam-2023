@@ -143,7 +143,7 @@ namespace TricksAndTreats
                 }
                 var ja_id = JA.GetObjectId(name);
                 TreatData[name].ObjectId = ja_id > -1 ? ja_id : FoodInfo[name];
-                Log.Debug($"TaT: {name} has JA id {ja_id}, object ID {TreatData[name].ObjectId}");
+                Log.Trace($"TaT: {name} has JA id {ja_id}, object ID {TreatData[name].ObjectId}");
                 if (TreatData[name].ObjectId is null || TreatData[name].ObjectId < 0)
                 {
                     Log.Warn($"TaT: No valid object ID found for treat {name}.");
