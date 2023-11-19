@@ -14,7 +14,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Emily",
 		"Entries": {
-			"fall_27": "900 HaleyHouse 16 5 2/1100 Town 21 89 2/2200 HaleyHouse 21 4 1 emily_sleep",
+			"fall_27": "900 HaleyHouse 16 5 2/1100 Town 21 90 3/2200 HaleyHouse 21 4 1 emily_sleep",
 		},
 	},
 	{
@@ -180,7 +180,7 @@
 		"Action": "EditData",
 		"Target": "Characters/schedules/Kent",
 		"Entries": {
-			"fall_27": "830 SamHouse 8 12 2/1100 Town 9 86 2/2200 SamHouse 21 5 3 kent_sleep",
+			"fall_27": "830 SamHouse 8 12 2/1100 Town 9 87 1/2200 SamHouse 21 5 3 kent_sleep",
 		},
 		"When": { "HasSeenEvent|contains=63": true },
 	},

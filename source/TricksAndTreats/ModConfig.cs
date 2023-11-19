@@ -16,7 +16,6 @@ namespace TricksAndTreats
         public bool AllowTPing { get; set; } = true;
         public bool AllowEgging { get; set; } = true;
         public Dictionary<string, bool> SmallTricks = new Dictionary<string, bool>(){
-            //{ "cobweb", true },
             { "paint", true },
             { "maze", true },
             { "mystery", true },

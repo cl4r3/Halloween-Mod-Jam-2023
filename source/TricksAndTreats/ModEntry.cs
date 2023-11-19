@@ -88,7 +88,7 @@ namespace TricksAndTreats
         }
         */
 
-        [EventPriority(EventPriority.Low)]
+        [EventPriority(EventPriority.Low-100)]
         private static void DayStart(object sender, DayStartedEventArgs e)
         {
             Tricks.CheckHouseTrick();
@@ -96,6 +96,22 @@ namespace TricksAndTreats
             Farmer farmer = Game1.player;
             if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
             {
+                foreach (string key in farmer.modData.Keys)
+                {
+                    if (key == StolenKey || key == ChestKey || key == CostumeKey)
+                        Log.Debug($"TaT: Removed modData key {key}: " + farmer.modData.Remove(key));
+                }
+                foreach (string key in farmer.activeDialogueEvents.Keys)
+                {
+                    if (key.Contains(CostumeCT) || key == HouseCT || key == TreatCT)
+                        Log.Debug($"TaT: Removed CT key {key}: " + farmer.activeDialogueEvents.Remove(key));
+                }
+                foreach (string mail in farmer.mailReceived)
+                {
+                    if (mail.Contains(TreatCT) || mail.Contains(HouseCT) || mail.Contains(CostumeCT) || mail == HouseFlag)
+                        Log.Debug($"TaT: Removed mail flag {mail}: " + farmer.mailReceived.Remove(mail));
+                }
+                /*
                 // Reset modData stuff
                 foreach (string key in farmer.modData.Keys.Where(x => { return (x == StolenKey || x == ChestKey || x == CostumeKey); }))
                     Log.Debug($"TaT: Removed modData key {key}: " + farmer.modData.Remove(key));
@@ -108,6 +124,7 @@ namespace TricksAndTreats
                 // Do costume CTs separately for some reason
                 foreach (string mail in farmer.mailReceived.Where(x => { return x.Contains(CostumeCT); }))
                     Log.Debug($"TaT: Removed CT mail flag {mail}: " + farmer.mailReceived.Remove(mail));
+                */
                 // In case player is already wearing costume
                 Costumes.CheckForCostume();
             }

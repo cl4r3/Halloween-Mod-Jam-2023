@@ -21,7 +21,7 @@
     {
       "LogName": "Include vanilla changes",
       "Action": "Include",
-      "FromFile": "Data/VanillaChanges/Schedules.json, Data/VanillaChanges/Dialogue.json, Data/VanillaChanges/Events.json, Data/VanillaChanges/MapEdits.json",
+      "FromFile": "Data/VanillaChanges/Dialogue.json, Data/VanillaChanges/Events.json, Data/VanillaChanges/MapEdits.json",
     },
     {
       "LogName": "Add Emily's letter",
@@ -31,7 +31,17 @@
   			"TaTLetter": "{{i18n:emilyletter}}",
       },
     },
-
-
+    {
+      "LogName": "Include vanilla schedule changes",
+      "Action": "Include",
+      "FromFile": "Data/VanillaChanges/Schedules.json",
+      "When": { "HasMod|contains=FlashShifter.StardewValleyExpandedCP": false },
+    },
+    {
+      "LogName": "Include SVE schedule changes",
+      "Action": "Include",
+      "FromFile": "Data/VanillaChanges/Schedules_SVE.json",
+      "When": { "HasMod|contains=FlashShifter.StardewValleyExpandedCP": true },
+    },
   ]
 }
