@@ -10,8 +10,11 @@ namespace TricksAndTreats
 {
     public class ModConfig
     {
+        public int LovedGiftVal = 2;
+        public int NeutralGiftVal = 1;
+        public int HatedGiftVal = -2;
         public string ScoreCalcMethod { get; set; } = "minmult";
-        public int CustomMinVal { get; set; } = 0;
+        public int CustomMinVal { get; set; } = 20;
         public float CustomMinMult { get; set; } = 1.5f;  
         public bool AllowTPing { get; set; } = true;
         public bool AllowEgging { get; set; } = true;
@@ -57,6 +60,21 @@ namespace TricksAndTreats
             GMCM.AddSectionTitle(ModManifest,
                 text: () => i18n.Get("config.bigpranks.name"),
                 tooltip: () => i18n.Get("config.bigpranks.description"));
+            GMCM.AddNumberOption(mod: ModManifest,
+                name: () => i18n.Get("config.lovedgiftval.name"),
+                tooltip: () => i18n.Get("config.lovedgiftval.description"),
+                getValue: () => Config.LovedGiftVal,
+                setValue: (int value) => Config.LovedGiftVal = value);
+            GMCM.AddNumberOption(mod: ModManifest,
+                name: () => i18n.Get("config.neutralgiftval.name"),
+                tooltip: () => i18n.Get("config.neutralgiftval.description"),
+                getValue: () => Config.NeutralGiftVal,
+                setValue: (int value) => Config.NeutralGiftVal = value);
+            GMCM.AddNumberOption(mod: ModManifest,
+                name: () => i18n.Get("config.hatedgiftval.name"),
+                tooltip: () => i18n.Get("config.hatedgiftval.description"),
+                getValue: () => Config.HatedGiftVal,
+                setValue: (int value) => Config.HatedGiftVal = value);
             GMCM.AddTextOption(mod: ModManifest,
                 name: () => i18n.Get("config.scorecalcmethod.name"),
                 tooltip: () => i18n.Get("config.scorecalcmethod.description"),

@@ -65,13 +65,13 @@ namespace TricksAndTreats
             ConsoleCommands.Register(this);
 
             //helper.Events.Display.RenderingWorld += OnRenderingWorld;
-            Helper.Events.GameLoop.DayStarted += DayStart;
-            Helper.Events.GameLoop.DayEnding += DayEnd;
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.Specialized.LoadStageChanged += OnLoadStageChanged;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
             helper.Events.Content.AssetRequested += OnAssetRequested;
             helper.Events.Content.AssetReady += OnAssetReady;
+            helper.Events.GameLoop.DayStarted += DayStart;
+            helper.Events.GameLoop.DayEnding += DayEnd;
             helper.Events.GameLoop.TimeChanged += OnTimeChange;
 
             Tricks.Initialize(this);
@@ -87,87 +87,6 @@ namespace TricksAndTreats
             Game1.graphics.GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.Stencil, Color.Transparent, 0, 0);
         }
         */
-
-        [EventPriority(EventPriority.Low-100)]
-        private static void DayStart(object sender, DayStartedEventArgs e)
-        {
-            Tricks.CheckHouseTrick();
-
-            Farmer farmer = Game1.player;
-            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
-            {
-                foreach (string key in farmer.modData.Keys)
-                {
-                    if (key == StolenKey || key == ChestKey || key == CostumeKey)
-                        Log.Debug($"TaT: Removed modData key {key}: " + farmer.modData.Remove(key));
-                }
-                foreach (string key in farmer.activeDialogueEvents.Keys)
-                {
-                    if (key.Contains(CostumeCT) || key == HouseCT || key == TreatCT)
-                        Log.Debug($"TaT: Removed CT key {key}: " + farmer.activeDialogueEvents.Remove(key));
-                }
-                foreach (string mail in farmer.mailReceived)
-                {
-                    if (mail.Contains(TreatCT) || mail.Contains(HouseCT) || mail.Contains(CostumeCT) || mail == HouseFlag)
-                        Log.Debug($"TaT: Removed mail flag {mail}: " + farmer.mailReceived.Remove(mail));
-                }
-                /*
-                // Reset modData stuff
-                foreach (string key in farmer.modData.Keys.Where(x => { return (x == StolenKey || x == ChestKey || x == CostumeKey); }))
-                    Log.Debug($"TaT: Removed modData key {key}: " + farmer.modData.Remove(key));
-                // Remove CTs
-                foreach (string key in farmer.activeDialogueEvents.Keys.Where(x => { return (x.Contains(CostumeCT) || x == HouseCT || x == TreatCT); }))
-                    Log.Debug($"TaT: Removed CT key {key}: " + farmer.activeDialogueEvents.Remove(key));
-                // Remove individual NPC flags for CTs
-                foreach (string mail in farmer.mailReceived.Where(x => { return (x.Contains(TreatCT) || x.Contains(HouseCT) || x == HouseFlag); }))
-                    Log.Debug($"TaT: Removed mail flag {mail}: " + farmer.mailReceived.Remove(mail));
-                // Do costume CTs separately for some reason
-                foreach (string mail in farmer.mailReceived.Where(x => { return x.Contains(CostumeCT); }))
-                    Log.Debug($"TaT: Removed CT mail flag {mail}: " + farmer.mailReceived.Remove(mail));
-                */
-                // In case player is already wearing costume
-                Costumes.CheckForCostume();
-            }
-            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
-            {
-                // Undo paint
-                if (farmer.modData.ContainsKey(PaintKey))
-                {
-                    farmer.changeSkinColor(int.Parse(farmer.modData[PaintKey]), true);
-                    farmer.modData.Remove(PaintKey);
-                }
-
-                // Add House CT if necessary
-                if (farmer.mailReceived.Contains(HouseFlag))
-                    farmer.activeDialogueEvents.Add(HouseCT, 1);
-            }
-        }
-
-        private static void DayEnd(object sender, DayEndingEventArgs e)
-        {
-            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
-            {
-                // reset nickname if changed
-                Game1.player.Name = Game1.player.displayName;
-
-                if (Config.ScoreCalcMethod != "none")
-                {
-                    int score = int.Parse(Game1.player.modData[ScoreKey]);
-                    int min = Config.ScoreCalcMethod == "minmult" ? (int)Math.Round(NPCData.Keys.Count * Config.CustomMinMult) : Config.CustomMinVal;
-                    Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}, min score needed to avoid house prank is {min}.");
-                    if (score < min)
-                        Game1.player.mailReceived.Add(HouseFlag);
-                    Game1.player.modData.Remove(ScoreKey);
-                }
-                else
-                    Log.Trace($"TaT: House pranks disabled; skipping score calculation.");
-            }
-            else if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
-            {
-                if (Game1.player.mailReceived.Contains(HouseFlag))
-                    Game1.player.mailReceived.Remove(HouseFlag);
-            }
-        }
 
         private void OnGameLaunched(object sender, EventArgs e)
         {
@@ -219,32 +138,83 @@ namespace TricksAndTreats
         private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
         {
             if (e.Name.IsEquivalentTo(AssetPath + NPCsExt))
-            {
                 e.LoadFrom(() => new Dictionary<string, Celebrant>(), AssetLoadPriority.Exclusive);
-            }
             else if (e.Name.IsEquivalentTo(AssetPath + CostumesExt))
-            {
                 e.LoadFrom(() => new Dictionary<string, Costume>(), AssetLoadPriority.Exclusive);
-            }
             else if (e.Name.IsEquivalentTo(AssetPath + TreatsExt))
-            {
                 e.LoadFrom(() => new Dictionary<string, Treat>(), AssetLoadPriority.Exclusive);
-            }
+
         }
 
         private void OnAssetReady(object sender, AssetReadyEventArgs e)
         {
             if (e.Name.IsEquivalentTo(AssetPath + NPCsExt))
-            {
                 NPCData = Game1.content.Load<Dictionary<string, Celebrant>>(AssetPath + NPCsExt);
-            }
             else if (e.Name.IsEquivalentTo(AssetPath + CostumesExt))
-            {
                 CostumeData = Game1.content.Load<Dictionary<string, Costume>>(AssetPath + CostumesExt);
-            }
             else if (e.Name.IsEquivalentTo(AssetPath + TreatsExt))
-            {
                 TreatData = Game1.content.Load<Dictionary<string, Treat>>(AssetPath + TreatsExt);
+        }
+
+        [EventPriority(EventPriority.Low - 100)]
+        private static void DayStart(object sender, DayStartedEventArgs e)
+        {
+            Tricks.CheckHouseTrick();
+
+            Farmer farmer = Game1.player;
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
+            {
+                // Reset modData stuff
+                foreach (string key in farmer.modData.Keys.ToList().Where(x => { return (x == StolenKey || x == ChestKey || x == CostumeKey); }).ToList())
+                    Log.Debug($"TaT: Removed modData key {key}: " + farmer.modData.Remove(key));
+                // Remove CTs
+                foreach (string key in farmer.activeDialogueEvents.Keys.ToList().Where(x => { return (x.Contains(CostumeCT) || x == HouseCT || x == TreatCT); }).ToList())
+                    Log.Debug($"TaT: Removed CT key {key}: " + farmer.activeDialogueEvents.Remove(key));
+                // Remove mail flags
+                foreach (string mail in farmer.mailReceived.ToList().Where(x => { return (x.Contains(TreatCT) || x.Contains(HouseCT) || x.Contains(CostumeCT) || x == HouseFlag); }).ToList())
+                    Log.Debug($"TaT: Removed mail flag {mail}: " + farmer.mailReceived.Remove(mail));
+
+                // In case player is already wearing costume
+                Costumes.CheckForCostume();
+            }
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
+            {
+                // Undo paint
+                if (farmer.modData.ContainsKey(PaintKey))
+                {
+                    farmer.changeSkinColor(int.Parse(farmer.modData[PaintKey]), true);
+                    farmer.modData.Remove(PaintKey);
+                }
+
+                // Add House CT if necessary
+                if (farmer.mailReceived.Contains(HouseFlag))
+                    farmer.activeDialogueEvents.Add(HouseCT, 1);
+            }
+        }
+
+        private static void DayEnd(object sender, DayEndingEventArgs e)
+        {
+            if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
+            {
+                // reset nickname if changed
+                Game1.player.Name = Game1.player.displayName;
+
+                if (Config.ScoreCalcMethod != "none")
+                {
+                    int score = int.Parse(Game1.player.modData[ScoreKey]);
+                    int min = Config.ScoreCalcMethod == "minmult" ? (int)Math.Round(NPCData.Keys.Count * Config.CustomMinMult) : Config.CustomMinVal;
+                    Log.Trace($"TaT: Total treat score for {Game1.player.Name} is {score}, min score needed to avoid house prank is {min}.");
+                    if (score < min)
+                        Game1.player.mailReceived.Add(HouseFlag);
+                    Game1.player.modData.Remove(ScoreKey);
+                }
+                else
+                    Log.Trace($"TaT: House pranks disabled; skipping score calculation.");
+            }
+            else if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 28)
+            {
+                if (Game1.player.mailReceived.Contains(HouseFlag))
+                    Game1.player.mailReceived.Remove(HouseFlag);
             }
         }
 
@@ -253,16 +223,11 @@ namespace TricksAndTreats
             if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
             {
                 if (Game1.timeOfDay < 2100)
-                {
                     Game1.whereIsTodaysFest = null;
-                }
                 else if (Game1.timeOfDay >= 2100)
                 {
                     Game1.whereIsTodaysFest = "Town";
-                }
-                if (Game1.timeOfDay == 2100)
-                {
-                    if (Game1.player.currentLocation.Name == "Town")
+                    if (Game1.timeOfDay < 2400)
                     {
                         Game1.activeClickableMenu = new DialogueBox(Helper.Translation.Get("info.festival_prep"));
                         Game1.warpFarmer("BusStop", 34, 23, 3);

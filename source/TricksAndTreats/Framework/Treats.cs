@@ -95,20 +95,20 @@ namespace TricksAndTreats
             {
                 case NPC.gift_taste_like:
                 case NPC.gift_taste_love:
-                    score += 2;
+                    score += Config.LovedGiftVal;
                     gifter.changeFriendship(loved_pts, giftee);
                     response_key = "loved_treat";
                     break;
                 case NPC.gift_taste_dislike:
                 case NPC.gift_taste_hate:
-                    score -= 2;
+                    score += Config.HatedGiftVal;
                     gifter.changeFriendship(hated_pts, giftee);
                     response_key = "hated_treat";
                     if (NPCData[giftee.Name].Roles.Contains("trickster"))
                         play_trick = true;
                     break;
                 default:
-                    score += 1;
+                    score += Config.NeutralGiftVal;
                     gifter.changeFriendship(neutral_pts, giftee);
                     response_key = "neutral_treat";
                     break;
