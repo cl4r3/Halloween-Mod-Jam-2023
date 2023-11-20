@@ -1,5 +1,6 @@
 ﻿{
 	"Shops":[
+		// Candy at Pierre's is added automatically bc of JA
 		{
 			"ShopName": "EmilyCostumeShop",
 			"PortraitPath": "portrait.png",
