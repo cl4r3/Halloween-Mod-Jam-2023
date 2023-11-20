@@ -165,14 +165,14 @@ namespace TricksAndTreats
             if (Game1.currentSeason == "fall" && Game1.dayOfMonth == 27)
             {
                 // Reset modData stuff
-                foreach (string key in farmer.modData.Keys.ToList().Where(x => { return (x == StolenKey || x == ChestKey || x == CostumeKey); }).ToList())
-                    Log.Debug($"TaT: Removed modData key {key}: " + farmer.modData.Remove(key));
+                foreach (string key in farmer.modData.Keys.Where(x => { return (x == StolenKey || x == ChestKey || x == CostumeKey); }).ToArray())
+                    Log.Trace($"TaT: Removed modData key {key}: " + farmer.modData.Remove(key));
                 // Remove CTs
-                foreach (string key in farmer.activeDialogueEvents.Keys.ToList().Where(x => { return (x.Contains(CostumeCT) || x == HouseCT || x == TreatCT); }).ToList())
-                    Log.Debug($"TaT: Removed CT key {key}: " + farmer.activeDialogueEvents.Remove(key));
+                foreach (string key in farmer.activeDialogueEvents.Keys.Where(x => { return (x.Contains(CostumeCT) || x == HouseCT || x == TreatCT); }).ToArray())
+                    Log.Trace($"TaT: Removed CT key {key}: " + farmer.activeDialogueEvents.Remove(key));
                 // Remove mail flags
-                foreach (string mail in farmer.mailReceived.ToList().Where(x => { return (x.Contains(TreatCT) || x.Contains(HouseCT) || x.Contains(CostumeCT) || x == HouseFlag); }).ToList())
-                    Log.Debug($"TaT: Removed mail flag {mail}: " + farmer.mailReceived.Remove(mail));
+                foreach (string mail in farmer.mailReceived.Where(x => { return (x.Contains(TreatCT) || x.Contains(HouseCT) || x.Contains(CostumeCT) || x == HouseFlag); }).ToArray())
+                    Log.Trace($"TaT: Removed mail flag {mail}: " + farmer.mailReceived.Remove(mail));
 
                 // In case player is already wearing costume
                 Costumes.CheckForCostume();

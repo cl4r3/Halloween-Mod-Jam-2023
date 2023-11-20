@@ -46,7 +46,7 @@ namespace TricksAndTreats
                 {
                     if (!Game1.player.modData.TryGetValue(StolenKey, out string val))
                     {
-                        Log.Debug("TaT: Player hasn't had any items stolen");
+                        Log.Trace("TaT: Player hasn't had any items stolen");
                         return;
                     }
                     Game1.currentLocation.localSound("openChest");
@@ -153,7 +153,7 @@ namespace TricksAndTreats
                         FarmHouse home = (FarmHouse)place.indoors.Value;
                         if (home.owner is not null && home.owner.mailReceived.Contains(HouseFlag)) 
                         {
-                            Log.Debug($"TaT: Pranking {home.owner.Name}'s cabin...");
+                            Log.Trace($"TaT: Pranking {home.owner.Name}'s cabin...");
                             if (Config.AllowEgging)
                             {
                                 e.Edit(asset =>
@@ -165,7 +165,7 @@ namespace TricksAndTreats
                             }
                             if (Config.AllowTPing)
                             {
-                                Log.Debug($"TaT: TPing {Game1.player.Name}'s cabin...");
+                                Log.Trace($"TaT: TPing {Game1.player.Name}'s cabin...");
                                 string img = place.textureName().Split('\\')[1].Replace(' ', '-').ToLower() + ".png";
                                 e.Edit(asset =>
                                 {

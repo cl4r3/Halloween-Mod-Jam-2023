@@ -81,15 +81,15 @@ namespace TricksAndTreats
                 else
                     Log.Info(Helper.Translation.Get("commands.no_hat"));
                 // Top
-                if (top != "" && clothes[0] != "")
-                    Log.Info(Helper.Translation.Get("commands.top_costume").ToString().Replace("{top}", top).Replace("{costume}", clothes[0]));
+                if (top != "" && clothes[1] != "")
+                    Log.Info(Helper.Translation.Get("commands.top_costume").ToString().Replace("{top}", top).Replace("{costume}", clothes[1]));
                 else if (top != "")
                     Log.Info(Helper.Translation.Get("commands.top_no-costume").ToString().Replace("{top}", top));
                 else
                     Log.Info(Helper.Translation.Get("commands.no_top"));
                 // Bottom
-                if (bot != "" && clothes[0] != "")
-                    Log.Info(Helper.Translation.Get("commands.bot_costume").ToString().Replace("{bot}", bot).Replace("{costume}", clothes[0]));
+                if (bot != "" && clothes[2] != "")
+                    Log.Info(Helper.Translation.Get("commands.bot_costume").ToString().Replace("{bot}", bot).Replace("{costume}", clothes[2]));
                 else if (bot != "")
                     Log.Info(Helper.Translation.Get("commands.bot_no-costume").ToString().Replace("{bot}", bot));
                 else
@@ -118,7 +118,7 @@ namespace TricksAndTreats
                     Log.Info(Helper.Translation.Get("commands.new_costume").ToString().Replace("{costume}", costume));
                 else
                     Log.Trace("TaT: Now wearing costume " + costume);
-                foreach (string key in Game1.player.activeDialogueEvents.Keys.ToList().Where(x => x.StartsWith(CostumeCT.ToLower())).ToList()) {
+                foreach (string key in Game1.player.activeDialogueEvents.Keys.Where(x => x.StartsWith(CostumeCT.ToLower())).ToArray()) {
                     Game1.player.activeDialogueEvents.Remove(key);
                 }
                 Game1.player.activeDialogueEvents.Add(CostumeCT + costume.ToLower().Replace(' ', '_'), 1);
@@ -140,7 +140,7 @@ namespace TricksAndTreats
                     Log.Info(Helper.Translation.Get("commands.no_costume"));
                 else
                     Log.Trace("TaT: Currently not wearing costume");
-                foreach (string key in Game1.player.activeDialogueEvents.Keys.ToList().Where(x => x.StartsWith(CostumeCT.ToLower())).ToList())
+                foreach (string key in Game1.player.activeDialogueEvents.Keys.Where(x => x.StartsWith(CostumeCT.ToLower())).ToArray())
                     Game1.player.activeDialogueEvents.Remove(key);
                 if (Game1.player.activeDialogueEvents.ContainsKey(TreatCT))
                     Game1.player.activeDialogueEvents.Remove(TreatCT);

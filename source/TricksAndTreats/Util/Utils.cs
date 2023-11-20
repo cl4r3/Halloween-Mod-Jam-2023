@@ -95,7 +95,7 @@ namespace TricksAndTreats
                 else if (NPCData[entry.Key].Roles.Contains("trickster"))
                 {
                     Log.Trace($"NPC {entry.Key} has no preferred tricks listed... Setting to all enabled tricks.");
-                    NPCData[entry.Key].PreferredTricks = Config.SmallTricks.Keys.ToArray().Where((string val) => { return Config.SmallTricks[val]; }).ToArray(); ;
+                    NPCData[entry.Key].PreferredTricks = Config.SmallTricks.Keys.Where((string val) => { return Config.SmallTricks[val]; }).ToArray(); ;
                 }
             }
         }

@@ -7,7 +7,7 @@
       "Entries": {
         /*
         "(Costume set name)": {
-          // Need at least one of the following
+          // Need at least two of the following
           "Hat": "(hat name)",
           "Top": "(top name)",
           "Bottom": "(pants name)",
