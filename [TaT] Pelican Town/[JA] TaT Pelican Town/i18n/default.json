@@ -4,9 +4,9 @@
 	"objects.raisins.name": "Moe's Raisins",
 	"objects.raisins.description": "A natural and healthy source of fructose!",
 	"objects.vanilla-wafer.name": "K.D. Vanilla Wafer",
-	"objects.vanilla-wafer.description": "Mmm... Even the sight brings back memories.",
+	"objects.vanilla-wafer.description": "Mmm... The sight alone brings back a flood of childhood memories.",
 	"objects.luxurious-truffle.name": "Lux-urious Truffles",
-	"objects.luxurious-truffle.description": "It's so chic that you're reluctant to remove the packaging.",
+	"objects.luxurious-truffle.description": "The wrapping job is so chic that you're reluctant to open it.",
 
 	"objects.candy-corn.name": "Candy Corn",
 	"objects.candy-corn.description": "A staple of Spirit's Eve candy, even though it's not very tasty.",
@@ -49,10 +49,10 @@
 	"clothes.skeleton-pants.name": "Skeleton Pants",
 	"clothes.skeleton-pants.description": "Perfect for a spooky costume, but what are the other two pieces...?",
 
-	"clothes.goblin-shirt.name": "Goblin's Shirt",
-	"clothes.goblin-shirt.description": "Perfect for a creepy costume, but where is the mask...?",
-	"clothes.goblin-pants.name": "Goblin's Pants",
-	"clothes.goblin-pants.description": "Perfect for a creepy costume, but where is the mask...?",
+	"clothes.goblin-shirt.name": "Goblin Shirt",
+	"clothes.goblin-shirt.description": "Perfect for a creepy costume -- but where is the mask...?",
+	"clothes.goblin-pants.name": "Goblin Pants",
+	"clothes.goblin-pants.description": "Perfect for a creepy costume -- but where is the mask...?",
 
 	// Mask names aren't working with i18n, so must be hard-coded in
 	//"clothes.alien-mask.name": "Alien Mask",

@@ -75,14 +75,14 @@
         // Bachelorettes
         "Abigail": {
           "Roles": [ "candytaker", "trickster", ],
-          "LovedTreats": [ "TaT.witch-cauldron", "candy", "sweet", ],
+          "LovedTreats": [ "candy", "sweet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "healthy", ],
           "PreferredTricks": [ "paint", "steal", "nickname", "mystery" ],
         },
         "Emily": {
           "Roles": [ "candytaker", "trickster", ],
-          "LovedTreats": [ "TaT.eye-candy", "healthy", "gourmet", ],
+          "LovedTreats": [ "TaT.braincell-gum", "TaT.eye-candy", "TaT.witch-cauldron",  "healthy", "gourmet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "fatty", "salty", ],
           "PreferredTricks": [ "paint", "mystery" ],
@@ -121,7 +121,7 @@
           "Roles": [ "candytaker", ],
           "LovedTreats": [ "sweet", "candy", ],
           "NeutralTreats": [ ],
-          "HatedTreats": [ "healthy", "gourmet", "salty", ],
+          "HatedTreats": [ "TaT.witch-cauldron", "TaT.ablaze-orbs", "healthy", "gourmet", "salty", ],
         },
         "Leo": {
           "Roles": [ "candytaker", ],
@@ -140,7 +140,7 @@
         // Other
         "Caroline": {
           "Roles": [ "candytaker", ],
-          "LovedTreats": [ "healthy", ],
+          "LovedTreats": [ "TaT.witch-cauldron", "healthy", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "fatty", "candy", ],
         },
@@ -189,7 +189,7 @@
           "Roles": [ "candygiver", "candytaker", ],
           "LovedTreats": [ "fatty", "hot", "salty", ],
           "NeutralTreats": [ ],
-          "HatedTreats": [ "candy", "healthy", ],
+          "HatedTreats": [ "TaT.witch-cauldron", "candy", "healthy", ],
           "TreatsToGive": [ "TaT.candy-corn", "TaT.twisty-taffy" ],
         },
         "Kent": {
@@ -213,7 +213,7 @@
           "TreatsToGive": [ "TaT.twisty-taffy", "TaT.candy-corn" ],
         },
         "Linus": {
-          "Roles": [ "candytaker", "candygiver" ],
+          "Roles": [ "TaT.raisins", "candytaker", "candygiver" ],
           "LovedTreats": [ "healthy", "gourmet", ],
           "NeutralTreats": [ ],
           "HatedTreats": [ "joja", ],

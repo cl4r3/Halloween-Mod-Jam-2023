@@ -52,15 +52,15 @@
         },
     		"TaT.candied-apple": {
           "HalloweenOnly": true,
-          "Flavors": [ "healthy", "sweet", "candy" ],
+          "Flavors": [ "healthy", "sweet", ],
         },
         "TaT.candied-bacon-stick": {
           "HalloweenOnly": true,
-          "Flavors": [ "fatty", "sweet", ],
+          "Flavors": [ "fatty", "salty", ],
         },
         "TaT.candy-corn": {
           "HalloweenOnly": true,
-          "Flavors": [ "candy", "sweet", ],
+          "Flavors": [ "candy", ],
         },
         "TaT.cottonweb-candy": {
           "HalloweenOnly": true,
@@ -76,7 +76,7 @@
         },
         "TaT.ghost-meringue": {
           "HalloweenOnly": true,
-          "Flavors": [ "sweet", "gourmet" ],
+          "Flavors": [ "gourmet", "sweet" ],
         },
         "TaT.gingerbread-tombstone": {
           "HalloweenOnly": true,
@@ -84,19 +84,19 @@
         },
     		"TaT.joja-cane": {
           "HalloweenOnly": true,
-          "Flavors": [ "joja", "candy", "sweet", ],
+          "Flavors": [ "candy", "joja", "sweet", ],
         },
     		"TaT.joja-gummies": {
           "HalloweenOnly": true,
-          "Flavors": [ "joja", "candy", "sour", ],
+          "Flavors": [ "candy", "joja", "sour", ],
         },
         "TaT.licorice-swirl": {
           "HalloweenOnly": true,
-          "Flavors": [ "sweet", "sour", "salty", "healthy"],
+          "Flavors": [ "healthy", "sweet", ],
         },
     		"TaT.luxurious-truffle": {
           "HalloweenOnly": true,
-          "Flavors": [ "gourmet", "salty", "sweet", "candy"],
+          "Flavors": [ "gourmet", "salty", "sweet", ],
         },
         "TaT.peanut-butter-eyecup": {
           "HalloweenOnly": true,
@@ -109,6 +109,10 @@
         "TaT.twisty-taffy": {
           "HalloweenOnly": true,
           "Flavors": [ "candy", ],
+        },
+        "TaT.vanilla-wafer": {
+          "HalloweenOnly": true,
+          "Flavors": [ "gourmet", "sweet", ],
         },
     		"TaT.witch-cauldron": {
           "HalloweenOnly": true,
