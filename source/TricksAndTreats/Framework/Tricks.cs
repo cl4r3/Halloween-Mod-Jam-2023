@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using xTile.Dimensions;
 using xTile.ObjectModel;
-using static TricksAndTreats.ModEntry;
+using static TricksAndTreats.Globals;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace TricksAndTreats
@@ -25,8 +25,6 @@ namespace TricksAndTreats
 
         internal static void Initialize(IMod ModInstance)
         {
-            Helper = ModInstance.Helper;
-            Monitor = ModInstance.Monitor;
             r = new();
 
             Helper.Events.GameLoop.SaveLoaded += CheckTricksters;
@@ -212,7 +210,7 @@ namespace TricksAndTreats
                 {
                     case "steal":
                         if (!StealTrick(farmer))
-                            after_trick = "cannot_steal";
+                            after_trick = "fail_steal";
                         break;
                     case "paint":
                         PaintTrick(farmer);
@@ -224,7 +222,8 @@ namespace TricksAndTreats
                         NicknameTrick(farmer);
                         break;
                     case "mystery":
-                        MysteryTrick(farmer);
+                        if (!MysteryTrick(farmer))
+                            after_trick = "fail_mystery";
                         break;
                     //case "cobweb": break;
                     default:
@@ -260,13 +259,14 @@ namespace TricksAndTreats
         internal static void NicknameTrick(Farmer farmer)
         {
             var nicknames = Helper.Translation.Get("tricks.dumb_names").ToString().Split(',');
-            farmer.Name = nicknames[r.Next(nicknames.Length)];
+            farmer.Name = nicknames[r.Next(nicknames.Length)].Trim();
         }
 
-        internal static void MysteryTrick(Farmer farmer)
+        internal static bool MysteryTrick(Farmer farmer)
         {
             if (mystery_id == -1)
                 mystery_id = JA.GetObjectId("TaT.mystery-treat");
+            int wrapped = 0;
             for (int i = 0; i < farmer.MaxItems; i++)
             {
                 Item item = farmer.Items[i];
@@ -275,8 +275,10 @@ namespace TricksAndTreats
                     var tmp = new StardewValley.Object(mystery_id, farmer.Items[i].Stack);
                     tmp.modData.Add(MysteryKey, item.Name);
                     farmer.Items[i] = tmp;
+                    wrapped++;
                 }
             }
+            return wrapped > 0;
         }
 
         internal static void MazeTrick(Farmer farmer, NPC warper)

@@ -5,15 +5,12 @@ using StardewValley;
 using StardewValley.Menus;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
-using static TricksAndTreats.ModEntry;
+using static TricksAndTreats.Globals;
 
 namespace TricksAndTreats
 {
     internal class Costumes
     {
-        static IModHelper Helper;
-        static IMonitor Monitor;
-
         internal static void Initialize(IMod ModInstance)
         {
             Helper = ModInstance.Helper;

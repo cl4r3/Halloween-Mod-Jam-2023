@@ -5,20 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using StardewModdingAPI;
 using StardewValley;
-using static TricksAndTreats.ModEntry;
+using static TricksAndTreats.Globals;
 
 namespace TricksAndTreats
 {
     internal static class ConsoleCommands
     {
-        static IModHelper Helper;
-        static IMonitor Monitor;
         static ICommandHelper CommandHelper;
 
         internal static void Register(IMod ModInstance)
         {
-            Helper = ModInstance.Helper;
-            Monitor = ModInstance.Monitor;
             CommandHelper = Helper.ConsoleCommands;
 
             CommandHelper.Add(

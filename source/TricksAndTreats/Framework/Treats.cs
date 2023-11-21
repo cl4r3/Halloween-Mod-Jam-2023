@@ -6,7 +6,7 @@ using StardewValley.Menus;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using SpaceCore.Events;
-using static TricksAndTreats.ModEntry;
+using static TricksAndTreats.Globals;
 
 namespace TricksAndTreats
 {
@@ -16,13 +16,8 @@ namespace TricksAndTreats
         public const int neutral_pts = 90;
         public const int hated_pts = -80;
 
-        static IModHelper Helper;
-        static IMonitor Monitor;
-
         internal static void Initialize(IMod ModInstance)
         {
-            Helper = ModInstance.Helper;
-            Monitor = ModInstance.Monitor;
 
             Helper.Events.GameLoop.DayStarted += CheckCandyGivers;
             SpaceEvents.BeforeGiftGiven += GiveTreat;

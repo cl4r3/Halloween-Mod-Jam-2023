@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewModdingAPI.Events;
-using static TricksAndTreats.ModEntry;
+using static TricksAndTreats.Globals;
 
 namespace TricksAndTreats
 {

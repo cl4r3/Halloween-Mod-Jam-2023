@@ -4,19 +4,19 @@ using System.Linq;
 using StardewValley;
 using StardewValley.Menus;
 using StardewModdingAPI;
-using static TricksAndTreats.ModEntry;
+using static TricksAndTreats.Globals;
 
 namespace TricksAndTreats
 {
     internal static class Log
     {
-        internal static void Error(string msg) => ModMonitor.Log(msg, StardewModdingAPI.LogLevel.Error);
-        internal static void Alert(string msg) => ModMonitor.Log(msg, StardewModdingAPI.LogLevel.Alert);
-        internal static void Warn(string msg) => ModMonitor.Log(msg, StardewModdingAPI.LogLevel.Warn);
-        internal static void Info(string msg) => ModMonitor.Log(msg, StardewModdingAPI.LogLevel.Info);
-        internal static void Debug(string msg) => ModMonitor.Log(msg, StardewModdingAPI.LogLevel.Debug);
-        internal static void Trace(string msg) => ModMonitor.Log(msg, StardewModdingAPI.LogLevel.Trace);
-        internal static void Verbose(string msg) => ModMonitor.VerboseLog(msg);
+        internal static void Error(string msg) => Monitor.Log(msg, StardewModdingAPI.LogLevel.Error);
+        internal static void Alert(string msg) => Monitor.Log(msg, StardewModdingAPI.LogLevel.Alert);
+        internal static void Warn(string msg) => Monitor.Log(msg, StardewModdingAPI.LogLevel.Warn);
+        internal static void Info(string msg) => Monitor.Log(msg, StardewModdingAPI.LogLevel.Info);
+        internal static void Debug(string msg) => Monitor.Log(msg, StardewModdingAPI.LogLevel.Debug);
+        internal static void Trace(string msg) => Monitor.Log(msg, StardewModdingAPI.LogLevel.Trace);
+        internal static void Verbose(string msg) => Monitor.VerboseLog(msg);
 
     }
 
